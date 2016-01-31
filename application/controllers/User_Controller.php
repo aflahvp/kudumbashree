@@ -33,7 +33,6 @@ class User_Controller extends CI_Controller
 	{
 		$this->form_validation->set_rules('username', 'User name', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('admin/login');
 		}
@@ -47,7 +46,7 @@ class User_Controller extends CI_Controller
 
 			/*call the method from User Model*/
 
-			if($this->User_Model->login($username, $password) === TRUE)
+			if($this->User_Model->login($username, $password,'admin') === TRUE)
 			{
 				$user_data = [
 					'username' => $username,
