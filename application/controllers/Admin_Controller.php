@@ -22,6 +22,11 @@ class Admin_Controller extends CI_Controller
 	{
 		
 	}
+
+	public function add_member()
+	{
+		$this->load->view('admin/add_member');
+	}
 }
 
   ?>
