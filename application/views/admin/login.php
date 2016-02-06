@@ -12,22 +12,31 @@ if(isset($_SESSION['logged_in']))
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>login</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="../../css/normalize.css">
+	<link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 
-<h1>Login</h1>
-<br>
-<?php echo form_open('User_Controller/verify', ['id' => 'loginform', 'name' => 'loginform']);
-echo validation_errors();
-?>
-<!-- <form action="User_Controller/verify" method="post" accept-charset="utf-8" > -->
-	
-	User Name :<input type="text" name="username" id="username" value=""><br>
-	Password   :<input type="password" name="password" id="password" value=""><br>
-	
-	<input type="submit" name="submit" value="submit">
-</form>
-</form>
+<div class="login-box">
+	<?php echo form_open('User_Controller/verify', ['id' => 'loginform', 'name' => 'loginform']);
+	echo validation_errors();
+	?>
+
+		<h1>Login</h1>
+		<div class="group">
+			<!-- <label for="username">User Name</label> -->
+			<input type="text" name="username" id="username" value="" placeholder="User Name">
+			<span></span>
+		</div>
+		<div class="group">
+			<!-- <label for="password">Password</label> -->
+			<input type="password" name="password" id="password" value="" placeholder="Password">
+			<span></span>
+		</div>
+		<div class="group pull-right">
+			<input type="submit" name="submit" value="submit" class="btn-submit">
+		</div>
+	</form>
+</div>
 </body>
 </html>
