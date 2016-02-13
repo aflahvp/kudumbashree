@@ -10,7 +10,7 @@
 <body>
 <div class="unit-box">
 <h1>Add Units</h1>
-<br>
+
 
 <?php echo form_open('Unit_Controller/add_unit', ['id' => 'addunits', 'name' => 'addunits']);
 echo validation_errors();
@@ -42,7 +42,8 @@ echo validation_errors();
 		</div>
 	<div class="group txt-center">
 		<input type="submit" name="submit" value="Submit" class="btn-submit">
-		<input type="submit" name="submit" value="Cancel" class="btn-submit">
+
+		<input type="reset" name="cancel" value="Cancel" class="btn-submit">
 	</div>
 </form>
 </body>

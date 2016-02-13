@@ -4,9 +4,9 @@
 
 .login-box {
 	text-align: center;
-	/*width: 400px;*/
+	width: 400px;
 	/*height: 290px;*/
-	/*margin: 150px auto 0;*/
+	margin: 150px auto 0;
 	border-radius: 6px;
 	background-color: #4183D7;
 	box-sizing: border-box;
