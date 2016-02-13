@@ -33,7 +33,7 @@ class Member_Controller extends CI_Controller
 		$this->form_validation->set_rules('spousesname', 'spousesname', 'required');
 		$this->form_validation->set_rules('fathername', 'fathername', 'required');
 		$this->form_validation->set_rules('mothername', 'mothername', 'required');
-		// $this->form_validation->set_rules('rationcardtype', 'rationcardtype', 'required');
+		$this->form_validation->set_rules('ration', 'ration', 'required');
 		$this->form_validation->set_rules('category', 'category', 'required');
 		$this->form_validation->set_rules('bloodgroup', 'bloodgroup', 'required');
 		$this->form_validation->set_rules('eligibility', 'eligibility', 'required');
@@ -45,7 +45,7 @@ class Member_Controller extends CI_Controller
 		$this->form_validation->set_rules('mobileno', 'mobileno', 'required');
 		$this->form_validation->set_rules('accountno', 'accountno', 'required');
 		$this->form_validation->set_rules('adharno', 'adharno', 'required');
-		$this->form_validation->set_rules('email', 'email', 'required');
+		// $this->form_validation->set_rules('email', 'email', 'required');
 	
 			
 		if ($this->form_validation->run() === FALSE) 

@@ -27,15 +27,15 @@ echo validation_errors();
 	</div>
 	<div class="group">
 	<label for="address">Address</label>	
-	<textarea name="address" id="address" value="<?php echo set_value('address') ?>"></textarea>
+	<textarea name="address" id="address" value=""><?php echo set_value('address') ?></textarea>
   	</div>
   	<div class="group">
   	<label for="place">Place</label>	
 	<input type="text" name="place" id="place" value="<?php echo set_value('place') ?>">
   	</div>
   	<div class="group">
-  	<label for="spousesname">Spouses name</label>	
-	<input type="text" name="spousesname" id="spousesname" value="<?php echo set_value('spousesname') ?>">
+	  	<label for="spousesname">Spouses name</label>	
+		<input type="text" name="spousesname" id="spousesname" value="<?php echo set_value('spousesname') ?>">
   	</div>
   	<div class="group">
   	<label for="fathername">Father name</label>	
@@ -46,51 +46,57 @@ echo validation_errors();
 	<input type="text" name="mothername" id="mothername" value="<?php echo set_value('mothername') ?>">
   	</div>
   	<div class="group">
-  	<span>Ration card type</span>
-  	<label for="apl">APL</label>	
-	<input type="radio" name="apl" id="apl" value="apl" <?php echo  set_radio('apl', 'apl', TRUE); ?> / >
-	<label for="bpl">BPL</label>
-	<input type="radio" name="apl" id="bpl" value="bpl" <?php echo  set_radio('apl', 'bpl', TRUE); ?> / >
+	  	<span>Ration card type</span>
+	  	<label for="apl">APL</label>	
+			<input type="radio" name="ration" id="apl" value="<?php echo  set_radio('apl', 'apl' ); ?> " >
+		<label for="bpl">BPL</label>
+			<input type="radio" name="ration" id="bpl" value="<?php echo  set_radio('apl', 'bpl' ); ?>" > 
+		<!-- <input type="radio" name="ration" id="ration">
+		<input type="radio" name="ration" id="ration"> -->
   	</div>
   	<div class="group">
   	<label for="category">Category</label>
   	<select name="category" id="category">
-  		<option value="sc" <?php echo  set_select('category', 'sc', TRUE); ?>>SC</option>
-  		<option value="st" <?php echo  set_select('category', 'st', TRUE); ?>>ST</option>
-  		<option value="obc" <?php echo  set_select('category', 'sobc', TRUE); ?>>OBC</option>
-  		<option value="geneal" <?php echo  set_select('category', 'general', TRUE); ?>>General</option>
+  		<option value="" selected="" disabled="">select</option>
+  		<option value="sc" <?php echo  set_select('category', 'sc'); ?>>SC</option>
+  		<option value="st" <?php echo  set_select('category', 'st'); ?>>ST</option>
+  		<option value="obc" <?php echo  set_select('category', 'sobc' ); ?>>OBC</option>
+  		<option value="geneal" <?php echo  set_select('category', 'general' ); ?>>General</option>
   	</select>
   	</div>
 	<div class="group">
 	<label for="bloodgroup">Blood group</label>
 	<select name="bloodgroup" id="bloodgroup">
-  		<option value="o+" <?php echo  set_select('bloodgroup', 'o+', TRUE); ?>>O+</option>
-  		<option value="o-" <?php echo  set_select('bloodgroup', 'o-', TRUE); ?>>O-</option>
-  		<option value="a+" <?php echo  set_select('bloodgroup', 'a+', TRUE); ?>>A+</option>
-  		<option value="a-" <?php echo  set_select('bloodgroup', 'a-', TRUE); ?>>A-</option>
-  		<option value="b+" <?php echo  set_select('bloodgroup', 'b+', TRUE); ?>>B+</option>
-  		<option value="b-" <?php echo  set_select('bloodgroup', 'b-', TRUE); ?>>B-</option>
-  		<option value="ab+" <?php echo  set_select('bloodgroup', 'ab+', TRUE); ?>>AB+</option>
-  		<option value="ab-" <?php echo  set_select('bloodgroup', 'ab-', TRUE); ?>>AB-</option>
+  		<option value="" selected="" disabled="">select</option>
+  		<option value="o+" <?php echo  set_select('bloodgroup', 'o+' ); ?>>O+</option>
+  		<option value="o-" <?php echo  set_select('bloodgroup', 'o-' ); ?>>O-</option>
+  		<option value="a+" <?php echo  set_select('bloodgroup', 'a+'); ?>>A+</option>
+  		<option value="a-" <?php echo  set_select('bloodgroup', 'a-' ); ?>>A-</option>
+  		<option value="b+" <?php echo  set_select('bloodgroup', 'b+' ); ?>>B+</option>
+  		<option value="b-" <?php echo  set_select('bloodgroup', 'b-' ); ?>>B-</option>
+  		<option value="ab+" <?php echo  set_select('bloodgroup', 'ab+'); ?>>AB+</option>
+  		<option value="ab-" <?php echo  set_select('bloodgroup', 'ab-' ); ?>>AB-</option>
   	</select>
 	</div>
 	<div class="group">
 	<label for="eligibility">Eligibility</label>	
 	<select name="eligibility" id="eligibility">
-  		<option value="sslc" <?php echo  set_select('eligibility', 'sslc', TRUE); ?>>SSLC</option>
-  		<option value="highersecondary" <?php echo  set_select('eligibility', 'highersecondary', TRUE); ?>>Higher secondary</option>
-  		<option value="ug" <?php echo  set_select('eligibility', 'ug', TRUE); ?>>UG</option>
-  		<option value="pg" <?php echo  set_select('eligibility', 'pg', TRUE); ?>>PG</option>
-  		<option value="other" <?php echo  set_select('eligibility', 'other', TRUE); ?>>OTHER</option>
+  		<option value="" selected="" disabled="">select</option>
+  		<option value="sslc" <?php echo  set_select('eligibility', 'sslc' ); ?>>SSLC</option>
+  		<option value="highersecondary" <?php echo  set_select('eligibility', 'highersecondary'); ?>>Higher secondary</option>
+  		<option value="ug" <?php echo  set_select('eligibility', 'ug' ); ?>>UG</option>
+  		<option value="pg" <?php echo  set_select('eligibility', 'pg'); ?>>PG</option>
+  		<option value="other" <?php echo  set_select('eligibility', 'other' ); ?>>OTHER</option>
   	</select>
 	</div>
 	<div class="group">
 	<label for="religion">Religion</label>
 	<select name="religion" id="religion">
-  		<option value="hindu" <?php echo  set_select('religion', 'hindu', TRUE); ?>>HINDU</option>
-  		<option value="muslim"  <?php echo  set_select('religion', 'muslim', TRUE); ?>>MUSLIM</option>
-  		<option value="christian"  <?php echo  set_select('religion', 'christian', TRUE); ?>>CHRISTIAN</option>
-  		<option value="other"  <?php echo  set_select('religion', 'other', TRUE); ?>>OTHER</option>
+		<option value="" selected="" disabled="">select</option>
+  		<option value="hindu" <?php echo  set_select('religion', 'hindu'); ?>>HINDU</option>
+  		<option value="muslim"  <?php echo  set_select('religion', 'muslim'); ?>>MUSLIM</option>
+  		<option value="christian"  <?php echo  set_select('religion', 'christian'); ?>>CHRISTIAN</option>
+  		<option value="other"  <?php echo  set_select('religion', 'other'); ?>>OTHER</option>
   	</select>
 	</div>
 	<div class="group">
@@ -100,20 +106,21 @@ echo validation_errors();
 	<div class="group">
 	<label for="district">District</label>	
 	<select name="district" id="district">
-  		<option value="alappuza"  <?php echo  set_select('district', 'alappuza', TRUE); ?>>Alappuza</option>
-  		<option value="eranakulam"  <?php echo  set_select('district', 'eranakulam', TRUE); ?>>Eranakulam</option>
-  		<option value="idukki"  <?php echo  set_select('district', 'idukki', TRUE); ?>>Idukki</option>
-  		<option value="kannur" <?php echo  set_select('district', 'kannur', TRUE); ?>>Kannur</option>
-  		<option value="kasergod" <?php echo  set_select('district', 'kasergod', TRUE); ?>>Kasergod</option>
-  		<option value="kollam" <?php echo  set_select('district', 'kollam', TRUE); ?>>Kollam</option>
-  		<option value="kottayam" <?php echo  set_select('district', 'kottayam', TRUE); ?>>Kottayam</option>
-  		<option value="kozhikode" <?php echo  set_select('district', 'kozhikode', TRUE); ?>>Kozhikode</option>
-  		<option value="malappuram" <?php echo  set_select('district', 'malappuram', TRUE); ?>>Malappuram</option>
-  		<option value="palakad" <?php echo  set_select('district', 'palakad', TRUE); ?>>Palakkad</option>
-		<option value="pathanamthitta" <?php echo  set_select('district', 'pathanamthitta', TRUE); ?>>Pathanamthitta</option>
-  		<option value="thiruvanathapuram" <?php echo  set_select('district', 'thiruvanathapuram', TRUE); ?>>Thiruvananthapuram</option>
-  		<option value="thrissur" <?php echo  set_select('district', 'waynad', TRUE); ?>>Thrissur</option>
-  		<option value="waynad" <?php echo  set_select('district', 'waynad', TRUE); ?>>Wayanad</option>
+  		<option value="" selected="" disabled="">select</option>
+  		<option value="alappuza"  <?php echo  set_select('district', 'alappuza' ); ?>>Alappuza</option>
+  		<option value="eranakulam"  <?php echo  set_select('district', 'eranakulam' ); ?>>Eranakulam</option>
+  		<option value="idukki"  <?php echo  set_select('district', 'idukki' ); ?>>Idukki</option>
+  		<option value="kannur" <?php echo  set_select('district', 'kannur' ); ?>>Kannur</option>
+  		<option value="kasergod" <?php echo  set_select('district', 'kasergod' ); ?>>Kasergod</option>
+  		<option value="kollam" <?php echo  set_select('district', 'kollam'); ?>>Kollam</option>
+  		<option value="kottayam" <?php echo  set_select('district', 'kottayam'); ?>>Kottayam</option>
+  		<option value="kozhikode" <?php echo  set_select('district', 'kozhikode' ); ?>>Kozhikode</option>
+  		<option value="malappuram" <?php echo  set_select('district', 'malappuram' ); ?>>Malappuram</option>
+  		<option value="palakad" <?php echo  set_select('district', 'palakad'); ?>>Palakkad</option>
+		<option value="pathanamthitta" <?php echo  set_select('district', 'pathanamthitta'); ?>>Pathanamthitta</option>
+  		<option value="thiruvanathapuram" <?php echo  set_select('district', 'thiruvanathapuram'); ?>>Thiruvananthapuram</option>
+  		<option value="thrissur" <?php echo  set_select('district', 'waynad' ); ?>>Thrissur</option>
+  		<option value="waynad" <?php echo  set_select('district', 'waynad'); ?>>Wayanad</option>
   	</select>
 	</div>
 	<div class="group">
