@@ -10,11 +10,15 @@ class Event_Controller extends CI_Controller
 	public function __construct(argument)
 	{
 		parent::__construct();
-		$this->load->model('Member_Model');
+		$this->load->model('Event_Model');
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 350040ea76382d1ebe7c5d4efe6be6d26bf6e768
 	public function view_all()
 	{
 
@@ -22,6 +26,7 @@ class Event_Controller extends CI_Controller
 
 	public function add_events()
 	{
+<<<<<<< HEAD
 		$this->form_validation->set_rule('eid','eid','required');
 		$this->form_validation->set_rule('etype','etype','required');
 		$this->form_validation->set_rule('ename','ename','required');
@@ -69,6 +74,9 @@ class Event_Controller extends CI_Controller
 			}
 
 		}
+=======
+		$this->form_validation->set_rules('eid', '', 'required');
+>>>>>>> 350040ea76382d1ebe7c5d4efe6be6d26bf6e768
 	}
 }
  ?>
