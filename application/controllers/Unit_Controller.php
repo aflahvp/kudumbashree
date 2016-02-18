@@ -50,6 +50,7 @@ class Unit_Controller extends CI_Controller
 			$place = $this->input->post('place');
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
+			
 			$data = [
 				'name' => $name,
 				'ward' => $ward,

@@ -1,82 +1,96 @@
 <?php 
 
-
 /**
 * 
 */
 class Event_Controller extends CI_Controller
 {
 	
-	public function __construct(argument)
+	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Event_Model');
-		$this->load->helper('form');
 		$this->load->helper('url');
+		$this->load->helper('form');
 		$this->load->library('form_validation');
-	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 350040ea76382d1ebe7c5d4efe6be6d26bf6e768
-	public function view_all()
-	{
-
+		$this->load->model('Event_Model');
 	}
 
-	public function add_events()
+	public function index()
 	{
-<<<<<<< HEAD
-		$this->form_validation->set_rule('eid','eid','required');
-		$this->form_validation->set_rule('etype','etype','required');
-		$this->form_validation->set_rule('ename','ename','required');
-		$this->form_validation->set_rule('etym','etym','required');
-		$this->form_validation->set_rule('edate','edate','required');
-		$this->form_validation->set_rule('evenue','evenue','required');
-		$this->form_validation->set_rule('edescription','ediscription','required');
-
-		if($this->form_validation->run() === FALSE)
-		{
-			$this->load->view('admin/event');
+		$data['result'] = $this->Event_Model->view_all();
+		if ($data['result'] != FALSE) {
+			$this->load->view('admin/view_events',$data);
 		}
-
 		else
 		{
-			$eid = $this->input->post('eid');
-			$etype = $this->input->post('etype');
-			$ename = $this->input->post('ename');
-			$etym = $this->input->post('etym');
-			$edate = $this->input->post('edate');
-			$evenue = $this->input->post('evenue');
-			$edescription = $this->input->post('edescription');
-
-			$data = [
-				'eid' => $eid,
-				'etype' => $etype,
-				'ename' => $ename,
-				'etym' => $etym,
-				'edate' => $edate,
-				'evenue' => $evenue,
-				'edescription' => $edescription,
-				];
-
-			$query = $this->Event_Model->event($date);
+			$data['message'] = 'No record found';
+			$this->load->view('admin/view_events',$data);
 			
-			if ($query != FALSE)
-			{
-				var_dump('success');
-			}	
+		}
+	}
 
-			else
-			{
-				$data['error'] = 'Server down' ;
-				$this->load->view('',$data);
-			}
+	public function add()
+	{
+		$this->form_validation->set_rules('name','Name','required');   	// form validation
+		$this->form_validation->set_rules('type','Type','');
+		$this->form_validation->set_rules('time','Time','required');	//('input name','error msg','must required or not')
+		$this->form_validation->set_rules('date','Date','required');
+		$this->form_validation->set_rules('venue','Venue','required');
+		$this->form_validation->set_rules('description','Discription','required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->view('admin/add_event');
+		}
+		else
+		{
+			$name = $this->input->post('name');			
+			$type = $this->input->post('type');
+			$time = $this->input->post('time');
+			$date = $this->input->post('date');
+			$venue = $this->input->post('venue');
+			$description = $this->input->post('description');
+			$data =array(
+						'name'=>$name,				//datas are move in a array
+						'type'=>$type,				//'index(feildname)'=>variab
+						'time'=>$time,
+						'date'=>$date,
+						'venue'=>$venue,
+						'description'=>$description
+	              		);
+	        $query=$this->Event_Model->add($data);		//call add() in event_model
+	        if($query==true)
+	        {
+	        	var_dump('success');
+	        }
+	        else
+	        {
+	        	var_dump('fail');
+	        }
+
 
 		}
-=======
-		$this->form_validation->set_rules('eid', '', 'required');
->>>>>>> 350040ea76382d1ebe7c5d4efe6be6d26bf6e768
+	}
+
+	public function delete($id)
+	{
+		$where = ['id' => $id];							//$a=['0'=>1]
+							     
+		if($this->Events_model->delete($where) == true)
+		{
+			var_dump('success');
+		}
+		else
+		{
+			var_dump('failed');
+		}
+	}
+
+	public function view()
+	{
+		$data['result']=$this->Event_Model->view_all();
+		var_dump($data);
+		// $this->load->view('admin\event',$data);
+
 	}
 }
  ?>

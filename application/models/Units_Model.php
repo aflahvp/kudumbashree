@@ -40,7 +40,7 @@ class Units_Model extends CI_Model
 
 	public function add_unit($data)
 	{
-		if($this->db->insert($this->table, $data) )
+		if($this->db->insert($this->table, $data))
 		{
 			return $this->db->insert_id();
 		}

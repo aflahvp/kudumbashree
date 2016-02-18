@@ -147,10 +147,10 @@ class My_Model extends CI_Model
         $query = $this->db->get();
 //        var_dump($this->db->get_compiled_select($this->table));
         if ($query->num_rows() > 0) {
-            $result = [
+            $result = array( 
                 'last' => $query->last_row(),
                 'all' => $query->result()
-            ];
+            );
             return $result;
         } else {
             return FALSE;
@@ -189,10 +189,10 @@ class My_Model extends CI_Model
         $query = $this->db->get();
 //        var_dump($this->db->get_compiled_select($this->table));
         if ($query->num_rows() > 0) {
-            $result = [
+            $result = array(
                 'last' => $query->last_row(),
                 'all' => $query->result()
-            ];
+             );
             return $result;
         } else {
             return FALSE;

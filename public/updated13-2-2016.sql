@@ -27,7 +27,7 @@ USE `kudumbashree`;
 --
 -- Table structure for table `deposits`
 --
-
+DROP TABLE IF EXISTS `deposits` ;
 CREATE TABLE IF NOT EXISTS `deposits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `amount` decimal(10,0) DEFAULT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `deposits` (
 --
 -- Table structure for table `events`
 --
-
+DROP TABLE IF EXISTS `events` ;
 CREATE TABLE IF NOT EXISTS `events` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) DEFAULT NULL,
@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS `events` (
 --
 -- Table structure for table `feedback`
 --
-
-CREATE TABLE IF NOT EXISTS `feedback` (
+DROP TABLE IF EXISTS `feedbacks` ;
+CREATE TABLE IF NOT EXISTS `feedbacks` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '	',
   `yourname` varchar(45) DEFAULT NULL,
   `youremail` varchar(45) DEFAULT NULL,
@@ -78,6 +78,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
 -- Table structure for table `files`
 --
 
+DROP TABLE IF EXISTS `files` ;
 CREATE TABLE IF NOT EXISTS `files` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_name` varchar(45) DEFAULT NULL,
@@ -90,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `files` (
 --
 -- Table structure for table `loanpayments`
 --
-
+DROP TABLE IF EXISTS `loanpayments` ;
 CREATE TABLE IF NOT EXISTS `loanpayments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `amount` decimal(10,0) DEFAULT NULL,
@@ -107,6 +108,7 @@ CREATE TABLE IF NOT EXISTS `loanpayments` (
 -- Table structure for table `loans`
 --
 
+DROP TABLE IF EXISTS `loans` ;
 CREATE TABLE IF NOT EXISTS `loans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bankname` varchar(45) DEFAULT NULL,
@@ -125,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `loans` (
 --
 -- Table structure for table `members`
 --
-
+DROP TABLE IF EXISTS `members` ;
 CREATE TABLE IF NOT EXISTS `members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -170,7 +172,7 @@ INSERT INTO `members` (`id`, `name`, `age`, `dob`, `address`, `place`, `spousesn
 --
 -- Table structure for table `products`
 --
-
+DROP TABLE IF EXISTS `products` ;
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -186,6 +188,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Table structure for table `units`
 --
 
+DROP TABLE IF EXISTS `units` ;
 CREATE TABLE IF NOT EXISTS `units` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -212,6 +215,7 @@ INSERT INTO `units` (`id`, `name`, `isapproved`, `ward`, `address`, `place`, `us
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users` ;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) DEFAULT NULL,
@@ -234,39 +238,6 @@ INSERT INTO `users` (`id`, `username`, `password`, `usertype`) VALUES
 
 --
 -- Constraints for table `deposits`
---
-ALTER TABLE `deposits`
-  ADD CONSTRAINT `fk_deposits_members1` FOREIGN KEY (`members_id`) REFERENCES `members` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `events`
---
-ALTER TABLE `events`
-  ADD CONSTRAINT `fk_events_units1` FOREIGN KEY (`units_id`) REFERENCES `units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `loanpayments`
---
-ALTER TABLE `loanpayments`
-  ADD CONSTRAINT `fk_loanpayments_loans1` FOREIGN KEY (`loans_id`) REFERENCES `loans` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `loans`
---
-ALTER TABLE `loans`
-  ADD CONSTRAINT `fk_loans_members1` FOREIGN KEY (`members_id`) REFERENCES `members` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `members`
---
-ALTER TABLE `members`
-  ADD CONSTRAINT `fk_members_units1` FOREIGN KEY (`units_id`) REFERENCES `units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `fk_products_files` FOREIGN KEY (`files_id`) REFERENCES `files` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
