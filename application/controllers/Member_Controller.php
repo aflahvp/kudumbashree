@@ -9,6 +9,7 @@ class Member_Controller extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Member_Model');
+		$this->load->model('User_Model');
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
@@ -24,7 +25,11 @@ class Member_Controller extends CI_Controller
 	}
 
 	public function add_member()
-	{
+	{	
+
+		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('password','password','required');
+		$this->form_validation->set_rules('confirmpassword','confirmpassword','required|matches[password]');
 	 	$this->form_validation->set_rules('name', 'name', 'required');
 		$this->form_validation->set_rules('age', 'age', 'required');
 		$this->form_validation->set_rules('dob', 'dob', 'required');
@@ -45,7 +50,7 @@ class Member_Controller extends CI_Controller
 		$this->form_validation->set_rules('mobileno', 'mobileno', 'required');
 		$this->form_validation->set_rules('accountno', 'accountno', 'required');
 		$this->form_validation->set_rules('adharno', 'adharno', 'required');
-		// $this->form_validation->set_rules('email', 'email', 'required');
+	 	$this->form_validation->set_rules('email', 'email', '');
 	
 			
 		if ($this->form_validation->run() === FALSE) 
@@ -56,7 +61,10 @@ class Member_Controller extends CI_Controller
 
    
  		else
-		{
+		{	
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$confirmpassword = $this->input->post('confirmpassword');
 			$name = $this->input->post('name');
 			$age = $this->input->post('age');
 			$dob = $this->input->post('dob');
@@ -107,9 +115,27 @@ class Member_Controller extends CI_Controller
 
 			$query = $this->Member_Model->add_member($data);
 
-			if ($query != FALSE) {
-				var_dump('success');
-			}else
+			if ($query != FALSE)
+			{
+
+				$data = [
+					'username' => $username,
+					'password' => $password,
+					'usertype' => 'unit_member'
+				];
+				
+
+				// call the add_user() from model
+				if ($this->User_Model->add_user($data))
+				{
+					redirect(base_url('Member_Controller/view_all'));
+					// sucess
+				}
+				else
+					var_dump('fail');
+					// failed
+			}
+			else
 			{
 				$data['error'] = 'Server down ';
 				$this->load->view('',$data);
@@ -125,9 +151,13 @@ class Member_Controller extends CI_Controller
 	{
 		$where = ['id' => $id];
 		if($this->Member_Model->delete($where) )
+		{
 			var_dump('delete success');
+		}
 		else
+		{
 			var_dump('delete failed');
+		}
 	}
 }
 

@@ -5,13 +5,19 @@
 	<title>events</title>
 </head>
 <body>
-		<table border="1px">
+		<table border="2px">
 		<?php if (isset($result) and $result != false) {?>
 			<thead>
 				<tr>
 					<th>id</th>
 					<th>name</th>
 					<th>type</th>
+					<th>time</th>
+					<th>date</th>
+					<th>venue</th>
+					<th>description</th>
+					<th><a href="<?php echo base_url('Event_Controller/add'); ?>">Add</a></th>
+
 				</tr>
 			</thead>
 			<?php foreach ($result as $value) {?>
@@ -20,10 +26,15 @@
 					<td><?php echo $value->id ?></td>
 					<td><?php echo $value->name ?></td>
 					<td><?php echo $value->type ?></td>
+					<td><?php echo $value->time ?></td>
+					<td><?php echo $value->date ?></td>
+					<td><?php echo $value->venue ?></td>
+					<td><?php echo $value->description ?></td>
+					<td><a href="<?php echo base_url('Event_Controller/delete/'.$value->id) ?>">delete</a></td>
 				</tr>
 			</tbody>
 		<?php } }?>
-		</table>
+		
 		<?php if (isset($message)) {
 			echo $message;
 		} ?>

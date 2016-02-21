@@ -1,9 +1,5 @@
 <?php 
 
-
-/**
-* 
-*/
 class Event_Model extends CI_Model
 {
 

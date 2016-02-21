@@ -14,6 +14,7 @@ class Admin_Controller extends CI_Controller
 	    $this->load->library('form_validation'); //validation
 	}
 
+        /* UNITS */
 	public function add_unit()
 	{
 		$this->load->view('admin/units');
@@ -24,17 +25,31 @@ class Admin_Controller extends CI_Controller
 		
 	}
 
+	     /* MEMBERS*/
+
 	public function add_member()
 	{
 		$this->load->view('admin/add_member');
 	}
 
-
+        /* EVENTS */
 	public function add_event()
 	{
 		$this->load->view('admin/add_event');
 		
 	}
+
+	     /* LOANS */
+
+	 public function accept()
+	 {
+	 	
+	 }
+
+	 public function reject()
+	 {
+	 	
+	 }
 
 }
 

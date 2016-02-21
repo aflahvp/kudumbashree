@@ -58,13 +58,18 @@ class Event_Controller extends CI_Controller
 						'description'=>$description
 	              		);
 	        $query=$this->Event_Model->add($data);		//call add() in event_model
+	        
 	        if($query==true)
 	        {
-	        	var_dump('success');
+	        	redirect(base_url('Event_Controller/view'));
+	        	//$this->load->view('Event_Controller/view');
 	        }
 	        else
 	        {
-	        	var_dump('fail');
+	        	$data['message'] = '<script>
+	        							alert("Server Error . please try again later");
+	        							</script>';
+	        	//redirect(base_url('Event_Controller/add'));
 	        }
 
 
@@ -73,23 +78,31 @@ class Event_Controller extends CI_Controller
 
 	public function delete($id)
 	{
+
 		$where = ['id' => $id];							//$a=['0'=>1]
 							     
-		if($this->Events_model->delete($where) == true)
+		if($this->Event_Model->delete($where) == true)
 		{
-			var_dump('success');
+			$data['message'] = '<script>
+									alert("deleted!");
+									window.location = "'.base_url('Event_Controller/view').'";
+								</script>';
+			$this->load->view('admin/view_events',$data);
 		}
 		else
 		{
-			var_dump('failed');
+			$data['message'] = '<script>
+									alert("Server Error .please try again later!");
+									window.location = "'.base_url('Event_Controller/view').'";
+								</script>';
+			$this->load->view('admin/view_events',$data);
 		}
 	}
 
 	public function view()
 	{
 		$data['result']=$this->Event_Model->view_all();
-		var_dump($data);
-		// $this->load->view('admin\event',$data);
+		$this->load->view('admin\view_events',$data);
 
 	}
 }
