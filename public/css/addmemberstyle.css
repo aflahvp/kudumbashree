@@ -48,3 +48,8 @@
 .txt-center {
 	text-align: center;
 }
+.group .radio {
+	width:30%;
+	float:left;
+	margin:5px 0;
+} 
