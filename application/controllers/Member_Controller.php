@@ -53,11 +53,9 @@ class Member_Controller extends CI_Controller
 	 	$this->form_validation->set_rules('email', 'email', '');
 	
 			
-		if ($this->form_validation->run() === FALSE) 
-	
-	{
+		if ($this->form_validation->run() === FALSE) {
 		$this->load->view('admin/add_member');
-	}
+		}
 
    
  		else
@@ -132,7 +130,10 @@ class Member_Controller extends CI_Controller
 					// sucess
 				}
 				else
+				{
+
 					var_dump('fail');
+				}
 					// failed
 			}
 			else

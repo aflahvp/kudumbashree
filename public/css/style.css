@@ -1,6 +1,26 @@
-.pull-right {
+body {
+	background-color: #cccccc;
+}
+.width-20{width: 20%;}
+.width-25{width: 25%;}
+.width-33{width: 33.33%;}
+.width-50{width: 50%;}
+.width-60{width: 60%;}
+.width-100{width: 100%;}
+
+.text-right {
 	text-align: right ;
 }
+.text-left {
+	text-align: left ;
+}
+.pull-right {
+	float: right;
+}
+.pull-left {
+	float: left;
+}
+
 
 .login-box {
 	text-align: center;
@@ -13,25 +33,46 @@
 	padding: 30px 0;
 	overflow: hidden;
 }
-.login-box .group {
+.group {
 	width: 100%;
 	float: left;
 	/*margin: 10px 0;*/
 	padding: 10px;
 	box-sizing: border-box;
 }
-.login-box input {
-	width: 100%;
+.group label {
+	width: 30%;
+}
+.group input, .group textarea {
+	float: right;
+	width: 60%;
 	border: 1px solid #999;
 	padding: 10px;
 	box-sizing: border-box;
-	display: block;
+	display: inline-block;
 	border-radius: 5px;
 }
-.login-box h1 {
+.group select {
+	float: right;
+	/*width: 60%;*/
+	border: 1px solid #999;
+	padding: 10px;
+	box-sizing: border-box;
+	display: inline-block;
+	border-radius: 5px;
+}
+.group span {
+	float: left;
+}
+.group .radio {
+	width:15%;
+	float:left;
+	margin:5px 0;
+} 
+.group h1 {
 	color: #ffffff;
 }
-.login-box .btn-submit {
+.group .btn-submit {
 	width: 100px;
 	float: right;
 }
@@ -39,4 +80,25 @@
 	background-color: #70B2FD;
 	color: #fff;
 }
-
+.left, .right {
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	padding-left: 50px;
+}
+.group .button, .group input[type="reset"] {
+	background-color: #333;
+	color: #fff;
+	border: 0;
+	width: 100px;
+	float: none;
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 0.2s ease ;
+}
+.group .button:hover, .group input[type="reset"]:hover {
+	background-color: #111;
+}
+.btn-grp {
+	text-align: center;
+}
