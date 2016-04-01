@@ -14,7 +14,7 @@ class Admin_Controller extends CI_Controller
 	    $this->load->library(['form_validation','table']); //validation
 	    $this->load->model('Loan_Model');
 	    $this->load->model('Event_Model');
-	    $this->load->model('Unit_Model');
+	    $this->load->model('Units_Model');
 	    $this->load->model('Member_Model');
 	    $this->load->model('Product_Model');
 	}
