@@ -1,8 +1,6 @@
 <?php 
 
-/**
-* 
-*/
+
 class Event_Controller extends CI_Controller
 {
 	
@@ -14,6 +12,7 @@ class Event_Controller extends CI_Controller
 		$this->load->library('form_validation');
 		$this->load->model('Event_Model');
 	}
+
 
 	public function index()
 	{
@@ -29,12 +28,12 @@ class Event_Controller extends CI_Controller
 		}
 	}
 
-	public function view()
-	{
-		$data['result']=$this->Event_Model->view_all();
-		$this->load->view('admin\view_events',$data);
+	// public function view()
+	// {
+	//  $data['result']=$this->Event_Model->view_all();
+	// 	$this->load->view('admin\view_events',$data);
 
-	}
+	// }
 
 	public function add()
 	{
@@ -68,7 +67,7 @@ class Event_Controller extends CI_Controller
 	        
 	        if($query==true)
 	        {
-	        	redirect(base_url('Event_Controller/view'));
+	        	redirect(base_url('Event_Controller/index'));
 	        	//$this->load->view('Event_Controller/view');
 	        }
 	        else
@@ -92,7 +91,7 @@ class Event_Controller extends CI_Controller
 		{
 			$data['message'] = '<script>
 									alert("deleted!");
-									window.location = "'.base_url('Event_Controller/view').'";
+									window.location = "'.base_url('Event_Controller/index').'";
 								</script>';
 			$this->load->view('admin/view_events',$data);
 		}
@@ -100,7 +99,7 @@ class Event_Controller extends CI_Controller
 		{
 			$data['message'] = '<script>
 									alert("Server Error .please try again later!");
-									window.location = "'.base_url('Event_Controller/view').'";
+									window.location = "'.base_url('Event_Controller/index').'";
 								</script>';
 			$this->load->view('admin/view_events',$data);
 		}

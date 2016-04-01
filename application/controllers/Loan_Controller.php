@@ -9,7 +9,7 @@ class Loan_Controller extends Check_Logged
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		$this->load->model('Loan_Model');
 
 	}
@@ -19,7 +19,13 @@ class Loan_Controller extends Check_Logged
 		$data = $this->load->Loan_Model->get_all();
 		if($data != FALSE)
 		{
-			$this->load->view('admin/view_loans');
+			$this->load->view('admin/view_loans',$data);
+		}
+		else
+		{
+			$data['message'] = 'No record found';
+			$this->load->view('admin/view_events',$data);
+			
 		}
 	}
 
@@ -34,7 +40,7 @@ class Loan_Controller extends Check_Logged
 
 		if ($this->form_validation->run() === FALSE) 
 		{
-			$this->load->view('admin/add_loan');
+			$this->load->view('member/loan_request');
 		}
 		else
 		{
@@ -60,7 +66,7 @@ class Loan_Controller extends Check_Logged
 
 			if($this->Loan_Model->add($data) == true)
 	        {
-	        	redirect(base_url('Loan_Controller/view_all'));
+	        	redirect(base_url('Loan_Controller/view'));
 	        }
 	        else
 	        {

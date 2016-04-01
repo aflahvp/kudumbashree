@@ -16,17 +16,20 @@ class Loan_Model extends Ci_Model
 
 	public function get_all()
 	{
-		$query = $this->db->select($this->table);
-		if($query)
+		$query = $this->db->get($this->table);
+		if ($query != false) 
 		{
-			if($query->num_rows() >=1)
-			{
-				return true;
+			if ($query->num_rows() >= 1) {
+				return $query->result();
 			}
 			else
 			{
 				return false;
 			}
+		}
+		else
+		{
+			return false;
 		}
 	}
 
@@ -47,7 +50,7 @@ class Loan_Model extends Ci_Model
 		}
 	}
 
-	public function add()
+	public function add($data)
 	{
 		if($this->db->insert($this->table,$data))
 		{
@@ -59,6 +62,8 @@ class Loan_Model extends Ci_Model
 		}
 
 	}
+
+
 
 
 }
