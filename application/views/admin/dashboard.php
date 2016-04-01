@@ -1,11 +1,3 @@
-<?php 
-
-if (isset($_SESSION['logged_in']) != TRUE) {
-	redirect('User_Controller/login');
-}
- ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

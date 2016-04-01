@@ -51,7 +51,7 @@ class Member_Controller extends CI_Controller
 		$this->form_validation->set_rules('accountno', 'accountno', 'required');
 		$this->form_validation->set_rules('adharno', 'adharno', 'required');
 	 	$this->form_validation->set_rules('email', 'email', '');
-	
+	var_dump($this->input->post('dob'));
 			
 		if ($this->form_validation->run() === FALSE) {
 		$this->load->view('admin/add_member');
@@ -85,7 +85,6 @@ class Member_Controller extends CI_Controller
 			$adharno = $this->input->post('adharno');
 			$email= $this->input->post('email');
 			
-			
 		
 			$data = [
 				'name' => $name,
@@ -108,7 +107,7 @@ class Member_Controller extends CI_Controller
 				'mobileno' => $mobileno, 
 				'accountno' => $accountno,
 				'adharno' => $adharno, 
-				'email' => $email,
+				'email' => $email
 				];
 
 			$query = $this->Member_Model->add_member($data);
@@ -160,6 +159,13 @@ class Member_Controller extends CI_Controller
 			var_dump('delete failed');
 		}
 	}
+
+
+	public function loan_registration()
+	{
+		$this->load->view('member/loan_request');
+	}
+
 }
 
 

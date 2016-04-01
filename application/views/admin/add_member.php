@@ -7,9 +7,10 @@
 	</head>
 <body>
 
-	<h1>ADD MEMBER</h1>
+	<h1><center>ADD MEMBER</center></h1>
 
-	<form name="registration" method="POST" action="reg.php" onsubmit="return fun(this);">
+	<form name="registration" method="POST" action="<?php echo base_url('Member_Controller/add_member'); ?>" onsubmit="return fun(this);">
+	<?php echo validation_errors(); ?>
 		<div class="left">
 			<div class="group">
 				<label for="username"> USER NAME</label>
@@ -52,6 +53,7 @@
 				<select name="month" >
 				<?php for ($i=1; $i <=12 ; $i++) {?> 
 					<option value="<?php echo $i ?>"><?php echo $i ?></option>
+					
 				<?php } ?>
 				</select>
 				</div>
@@ -65,6 +67,7 @@
 				</select>
 				</div>
 			</div>
+			<?php echo form_error('') ?>
 			</div>
 
 			<div class="group">

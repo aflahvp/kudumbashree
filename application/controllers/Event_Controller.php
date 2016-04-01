@@ -29,6 +29,13 @@ class Event_Controller extends CI_Controller
 		}
 	}
 
+	public function view()
+	{
+		$data['result']=$this->Event_Model->view_all();
+		$this->load->view('admin\view_events',$data);
+
+	}
+
 	public function add()
 	{
 		$this->form_validation->set_rules('name','Name','required');   	// form validation
@@ -99,11 +106,6 @@ class Event_Controller extends CI_Controller
 		}
 	}
 
-	public function view()
-	{
-		$data['result']=$this->Event_Model->view_all();
-		$this->load->view('admin\view_events',$data);
-
-	}
+	
 }
  ?>

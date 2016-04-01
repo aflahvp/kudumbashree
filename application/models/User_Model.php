@@ -21,7 +21,7 @@ class User_Model extends CI_Model
 		$query = $this->db->get_where($this->table, ['username' => $username, 'password' => $password,'usertype' => $utype]);
 		if($query->num_rows() >= 1)
 		{
-			return TRUE;
+			return true;
 		}
 		else
 		{

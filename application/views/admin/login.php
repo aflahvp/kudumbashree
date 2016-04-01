@@ -1,11 +1,3 @@
-<?php 
-if(isset($_SESSION['logged_in']))
-{
-	redirect('User_Controller/home');
-}
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,18 +10,18 @@ if(isset($_SESSION['logged_in']))
 <body>
 
 <div class="login-box">
-	<?php echo form_open('User_Controller/verify', ['id' => 'loginform', 'name' => 'loginform']);
+	<?php echo form_open(base_url('User_Controller/verify'), ['id' => 'loginform', 'name' => 'loginform' ]);
 	echo validation_errors();
 	?>
 
 		<h1>Login</h1>
 		<div class="group">
-			<!-- <label for="username">User Name</label> -->
+			<!-- //<label for="username">User Name</label>  -->
 			<input type="text" name="username" id="username" value="" placeholder="User Name">
 			<span></span>
 		</div>
 		<div class="group">
-			<!-- <label for="password">Password</label> -->
+			 <!-- <label for="password">Password</label>  -->
 			<input type="password" name="password" id="password" value="" placeholder="Password">
 			<span></span>
 		</div>

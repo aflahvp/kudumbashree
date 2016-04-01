@@ -64,7 +64,8 @@ class Unit_Controller extends CI_Controller
 
 			if ($query != FALSE) {
 				var_dump('success');
-			}else
+			}
+			else
 			{
 				$data['error'] = 'Server down ';
 				$this->load->view('',$data);
@@ -80,8 +81,12 @@ class Unit_Controller extends CI_Controller
 	{
 		$where = ['id' => $id];
 		if($this->Units_Model->delete($where) )
+		{
 			var_dump('delete success');
+		}
 		else
+		{
 			var_dump('delete failed');
+		}
 	}
 }
