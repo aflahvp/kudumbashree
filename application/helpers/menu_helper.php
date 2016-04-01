@@ -100,20 +100,35 @@ function dashboard_menu($current)
             'icon' => 'fa-tachometer',
             'link' => ''
         ],
-        'department' => [
-            'title' => 'department',
+        'units' => [
+            'title' => 'units',
             'icon' => 'fa-folder',
-            'link' => 'department'
+            'link' => 'units'
         ],
-        'semester' => [
-            'title' => 'semester',
+        'members' => [
+            'title' => 'members',
             'icon' => 'fa-picture-o',
-            'link' => 'semester'
+            'link' => 'members'
         ],
-        'staffs' => [
+        'events' => [
             'title' => 'staffs',
             'icon' => 'fa-trophy',
             'link' => 'staffs'
+        ],
+        'products' => [
+            'title' => 'products',
+            'icon' => 'fa-trophy',
+            'link' => 'products'
+        ],
+        'loan' => [
+            'title' => 'loan',
+            'icon' => 'fa-trophy',
+            'link' => 'loan'
+        ],
+        'gallery' => [
+            'title' => 'gallery',
+            'icon' => 'fa-trophy',
+            'link' => 'gallery'
         ]
     ];
 
@@ -139,7 +154,6 @@ function dashboard_menu($current)
     $html .= '</ul>
         </div>
       </nav>';
-
     return $html;
 
 }

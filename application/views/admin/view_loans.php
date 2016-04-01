@@ -8,11 +8,6 @@
 	<?php if (isset($result)): ?>
 		<?php echo $result ?>
 	<?php endif ?>
-
-
-	<?php echo $value->id ?>
-
-
 	<?php if (isset($message)): ?>
 		<?php echo $message; ?>
 	<?php endif ?>

@@ -11,8 +11,8 @@
 		if (isset($result) ) {
 
 			?>
-			<table border="2px">
-				<thead>
+			<table class="table">
+				<thead class="header">
 					<tr>
 						<td>id</td>
 						<td>name</td>
@@ -32,10 +32,7 @@
 					<td><?php echo $value->place ?></td>
 					<td><?php echo $value->username ?></td>
 					<td><?php echo $value->password ?></td>
-
-
 					<td><a href="<?php echo base_url('index.php/Unit_Controller/delete/'.$value->id) ?>"> Delete</a></td> 
-
 				</tr>
 			<?php }
 		}

@@ -2,6 +2,7 @@
 /user_guide/*
 /application/config/config.php
 /application/config/database.php
+.htaccess
 
 application/cache/*
 !application/cache/index.html
