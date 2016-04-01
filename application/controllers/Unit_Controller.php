@@ -4,7 +4,7 @@
 /**
 * 
 */
-class Unit_Controller extends CI_Controller
+class Unit_Controller extends Check_Logged
 {
 	
 	public function __construct()
@@ -12,9 +12,9 @@ class Unit_Controller extends CI_Controller
 		parent::__construct();
 		$this->load->model('Units_Model');
 		$this->load->model('User_Model');
-		$this->load->helper('url');
-	    $this->load->helper('form');
-	    $this->load->library('form_validation');
+		// $this->load->helper('url');
+	 //    $this->load->helper('form');
+	 //    $this->load->library('form_validation');
 
 
 	}

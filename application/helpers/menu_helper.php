@@ -111,9 +111,9 @@ function dashboard_menu($current)
             'link' => 'members'
         ],
         'events' => [
-            'title' => 'staffs',
+            'title' => 'events',
             'icon' => 'fa-trophy',
-            'link' => 'staffs'
+            'link' => 'events'
         ],
         'products' => [
             'title' => 'products',
@@ -141,7 +141,61 @@ function dashboard_menu($current)
                 <img class="img-responsive img-circle center-block" src="'.base_url().'" alt="User">
               </div>
               <div class="user-id text-center">
-                <span class="">Jamia</span>
+                <span class="">Kudumbsree</span>
+              </div>
+            </li>';
+    foreach ($menu as $key => $value) {
+        if ($current == $key) {
+            $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+        } else {
+            $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+        }
+    }
+    $html .= '</ul>
+        </div>
+      </nav>';
+    return $html;
+
+}
+
+
+
+
+function member_menu($current)
+{
+    $menu = [
+        'home' => [
+            'title' => 'dashboard',
+            'icon' => 'fa-tachometer',
+            'link' => ''
+        ],
+        'loan' => [
+            'title' => 'units',
+            'icon' => 'fa-folder',
+            'link' => 'units'
+        ],
+        'profile' => [
+            'title' => 'members',
+            'icon' => 'fa-picture-o',
+            'link' => 'members'
+        ],
+        'deposit' => [
+            'title' => 'deposit',
+            'icon' => 'fa-trophy',
+            'link' => 'deposit'
+        ]
+    ];
+
+    $html = '';
+    $html .='<nav class="sidebar-left">
+        <div class="">
+          <ul class="menu-left">
+            <li>
+              <div class="user-img">
+                <img class="img-responsive img-circle center-block" src="'.base_url().'" alt="User">
+              </div>
+              <div class="user-id text-center">
+                <span class="">Kudumbsree</span>
               </div>
             </li>';
     foreach ($menu as $key => $value) {

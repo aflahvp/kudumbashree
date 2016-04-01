@@ -1,15 +1,15 @@
 <?php 
 
-
-class Event_Controller extends CI_Controller
+require_once(APPPATH.'controllers/Check_Logged.php');
+class Event_Controller extends Check_Logged
 {
 	
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('url');
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+		// $this->load->helper('url');
+		// $this->load->helper('form');
+		// $this->load->library('form_validation');
 		$this->load->model('Event_Model');
 	}
 

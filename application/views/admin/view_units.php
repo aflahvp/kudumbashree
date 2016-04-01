@@ -51,6 +51,7 @@
 						<td>place</td>
 						<td>username</td>
 						<td>pasword</td>
+						<td><a href="<?php echo base_url('dashboard/units/add') ?>">add</a></td>
 					</tr>
 				</thead>
 			<?php foreach ($result as $key => $value) {?>

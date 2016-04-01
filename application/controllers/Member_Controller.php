@@ -2,7 +2,8 @@
 /**
 * 
 */
-class Member_Controller extends CI_Controller
+require_once(APPPATH.'controllers/Check_Logged.php');
+class Member_Controller extends Check_Logged
 {
 	
 	public function __construct()
@@ -10,9 +11,14 @@ class Member_Controller extends CI_Controller
 		parent::__construct();
 		$this->load->model('Member_Model');
 		$this->load->model('User_Model');
-		$this->load->helper('form');
-		$this->load->helper('url');
-		$this->load->library('form_validation');
+		// $this->load->helper('form');
+		// $this->load->helper('url');
+		// $this->load->library('form_validation');
+	}
+
+	public function FunctionName($value='')
+	{
+		# code...
 	}
 
 	public function view_all()
@@ -164,6 +170,26 @@ class Member_Controller extends CI_Controller
 	public function loan_registration()
 	{
 		$this->load->view('member/loan_request');
+	}
+
+	public function view_loan()
+	{
+		# code...
+	}
+
+	public function available_balance($value='')
+	{
+		# code...
+	}
+
+	public function FunctionName($value='')
+	{
+		# code...
+	}
+
+	public function updateprofiles($value='')
+	{
+		# code...
 	}
 
 }

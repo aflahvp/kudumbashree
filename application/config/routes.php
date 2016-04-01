@@ -50,17 +50,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 /////Admin  routes//////
+$route['dashboard'] = 'Admin_Controller/dashboard';
+
 /*user*/
 
 
-/*unoits*/
+/*units*/
 $route['dashboard/units'] = 'Unit_Controller/view_all';
+$route['dashboard/units/add'] = 'Admin_Controller/add_unit';
+$route['dashboard/units/add/submit'] = 'Unit_Controller/add_unit';
 
 
+/*member*/
+$route['dashboard/members'] = 'Member_Controller/view_all';
+$route['dashboard/members/add'] = 'Admin_COntroller/add_member';
+$route['dashboard/members/delete'] = 'Admin_Controller/delete_member';
+
+/*events*/
+$route['dashboard/events'] = 'Event_Controller';
+
+/*products*/
+$route['dashboard/products'] = 'Product_Controller';
+$route['dashboard/products/add'] = 'Admin_Controller/add';
+$route['dashboard/products'] = 'Admin_Controller/index';
 
 
 /*Application routes*/
-$route['default_controller'] = 'Home_Controller/index';
+$route['default_controller'] = 'Home_Controller';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

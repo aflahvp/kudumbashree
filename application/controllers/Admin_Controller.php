@@ -2,17 +2,18 @@
 /**
 * 
 */
-class Admin_Controller extends CI_Controller
+require_once(APPPATH.'controllers/Check_Logged.php');
+class Admin_Controller extends Check_Logged
 {
 	
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('url');  //use base url
-	    $this->load->helper('form'); //load helper class ->form
-	    $this->load->library(['form_validation','table']); //validation
-	    $this->load->model('Loan_Model');
+		// $this->load->helper('url');  //use base url
+	 //    $this->load->helper('form'); //load helper class ->form
+	 //    $this->load->library(['form_validation','table']); //validation
+	 //    $this->load->model('Loan_Model');
 	    $this->load->model('Event_Model');
 	    $this->load->model('Units_Model');
 	    $this->load->model('Member_Model');

@@ -3,15 +3,15 @@
 /**
  * 
  */
- class Product_Controller extends CI_Controller
+ class Product_Controller extends Check_Logged
  {
  	
  	function __construct()
  	{
  		parent::__construct();
  		$this->load->model('Product_Model');
- 		$this->load->helper(['form','url']);
- 		$this->load->library('form_validation');
+ 		// $this->load->helper(['form','url']);
+ 		// $this->load->library('form_validation');
 
  	}
 
@@ -25,12 +25,12 @@
 
  	}
 
- 	public function view()
-	{
-		$data['result']=$this->Product_Model->view_all();
-		$this->load->view('admin\view_product',$data);
+ // 	public function view()
+	// {
+	// 	$data['result']=$this->Product_Model->view_all();
+	// 	$this->load->view('admin\view_product',$data);
 
-	}
+	// }
 
  	public function add()
  	{
