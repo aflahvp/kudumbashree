@@ -19,7 +19,21 @@ class User_Controller extends Check_Logged
 
 	public function login()
 	{
-		$this->load->view('admin/login');
+		 if($this->logged === true)
+	    {
+	    	redirect(base_url('dashboard/veiw'));
+	    }
+	    else
+	    {
+	    	$this->load->view("admin/login");
+	    }
+	}
+
+
+	public function logout()
+	{
+		$this->session->unset_userdata('logged_in');
+		redirect(base_url('dashboard/login');
 	}
 
 	public function verify()
@@ -48,16 +62,12 @@ class User_Controller extends Check_Logged
 					'logged_in' => TRUE
 				];
 				$this->session->set_userdata($user_data,'logged_in');
-				redirect(base_url('Admin_Controller/dashboard	'));
+				redirect(base_url('Admin_Controller/dashboard'));
 			}
 		}
 	}
 
-	public function logout()
-	{
-		$this->session->unset_userdata('logged_in');
-		redirect('User_Controller/login');
-	}
+	
 }
 
 

@@ -98,7 +98,7 @@ function dashboard_menu($current)
         'dashboard' => [
             'title' => 'dashboard',
             'icon' => 'fa-tachometer',
-            'link' => ''
+            'link' => 'dashboard'
         ],
         'units' => [
             'title' => 'units',
@@ -167,7 +167,7 @@ function member_menu($current)
         'home' => [
             'title' => 'dashboard',
             'icon' => 'fa-tachometer',
-            'link' => ''
+            'link' => 'dashboard'
         ],
         'loan' => [
             'title' => 'units',

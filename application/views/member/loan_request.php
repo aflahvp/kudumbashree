@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1><font color="red">LOAN</font></h1>
-	<form name="loan" method="POST" action="<?php echo base_url('Loan_Controller/add'); ?>" onsubmit="return fun(this);">
+	<form name="loan" method="POST" action="<?php echo base_url('dashboard/loans/add'); ?>" onsubmit="return fun(this);">
 	<label for="id">Id</label>
 			<input type="text" name="id" id="id"></br>
 	<label for="bname">Bank name</label>

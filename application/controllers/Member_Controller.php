@@ -182,10 +182,6 @@ class Member_Controller extends Check_Logged
 		# code...
 	}
 
-	public function FunctionName($value='')
-	{
-		# code...
-	}
 
 	public function updateprofiles($value='')
 	{

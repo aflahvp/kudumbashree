@@ -6,7 +6,7 @@
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title><?php echo ucfirst($currentPage); ?> - Psybo Technologies</title>
+  <title><?php echo ucfirst($currentPage); ?> - E - KUDUMBA`SHREE</title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -64,7 +64,7 @@ echo validation_errors();
    </div>
 	<div class="group">
 	 <label for="password">Password</label>
-	 <input type="text" name="password" id="password">
+	 <input type="password" name="password" id="password">
 		</div>
 	<div class="group txt-center">
 		<input type="submit" name="submit" value="Submit" class="btn-submit">
@@ -72,5 +72,6 @@ echo validation_errors();
 		<input type="reset" name="cancel" value="Cancel" class="btn-submit">
 	</div>
 </form>
+</div>
 </div>
 </body>

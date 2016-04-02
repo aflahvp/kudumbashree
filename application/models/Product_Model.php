@@ -28,10 +28,16 @@ class Product_Model extends CI_Model
 
 	public function view()
 	{
-		$result=$this->db->get('products');
-		if($result->num_rows()>=1)
+		$query = $this->db->get($this->table);
+		if ($query != false) 
 		{
-			return $query->result();
+			if ($query->num_rows() >= 1) {
+				return $query->result();
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
@@ -39,9 +45,19 @@ class Product_Model extends CI_Model
 		}
 	}
 
-	public function delete()
+	public function delete($where)
 	{
-		
+		$this->db->where($where);
+
+		if($this->db->delete($this->table) === true)
+		{
+			return true;
+		}
+
+		else
+		{
+			return false;
+		}
 	}
 }
  ?>
