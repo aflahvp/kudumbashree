@@ -158,7 +158,11 @@ class Member_Controller extends Check_Logged
 		$where = ['id' => $id];
 		if($this->Member_Model->delete($where) )
 		{
-			var_dump('delete success');
+			$data['message'] = '<script>
+									alert("deleted!");
+									window.location = "'.base_url('dashboard/members').'";
+								</script>';
+			$this->load->view('admin/view_members',$data);
 		}
 		else
 		{

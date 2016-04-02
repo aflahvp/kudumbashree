@@ -87,7 +87,7 @@ class Event_Controller extends Check_Logged
 
 		$where = ['id' => $id];							//$a=['0'=>1]
 							     
-		if($this->Event_Model->delete($where) == true)
+		if($this->Event_Model->delete($where))
 		{
 			$data['message'] = '<script>
 									alert("deleted!");
@@ -107,4 +107,4 @@ class Event_Controller extends Check_Logged
 
 	
 }
- ?>
+?>

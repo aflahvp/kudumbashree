@@ -54,6 +54,7 @@
 						<td><a href="<?php echo base_url('dashboard/units/add') ?>">add</a></td>
 					</tr>
 				</thead>
+        <body>
 			<?php foreach ($result as $key => $value) {?>
 				<tr>
 					<td><?php echo $value->id ?></td>
@@ -68,6 +69,8 @@
 			<?php }
 		}
 	 ?>
+   </body>
+   </table>
   </div>
 </body>
 </html>

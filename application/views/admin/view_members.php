@@ -93,7 +93,7 @@
 					<td><?php echo $value->accountno ?></td>
 					<td><?php echo $value->adharno ?></td>
 					<td><?php echo $value->email ?></td>
-					<td><a href="<?php echo base_url('Member_Controller/delete/'.$value->id) ?>"> Delete</a></td> 
+					<td><a href="<?php echo base_url('dashboard/members/delete/'.$value->id) ?>"> Delete</a></td> 
 				</tr>
 				<?php } }?>
 			</tbody>

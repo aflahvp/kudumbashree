@@ -83,7 +83,7 @@ class Unit_Controller extends Check_Logged
 	{
 		$where = ['id' => $id];							//$a=['0'=>1]
 							     
-		if($this->Unit_Model->delete($where) === true)
+		if($this->Units_Model->delete($where) )
 		{
 			$data['message'] = '<script>
 									alert("deleted!");

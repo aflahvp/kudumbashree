@@ -71,7 +71,7 @@ $route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
 /*member*/
 
 $route['dashboard/members/add'] = 'Admin_Controller/add_member';
-$route['dashboard/members/delete'] = 'Member_Controller/delete';
+$route['dashboard/members/delete/(:num)'] = 'Member_Controller/delete/$1';
 $route['dashboard/members/add/submit'] = 'Member_Controller/add_member';
 $route['dashboard/members'] = 'Member_Controller/view_all';
 
@@ -81,14 +81,14 @@ $route['dashboard/events/add'] = 'Admin_Controller/add_event';
 //$route['dashboard/events/delete'] = 'Event_Controller/delete';
 $route['dashboard/events'] = 'Event_Controller/index';
 $route['dashboard/events/add/submit'] = 'Event_Controller/add';
-$route['dashboard/events/delete'] = 'Event_Controller/delete';
+$route['dashboard/events/delete/(:num)'] = 'Event_Controller/delete/$1';
 
 
 /*products*/
 
 $route['dashboard/products/add'] = 'Admin_Controller/add';
 $route['dashboard/products'] = 'Product_Controller/index';
-$route['dashboard/products/delete'] = 'Product_Controller/delete';
+$route['dashboard/products/delete/(:num)'] = 'Product_Controller/delete/$1';
 $route['dashboard/products/add/submit'] = 'Product_Controller/add';
 
 
