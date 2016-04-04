@@ -1,8 +1,15 @@
 <?php 
 
 
+<<<<<<< HEAD
+/**
+* 
+*/
+require_once(APPPATH.'controllers/check_Logged.php');
+=======
 require_once(APPPATH.'controllers/Check_Logged.php');
 
+>>>>>>> 3eeb9198655607f5beca42bfa4dae3ceeae2c994
 class Unit_Controller extends Check_Logged
 {
 	
