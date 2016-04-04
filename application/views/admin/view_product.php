@@ -54,7 +54,7 @@
         <tr>
 					<td><?php echo $value->name ?></td>
 					<td><?php echo $value->description ?></td>
-					<td><a href="<?php echo base_url('dashboard/products/delete'.$value->id) ?>">Delete</a></td>
+					<td><a href="<?php echo base_url('dashboard/products/delete/'.$value->id) ?>">Delete</a></td>
 				</tr>
     <?php } }?>
 			</tbody>

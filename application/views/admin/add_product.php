@@ -38,7 +38,7 @@
       </div>
     </nav>
 
-	<?php echo form_open(base_url('dashboard/products/add/submit'), ['id' => 'addproducts', 'name' => 'addproducts']);
+	<?php echo form_open(base_url('dashboard/products/add/submit'), ['id' => 'addproducts', 'name' => 'addproducts', 'method' => 'post']);
 	echo validation_errors();
 	?>
 

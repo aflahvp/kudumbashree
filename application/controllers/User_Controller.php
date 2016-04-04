@@ -33,7 +33,7 @@ class User_Controller extends Check_Logged
 	public function logout()
 	{
 		$this->session->unset_userdata('logged_in');
-		redirect(base_url('dashboard/login');
+		redirect(base_url('dashboard/users/login'));
 	}
 
 	public function verify()
@@ -59,6 +59,7 @@ class User_Controller extends Check_Logged
 			{
 				$user_data = [
 					'username' => $username,
+					'type' => 'admin',
 					'logged_in' => TRUE
 				];
 				$this->session->set_userdata($user_data,'logged_in');

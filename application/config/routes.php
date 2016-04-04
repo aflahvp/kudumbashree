@@ -56,8 +56,11 @@ $route['dashboard'] = 'Admin_Controller/dashboard';
 /*user*/
 $route['dashboard/'] = 'User_Controller/';
 
-/*LOGIN*/
-$route['dashboard/login'] = 'User_Controller/login';
+/*USER LOGIN*/
+$route['dashboard/users/login'] = 'User_Controller/login';
+
+/*MEMBER LOGIN*/
+$route['dashboard/members/login'] = 'Member_Controller/login';
 
 
 /*units*/

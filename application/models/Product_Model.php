@@ -49,7 +49,7 @@ class Product_Model extends CI_Model
 	{
 		$this->db->where($where);
 
-		if($this->db->delete($this->table) === true)
+		if($this->db->delete($this->table))
 		{
 			return true;
 		}

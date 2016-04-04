@@ -15,7 +15,7 @@ class Event_Model extends CI_Model
 	{
 		if($this->db->insert($this->table,$data))
 		{
-			return true;
+			return $this->db->insert_id();
 		}
 		else
 		{
@@ -28,7 +28,8 @@ class Event_Model extends CI_Model
 		$query = $this->db->get($this->table);
 		if ($query != false) 
 		{
-			if ($query->num_rows() >= 1) {
+			if ($query->num_rows() >= 1) 
+			{
 				return $query->result();
 			}
 			else

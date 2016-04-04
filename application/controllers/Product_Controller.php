@@ -76,7 +76,7 @@ require_once(APPPATH.'controllers/Check_Logged.php');
 
 		$where = ['id' => $id];							//$a=['0'=>1]
 							     
-		if($this->Event_Model->delete($where) == true)
+		if($this->Product_Model->delete($where))
 		{
 			$data['message'] = '<script>
 									alert("deleted!");
