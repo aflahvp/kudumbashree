@@ -1,0 +1,8 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine on
+RewriteBase /eb/
+
+RewriteCond %{THE_REQUEST} /index\.php\?id=([^\s&]+) [NC]
+RewriteRule ^ event/%1? [R=301,L]
+
+RewriteRule ^event/([0-9]+)/?$ event.php?id=$1 [L,QSA]
