@@ -67,7 +67,8 @@ class Event_Controller extends Check_Logged
 	        
 	        if($query==true)
 	        {
-	        	redirect(base_url('Event_Controller/index'));
+	        	redirect(base_url('dashboard/events'));
+	        	$this->load->view('admin/view_events',$data);
 	        	//$this->load->view('Event_Controller/view');
 	        }
 	        else
@@ -87,11 +88,11 @@ class Event_Controller extends Check_Logged
 
 		$where = ['id' => $id];							//$a=['0'=>1]
 							     
-		if($this->Event_Model->delete($where) == true)
+		if($this->Event_Model->delete($where))
 		{
 			$data['message'] = '<script>
 									alert("deleted!");
-									window.location = "'.base_url('Event_Controller/index').'";
+									window.location = "'.base_url('dashboard/events').'";
 								</script>';
 			$this->load->view('admin/view_events',$data);
 		}
@@ -99,7 +100,7 @@ class Event_Controller extends Check_Logged
 		{
 			$data['message'] = '<script>
 									alert("Server Error .please try again later!");
-									window.location = "'.base_url('Event_Controller/index').'";
+									window.location = "'.base_url('dashboard/events').'";
 								</script>';
 			$this->load->view('admin/view_events',$data);
 		}
@@ -107,4 +108,4 @@ class Event_Controller extends Check_Logged
 
 	
 }
- ?>
+?>

@@ -16,9 +16,9 @@ class Member_Controller extends Check_Logged
 		// $this->load->library('form_validation');
 	}
 
-	public function FunctionName($value='')
+	public function dashboard()
 	{
-		# code...
+		$this->load->view('member/dashboard');
 	}
 
 	public function view_all()
@@ -38,7 +38,9 @@ class Member_Controller extends Check_Logged
 		$this->form_validation->set_rules('confirmpassword','confirmpassword','required|matches[password]');
 	 	$this->form_validation->set_rules('name', 'name', 'required');
 		$this->form_validation->set_rules('age', 'age', 'required');
-		$this->form_validation->set_rules('dob', 'dob', 'required');
+		$this->form_validation->set_rules('day', 'day', 'required');
+		$this->form_validation->set_rules('month', 'month', 'required');
+		$this->form_validation->set_rules('year', 'year', 'required');
 		$this->form_validation->set_rules('address', 'address', 'required');
 		$this->form_validation->set_rules('place', 'place', 'required');
 		$this->form_validation->set_rules('spousesname', 'spousesname', 'required');
@@ -57,8 +59,7 @@ class Member_Controller extends Check_Logged
 		$this->form_validation->set_rules('accountno', 'accountno', 'required');
 		$this->form_validation->set_rules('adharno', 'adharno', 'required');
 	 	$this->form_validation->set_rules('email', 'email', '');
-	var_dump($this->input->post('dob'));
-			
+
 		if ($this->form_validation->run() === FALSE) {
 		$this->load->view('admin/add_member');
 		}
@@ -67,11 +68,10 @@ class Member_Controller extends Check_Logged
  		else
 		{	
 			$username = $this->input->post('username');
-			$password = $this->input->post('password');
+			$password = md5($this->input->post('password'));
 			$confirmpassword = $this->input->post('confirmpassword');
 			$name = $this->input->post('name');
 			$age = $this->input->post('age');
-			$dob = $this->input->post('dob');
 			$address = $this->input->post('address');
 			$place = $this->input->post('place');
 			$spousesname = $this->input->post('spousesname');
@@ -90,6 +90,9 @@ class Member_Controller extends Check_Logged
 			$accountno = $this->input->post('accountno');
 			$adharno = $this->input->post('adharno');
 			$email= $this->input->post('email');
+
+			$dob = $this->input->post('year').'-'.$this->input->post('month').'-'.$this->input->post('day');
+
 			
 		
 			$data = [
@@ -116,6 +119,7 @@ class Member_Controller extends Check_Logged
 				'email' => $email
 				];
 
+
 			$query = $this->Member_Model->add_member($data);
 
 			if ($query != FALSE)
@@ -124,7 +128,7 @@ class Member_Controller extends Check_Logged
 				$data = [
 					'username' => $username,
 					'password' => $password,
-					'usertype' => 'unit_member'
+					'usertype' => 'member'
 				];
 				
 
@@ -158,7 +162,11 @@ class Member_Controller extends Check_Logged
 		$where = ['id' => $id];
 		if($this->Member_Model->delete($where) )
 		{
-			var_dump('delete success');
+			$data['message'] = '<script>
+									alert("deleted!");
+									window.location = "'.base_url('dashboard/members').'";
+								</script>';
+			$this->load->view('admin/view_members',$data);
 		}
 		else
 		{
@@ -166,15 +174,81 @@ class Member_Controller extends Check_Logged
 		}
 	}
 
+	   /*MEMBER LOGIN*/
+	public function login()
+	{
+		 if($this->logged === true)
+	    {
+	    	redirect(base_url('dashboard/veiw'));
+	    }
+	    else
+	    {
+	    	$this->load->view('member/login');
+	    }
+		
+	}
 
+	public function verify()
+	{
+		//to form action
+		// 'type' => 'member';
+		$this->form_validation->set_rules('username', 'User name', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->view('member/login');
+		}
+		else
+		{
+
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+
+			$password = md5($password);
+
+			/*call the method from User Model*/
+
+			if($this->User_Model->login($username, $password,'member') === TRUE)
+			{
+				$user_data = [
+					'username' => $username,
+					'type' => 'member',
+					'logged_in' => TRUE
+				];
+				$this->session->set_userdata($user_data,'logged_in');
+				redirect(base_url('Member_Controller/dashboard'));
+			}
+			else
+			{
+				
+				$data['message'] = 'invalid username or password';
+
+				$this->load->view('member/login',$data);
+			}
+		}
+	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('logged_in');
+		redirect(base_url('dashboard/members/login'));
+	}
+
+
+	  /*MEMBER LOANS*/
 	public function loan_registration()
 	{
 		$this->load->view('member/loan_request');
 	}
 
-	public function view_loan()
+	public function view_loan($username)
 	{
-		# code...
+		$where = ['username' => $username];
+		$query = $this->Loan_Model->get_where($where);
+		if ($query != false) {
+			$data['message'] = $query;
+			$this->load->view('view_loan', $data);
+		}
 	}
 
 	public function available_balance($value='')
@@ -182,10 +256,6 @@ class Member_Controller extends Check_Logged
 		# code...
 	}
 
-	public function FunctionName($value='')
-	{
-		# code...
-	}
 
 	public function updateprofiles($value='')
 	{

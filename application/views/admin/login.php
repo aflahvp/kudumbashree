@@ -10,7 +10,7 @@
 <body>
 
 <div class="login-box">
-	<?php echo form_open(base_url('User_Controller/verify'), ['id' => 'loginform', 'name' => 'loginform' ]);
+	<?php echo form_open(base_url('User_Controller/verify'), ['id' => 'loginform', 'name' => 'loginform' , 'method' => 'post']);
 	echo validation_errors();
 	?>
 

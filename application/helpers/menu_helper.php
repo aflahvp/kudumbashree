@@ -165,19 +165,19 @@ function member_menu($current)
 {
     $menu = [
         'home' => [
-            'title' => 'dashboard',
+            'title' => 'home',
             'icon' => 'fa-tachometer',
-            'link' => ''
+            'link' => 'home'
         ],
         'loan' => [
-            'title' => 'units',
+            'title' => 'loan',
             'icon' => 'fa-folder',
-            'link' => 'units'
+            'link' => 'loan'
         ],
         'profile' => [
-            'title' => 'members',
+            'title' => 'profile',
             'icon' => 'fa-picture-o',
-            'link' => 'members'
+            'link' => 'profile'
         ],
         'deposit' => [
             'title' => 'deposit',

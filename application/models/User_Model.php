@@ -32,7 +32,8 @@ class User_Model extends CI_Model
 	public function add_user($data)
 	{
 		$query = $this->db->insert($this->table, $data);
-		if ($query != FALSE) {
+		if ($query != FALSE) 
+		{
 			return $query;
 		}
 		else

@@ -1,10 +1,15 @@
 <?php 
 
 
+<<<<<<< HEAD
 /**
 * 
 */
 require_once(APPPATH.'controllers/check_Logged.php');
+=======
+require_once(APPPATH.'controllers/Check_Logged.php');
+
+>>>>>>> 3eeb9198655607f5beca42bfa4dae3ceeae2c994
 class Unit_Controller extends Check_Logged
 {
 	
@@ -63,13 +68,16 @@ class Unit_Controller extends Check_Logged
 
 			$query = $this->Units_Model->add_unit($data);
 
-			if ($query != FALSE) {
-				var_dump('success');
-			}
-			else
-			{
-				$data['error'] = 'Server down ';
-				$this->load->view('',$data);
+			 if($query==true)
+	        {
+	        	redirect(base_url('dashboard/units'));
+	        	
+	        }
+	        else
+	        {
+	        	$data['message'] = '<script>
+	        							alert("Server Error . please try again later");
+	        							</script>';
 			}
 
 		}
@@ -80,14 +88,23 @@ class Unit_Controller extends Check_Logged
 
 	public function delete($id)
 	{
-		$where = ['id' => $id];
+		$where = ['id' => $id];							//$a=['0'=>1]
+							     
 		if($this->Units_Model->delete($where) )
 		{
-			var_dump('delete success');
+			$data['message'] = '<script>
+									alert("deleted!");
+									window.location = "'.base_url('dashboard/units').'";
+								</script>';
+			$this->load->view('admin/view_units',$data);
 		}
 		else
 		{
-			var_dump('delete failed');
+			$data['message'] = '<script>
+									alert("Server Error .please try again later!");
+									window.location = "'.base_url('dashboard/units').'";
+								</script>';
+			$this->load->view('admin/view_units',$data);
 		}
 	}
 }

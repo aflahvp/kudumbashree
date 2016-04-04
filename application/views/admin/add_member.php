@@ -19,7 +19,7 @@
 <body>
   <div class="page-wrapper">
     <div class="left-wrapper">
-      <?php echo dashboard_menu('events');?>
+      <?php echo dashboard_menu('members');?>
     </div>
   
     <nav class="top-wrapper">
