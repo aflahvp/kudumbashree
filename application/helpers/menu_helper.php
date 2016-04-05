@@ -95,51 +95,51 @@ $html .='            </ul>
 function dashboard_menu($current)
 {
     $menu = [
-        'dashboard' => [
+        'Dashboard' => [
             'title' => 'dashboard',
             'icon' => 'fa-tachometer',
             'link' => ''
         ],
-        'units' => [
+        'Units' => [
             'title' => 'units',
             'icon' => 'fa-folder',
             'link' => 'units'
         ],
-        'members' => [
+        'Members' => [
             'title' => 'members',
             'icon' => 'fa-folder',
             'link' => 'members'
         ],
-        'events' => [
+        'Events' => [
             'title' => 'events',
             'icon' => 'fa-folder',
             'link' => 'events'
         ],
-        'products' => [
+        'Products' => [
             'title' => 'products',
             'icon' => 'fa-folder',
             'link' => 'products'
         ],
-        'loan' => [
+        'Loan' => [
             'title' => 'loan',
             'icon' => 'fa-folder',
             'link' => 'loan'
         ],
-        'gallery' => [
+        'Gallery' => [
             'title' => 'gallery',
             'icon' => 'fa-picture-o',
             'link' => 'gallery'
-        ],
-        'About Us' => [
-            'title' => 'About Us',
-            'icon' => 'fa-folder',
-            'link' => 'About Us'
-        ],
-        'Contacts' => [
-            'title' => 'Contacts',
-            'icon' => 'fa-folder',
-            'link' => 'Contacts'
         ]
+        // 'About Us' => [
+        //     'title' => 'About Us',
+        //     'icon' => 'fa-folder',
+        //     'link' => 'About Us'
+        // ],
+        // 'Contacts' => [
+        //     'title' => 'Contacts',
+        //     'icon' => 'fa-folder',
+        //     'link' => 'Contacts'
+        // ]
     ];
 
     $html = '';
@@ -174,25 +174,30 @@ function dashboard_menu($current)
 function member_menu($current)
 {
     $menu = [
-        'home' => [
+        'Home' => [
             'title' => 'home',
             'icon' => 'fa-tachometer',
             'link' => 'home'
         ],
-        'loan' => [
+        'Loan' => [
             'title' => 'loan',
             'icon' => 'fa-folder',
             'link' => 'loan'
         ],
-        'profile' => [
+        'Profile' => [
             'title' => 'profile',
             'icon' => 'fa-picture-o',
             'link' => 'profile'
         ],
-        'deposit' => [
+        'Deposit' => [
             'title' => 'deposit',
             'icon' => 'fa-trophy',
             'link' => 'deposit'
+        ],
+        'Feedback' => [
+            'title' => 'Feedback',
+            'icon' => 'fa-trophy',
+            'link' => 'Feedback'
         ]
     ];
 

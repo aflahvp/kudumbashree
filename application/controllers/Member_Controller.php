@@ -246,7 +246,7 @@ class Member_Controller extends Check_Logged
 
 	public function view_loans()
 	{
-		redirect(base_url('member/loan'.$id))
+		redirect(base_url('member/loan'.$id));
 	}
 
 
