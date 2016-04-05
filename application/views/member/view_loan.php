@@ -6,7 +6,7 @@
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title><?php echo ucfirst($currentPage); ?> E-Kudumbashree</title>
+  <title>E-Kudumbashree</title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -32,7 +32,7 @@
           <li><a href="#"><i class="fa fa-bell-o fa-lg"></i></a></li>
           <li><a href="#"><i class="fa fa-cog fa-lg"></i></a></li>
           <li>
-            <a href="<?php echo base_url('dashboard/logout');?>">logout</a>
+            <a href="<?php echo base_url('member/logout');?>">logout</a>
           </li>
         </ul>
       </div>

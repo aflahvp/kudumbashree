@@ -77,6 +77,27 @@ class Member_Model extends CI_Model
 			return FALSE;
 		}
 	}
+
+	public function get_where($where)
+	{
+		$this->db->where($where);
+		$query = $this->db->get($this->table);
+		if($query != FALSE)
+		{
+			if($query->num_rows() >= 1)
+			{
+				return $query->result();
+			}
+			else
+			{
+				return FALSE;
+			}
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
   
 }
  ?>
