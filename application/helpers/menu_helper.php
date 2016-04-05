@@ -107,28 +107,38 @@ function dashboard_menu($current)
         ],
         'members' => [
             'title' => 'members',
-            'icon' => 'fa-picture-o',
+            'icon' => 'fa-folder',
             'link' => 'members'
         ],
         'events' => [
             'title' => 'events',
-            'icon' => 'fa-trophy',
+            'icon' => 'fa-folder',
             'link' => 'events'
         ],
         'products' => [
             'title' => 'products',
-            'icon' => 'fa-trophy',
+            'icon' => 'fa-folder',
             'link' => 'products'
         ],
         'loan' => [
             'title' => 'loan',
-            'icon' => 'fa-trophy',
+            'icon' => 'fa-folder',
             'link' => 'loan'
         ],
         'gallery' => [
             'title' => 'gallery',
-            'icon' => 'fa-trophy',
+            'icon' => 'fa-picture-o',
             'link' => 'gallery'
+        ],
+        'About Us' => [
+            'title' => 'About Us',
+            'icon' => 'fa-folder',
+            'link' => 'About Us'
+        ],
+        'Contacts' => [
+            'title' => 'Contacts',
+            'icon' => 'fa-folder',
+            'link' => 'Contacts'
         ]
     ];
 
@@ -200,9 +210,9 @@ function member_menu($current)
             </li>';
     foreach ($menu as $key => $value) {
         if ($current == $key) {
-            $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li><a href="'.base_url('member/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         } else {
-            $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li><a href="'.base_url('member/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         }
     }
     $html .= '</ul>

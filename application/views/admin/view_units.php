@@ -64,7 +64,7 @@
 					<td><?php echo $value->place ?></td>
 					<td><?php echo $value->username ?></td>
 					<td><?php echo $value->password ?></td>
-					<td><a href="<?php echo base_url('dashboard/units/delete/'.$value->id) ?>"> Delete</a></td> 
+					<td><a href="<?php echo base_url('dashboard/units/delete/'.$value->id) ?>" onclick = "return confirm('Are you sure to delete this?');"> Delete</a></td> 
 				</tr>
 			<?php }
 		}

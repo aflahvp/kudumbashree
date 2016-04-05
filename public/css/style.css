@@ -34,7 +34,7 @@ td a {
 }
 .group {
 	width: 100%;
-	float: left;
+	float: center;
 	margin: 10px 0;
 	box-sizing: border-box;
 	padding: 0 10px;
@@ -50,6 +50,7 @@ td a {
 	padding: 10px;
 	border-radius: 5px;
 	background-color: #fff;
+  float: center;
 }
 .group button {
 	background-color: #fff;

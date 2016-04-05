@@ -49,6 +49,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+/////////MEMBER ROUTES/////////
+/*MEMBER LOGIN*/
+$route['dashboard/members/login'] = 'Member_Controller/login';
+
+$route['member/home'] = 'Member_Controller/dashboard';
+$route['member/loan/'] = 'Member_Controller/view_loans';
+$route['member/loan/(:num)'] = 'Member_Controller/view_loan/$1';
+
+
 /////Admin  routes//////
 $route['dashboard'] = 'Admin_Controller/dashboard';
 
@@ -59,8 +69,6 @@ $route['dashboard/'] = 'User_Controller/';
 /*USER LOGIN*/
 $route['dashboard/users/login'] = 'User_Controller/login';
 
-/*MEMBER LOGIN*/
-$route['dashboard/members/login'] = 'Member_Controller/login';
 
 
 /*units*/
@@ -72,14 +80,13 @@ $route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
 
 
 /*member*/
-
 $route['dashboard/members/add'] = 'Admin_Controller/add_member';
 $route['dashboard/members/delete/(:num)'] = 'Member_Controller/delete/$1';
 $route['dashboard/members/add/submit'] = 'Member_Controller/add_member';
 $route['dashboard/members'] = 'Member_Controller/view_all';
 
-/*events*/
 
+/*events*/
 $route['dashboard/events/add'] = 'Admin_Controller/add_event';
 //$route['dashboard/events/delete'] = 'Event_Controller/delete';
 $route['dashboard/events'] = 'Event_Controller/index';
@@ -99,6 +106,7 @@ $route['dashboard/products/add/submit'] = 'Product_Controller/add';
 
 $route['dashboard/loans'] = 'Loan_Controller/view';
 $route['dashboard/loans/add'] = 'Loan_Controller/add';
+
 
 
 /*Application routes*/

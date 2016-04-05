@@ -24,7 +24,7 @@ class Loan_Controller extends Check_Logged
 		else
 		{
 			$data['message'] = 'No record found';
-			$this->load->view('admin/view_events',$data);
+			$this->load->view('admin/view_loans',$data);
 			
 		}
 	}
@@ -66,7 +66,7 @@ class Loan_Controller extends Check_Logged
 
 			if($this->Loan_Model->add($data) == true)
 	        {
-	        	redirect(base_url('dashboard/loans'));
+	        	redirect(base_url('dashboard/members/loans/view'));
 	        }
 	        else
 	        {
@@ -77,19 +77,19 @@ class Loan_Controller extends Check_Logged
 
 
 
-		public function accept()
-		{
-		 	if($this->Loan_Model->update($data) === true)
-		 	{
-		 		redirect(base_url('dashboard/loans'));
+		// public function accept()
+		// {
+		//  	if($this->Loan_Model->update($data) === true)
+		//  	{
+		//  		redirect(base_url('dashboard/loans'));
 
-		 	}
-		}
+		//  	}
+		// }
 
-	 	public function reject()
-	 	{
+	 	// public function reject()
+	 	// {
 	 	
-	 	}
+	 	// }
 
 }
 	}

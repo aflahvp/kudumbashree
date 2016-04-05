@@ -11,6 +11,8 @@ class Member_Controller extends Check_Logged
 		parent::__construct();
 		$this->load->model('Member_Model');
 		$this->load->model('User_Model');
+		$this->load->model('Loan_Model');
+
 		// $this->load->helper('form');
 		// $this->load->helper('url');
 		// $this->load->library('form_validation');
@@ -216,7 +218,7 @@ class Member_Controller extends Check_Logged
 					'logged_in' => TRUE
 				];
 				$this->session->set_userdata($user_data,'logged_in');
-				redirect(base_url('Member_Controller/dashboard'));
+				redirect(base_url('member/home'));
 			}
 			else
 			{
@@ -241,25 +243,71 @@ class Member_Controller extends Check_Logged
 		$this->load->view('member/loan_request');
 	}
 
-	public function view_loan($username)
+
+	public function view_loans()
 	{
-		$where = ['username' => $username];
+		redirect(base_url('member/loan'.$id))
+	}
+
+
+	public function view_loan($members_id)
+	{
+		$this->load->library('table');
+
+		$where = ['members_id' => $members_id];
 		$query = $this->Loan_Model->get_where($where);
-		if ($query != false) {
-			$data['message'] = $query;
-			$this->load->view('view_loan', $data);
+		if ($query != false) 
+		{
+			$this->table->set_heading(array('id', 'bankname', 'accountno', 'loantype', 'mobile', 'email', 'loanamount','status'));
+			foreach ($query as $key => $value) 
+			{
+				$this->table->add_row(array($value->id, $value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount, $value->status ));
+			}
+		$template = array(
+        'table_open'            => '<table class="table">',
+
+        'thead_open'            => '<thead class="header">',
+        'thead_close'           => '</thead>',
+
+        'heading_row_start'     => '<tr>',
+        'heading_row_end'       => '</tr>',
+        'heading_cell_start'    => '<th>',
+        'heading_cell_end'      => '</th>',
+
+        'tbody_open'            => '<tbody>',
+        'tbody_close'           => '</tbody>',
+
+        'row_start'             => '<tr>',
+        'row_end'               => '</tr>',
+        'cell_start'            => '<td>',
+        'cell_end'              => '</td>',
+
+        'row_alt_start'         => '<tr>',
+        'row_alt_end'           => '</tr>',
+        'cell_alt_start'        => '<td>',
+        'cell_alt_end'          => '</td>',
+
+        'table_close'           => '</table>'
+		);
+
+			$this->table->set_template($template);
+			$data['loan']= $this->table->generate();
+			
+			
+			$this->load->view('member/view_loan', $data);
 		}
 	}
 
-	public function available_balance($value='')
+
+	public function available_balance()
 	{
-		# code...
+		
 	}
 
 
-	public function updateprofiles($value='')
+	public function updateprofiles()
 	{
-		# code...
+		
 	}
 
 }

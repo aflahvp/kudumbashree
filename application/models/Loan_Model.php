@@ -3,7 +3,7 @@
 /**
 * 
 */
-class Loan_Model extends Ci_Model
+class Loan_Model extends CI_Model
 {
 	
 	protected $table = 'loans';
