@@ -218,7 +218,7 @@ class Member_Controller extends Check_Logged
 					'logged_in' => TRUE
 				];
 				$this->session->set_userdata($user_data,'logged_in');
-				redirect(base_url('member/home'));
+				redirect(base_url($_SESSION['username'].'/home'));
 			}
 			else
 			{
@@ -233,7 +233,7 @@ class Member_Controller extends Check_Logged
 	public function logout()
 	{
 		$this->session->unset_userdata('logged_in');
-		redirect(base_url('dashboard/members/login'));
+		redirect(base_url('home'));
 	}
 
 
@@ -241,20 +241,27 @@ class Member_Controller extends Check_Logged
 	public function loan_registration()
 	{
 		$this->load->view('member/loan_request');
+
 	}
 
 
 	public function view_loans()
 	{
+
 		redirect(base_url('member/loan'.$id));
-	}
 
-
-	public function view_loan($members_id)
-	{
+		var_dump($this->uri->segment(1));
+		$username = $this->uri->segment(1);
+		$where = ['username' => $username];
+		$member = $this->Member_Model->get_where(['name' => $username]);
+		foreach ($member as $key => $value) {
+			$member_id = $value->id;
+		}
+		$where = ['members_id' => $member_id];
+		$query = $this->Loan_Model->get_where($where);
 		$this->load->library('table');
 
-		$where = ['members_id' => $members_id];
+		$where = ['members_id' => $member_id];
 		$query = $this->Loan_Model->get_where($where);
 		if ($query != false) 
 		{
@@ -296,8 +303,8 @@ class Member_Controller extends Check_Logged
 			
 			$this->load->view('member/view_loan', $data);
 		}
-	}
 
+	}
 
 	public function available_balance()
 	{

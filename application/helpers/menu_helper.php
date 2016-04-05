@@ -215,9 +215,9 @@ function member_menu($current)
             </li>';
     foreach ($menu as $key => $value) {
         if ($current == $key) {
-            $html .='<li><a href="'.base_url('member/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         } else {
-            $html .='<li><a href="'.base_url('member/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         }
     }
     $html .= '</ul>
