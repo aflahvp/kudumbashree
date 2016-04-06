@@ -12,8 +12,9 @@ class Member_Controller extends Check_Logged
 		$this->load->model('Member_Model');
 		$this->load->model('User_Model');
 		$this->load->model('Loan_Model');
+		$this->load->library('table');
 
-		// $this->load->helper('form');
+		$this->load->helper('html');
 		// $this->load->helper('url');
 		// $this->load->library('form_validation');
 	}
@@ -48,8 +49,8 @@ class Member_Controller extends Check_Logged
 		$this->form_validation->set_rules('spousesname', 'spousesname', 'required');
 		$this->form_validation->set_rules('fathername', 'fathername', 'required');
 		$this->form_validation->set_rules('mothername', 'mothername', 'required');
-		$this->form_validation->set_rules('ration', 'ration', 'required');
-		$this->form_validation->set_rules('category', 'category', 'required');
+		// $this->form_validation->set_rules('ration', 'ration', 'required');
+		// $this->form_validation->set_rules('category', 'category', 'required');
 		$this->form_validation->set_rules('bloodgroup', 'bloodgroup', 'required');
 		$this->form_validation->set_rules('eligibility', 'eligibility', 'required');
 		$this->form_validation->set_rules('religion', 'religion', 'required');
@@ -137,7 +138,7 @@ class Member_Controller extends Check_Logged
 				// call the add_user() from model
 				if ($this->User_Model->add_user($data))
 				{
-					redirect(base_url('Member_Controller/view_all'));
+					redirect(base_url('dashboard/members.'));
 					// sucess
 				}
 				else
@@ -238,8 +239,11 @@ class Member_Controller extends Check_Logged
 
 
 	  /*MEMBER LOANS*/
+	  
 	public function loan_registration()
 	{
+		$member_id = $this->uri->segment(4);
+		var_dump($member_id);
 		$this->load->view('member/loan_request');
 
 	}
@@ -248,21 +252,17 @@ class Member_Controller extends Check_Logged
 	public function view_loans()
 	{
 
-		redirect(base_url('member/loan'.$id));
-
-		var_dump($this->uri->segment(1));
+		// var_dump($this->uri->segment(1));
 		$username = $this->uri->segment(1);
 		$where = ['username' => $username];
 		$member = $this->Member_Model->get_where(['name' => $username]);
+// echo "<pre>";		print_r($member);
 		foreach ($member as $key => $value) {
 			$member_id = $value->id;
 		}
 		$where = ['members_id' => $member_id];
 		$query = $this->Loan_Model->get_where($where);
-		$this->load->library('table');
-
-		$where = ['members_id' => $member_id];
-		$query = $this->Loan_Model->get_where($where);
+	
 		if ($query != false) 
 		{
 			$this->table->set_heading(array('id', 'bankname', 'accountno', 'loantype', 'mobile', 'email', 'loanamount','status'));
@@ -301,6 +301,12 @@ class Member_Controller extends Check_Logged
 			$data['loan']= $this->table->generate();
 			
 			
+			$this->load->view('member/view_loan', $data);
+		}
+		else
+		{
+			// var_dump(base_url(uri_string()));
+			$data['message'] = anchor(base_url(uri_string().'/apply/'.$member_id), 'apply loan', ['class' => 'button normal-button' ]);
 			$this->load->view('member/view_loan', $data);
 		}
 

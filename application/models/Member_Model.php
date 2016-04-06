@@ -82,6 +82,7 @@ class Member_Model extends CI_Model
 	{
 		$this->db->where($where);
 		$query = $this->db->get($this->table);
+		// var_dump($this->db->get_compiled_select($this->table));
 		if($query != FALSE)
 		{
 			if($query->num_rows() >= 1)

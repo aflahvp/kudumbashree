@@ -63,7 +63,7 @@ class User_Controller extends Check_Logged
 					'logged_in' => TRUE
 				];
 				$this->session->set_userdata($user_data,'logged_in');
-				redirect(base_url('Admin_Controller/dashboard'));
+				redirect(base_url('dashboard'));
 			}
 		}
 	}

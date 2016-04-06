@@ -50,7 +50,7 @@
 		 <!-- <label>NAME<input type="text" name="name" value=""></label> -->
 
 		 <div class="group">
-			<label for="username">DISCRIPTION</label>
+			<label for="username">Description</label>
 			<input type="text" name="description" id="description" value="">
 	 	</div>
 		 <!-- <label>DISCRIPTION<input type="text" name="description" value=""></label> -->

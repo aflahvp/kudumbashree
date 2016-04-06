@@ -59,12 +59,12 @@ echo validation_errors();
 	  	<input type="text" name="place" id="place" value="">
   	</div>	
    <div class="group">
-	 <label for="username">User name</label>
-	 <input type="text" name="username" id="username">
+	 <label for="username">User Name</label>
+	 <input type="text" name="username" id="username" placeholder="User Name">
    </div>
 	<div class="group">
 	 <label for="password">Password</label>
-	 <input type="password" name="password" id="password">
+	 <input type="password" name="password" id="password" placeholder=" Password">
 		</div>
 	<div class="group txt-center">
 		<input type="submit" name="submit" value="Submit" class="btn-submit">

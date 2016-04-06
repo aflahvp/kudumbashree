@@ -60,6 +60,7 @@ $route['member/logout'] = 'Member_Controller/logout';
 
 $route['(:any)/home'] = 'Member_Controller/dashboard';
 $route['(:any)/loan'] = 'Member_Controller/view_loans';
+$route['(:any)/loan/apply/(:num)'] = 'Member_Controller/loan_registration/$1';
 
 
 

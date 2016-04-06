@@ -62,7 +62,7 @@
 					<td><?php echo $value->date ?></td>
 					<td><?php echo $value->venue ?></td>
 					<td><?php echo $value->description ?></td>
-					<td><a href="<?php echo base_url('dashboard/events/delete/'.$value->id) ?>" onclick = "return confirm('Are you sure to delete this?');">delete</a></td>
+					<td><a href="<?php echo base_url('dashboard/events/delete/'.$value->id) ?>" onclick = "return confirm('Are you sure to delete this?');">Delete</a></td>
 				</tr>
 		<?php } }?>
 			</tbody>

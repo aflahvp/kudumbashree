@@ -43,18 +43,18 @@
 		<div class="left">
 			<div class="group">
 				<label for="username"> USER NAME</label>
-				<input type="text" name="username" id="username" value="<?php echo set_value('username') ?>" >
+				<input type="text" name="username" id="username" placeholder="User Name" value="<?php echo set_value('username') ?>" >
 			</div>
 
 
 			<div class="group">
 				<label for="password">PASSWORD</label>
-				<input type="password" name="password" id="password" required value="<?php echo set_value('password') ?>" >
+				<input type="password" name="password" id="password" placeholder=" Password" required value="<?php echo set_value('password') ?>" >
 			</div>
 
 			<div class="group">
 				<label for="confirmpassword">CONFIRM PASSWORD</label>	
-				<input type="password" name="confirmpassword" id="confirmpassword" value="<?php echo set_value('confirmpassword') ?>">
+				<input type="password" name="confirmpassword" id="confirmpassword" placeholder=" Confirm Password" value="<?php echo set_value('confirmpassword') ?>">
 			</div>
 
 			<div class="group">
@@ -143,7 +143,7 @@
 
 			<div class="group">
 					<label for="email">E-mail id</label>	
-			<input type="email" name="email" id="email" value="<?php echo set_value('email') ?>">
+			<input type="email" name="email" id="email" placeholder="test@mail.com" value="<?php echo set_value('email') ?>">
 			</div>
 
 			<div class="group">

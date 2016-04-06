@@ -43,7 +43,7 @@
 	<?php echo validation_errors(); ?>
 	<form action="<?php echo base_url('dashboard/events/add/submit'); ?>" method="post">
 	<div class="grp">
-		<label for="name">Event name</label>
+		<label for="name">Event Name</label>
 			<input type="text" name="name" id="name" placeholder=" Name"></br></div>
 	
 	<div class="grp">
