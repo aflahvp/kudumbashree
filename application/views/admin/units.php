@@ -64,7 +64,7 @@ echo validation_errors();
    </div>
 	<div class="group">
 	 <label for="password">Password</label>
-	 <input type="text" name="password" id="password">
+	 <input type="password" name="password" id="password">
 		</div>
 	<div class="group txt-center">
 		<input type="submit" name="submit" value="Submit" class="btn-submit">

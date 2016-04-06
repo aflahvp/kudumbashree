@@ -4,6 +4,7 @@
 /**
 * 
 */
+require_once(APPPATH.'controllers/check_Logged.php');
 class Unit_Controller extends Check_Logged
 {
 	
