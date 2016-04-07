@@ -67,7 +67,7 @@ class Event_Controller extends Check_Logged
 	        
 	        if($query==true)
 	        {
-	        	redirect(base_url('dashboard/events'));
+	        	redirect(base_url('dashboard/events'));   //Event_Controller/index
 	        	$this->load->view('admin/view_events',$data);
 	        	//$this->load->view('Event_Controller/view');
 	        }

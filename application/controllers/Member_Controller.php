@@ -242,9 +242,9 @@ class Member_Controller extends Check_Logged
 	  
 	public function loan_registration()
 	{
-		$member_id = $this->uri->segment(4);
-		var_dump($member_id);
-		$this->load->view('member/loan_request');
+		$data['member_id'] = $this->uri->segment(4);
+
+		$this->load->view('member/loan_request', $data);
 
 	}
 
@@ -256,8 +256,9 @@ class Member_Controller extends Check_Logged
 		$username = $this->uri->segment(1);
 		$where = ['username' => $username];
 		$member = $this->Member_Model->get_where(['name' => $username]);
-// echo "<pre>";		print_r($member);
-		foreach ($member as $key => $value) {
+		// echo "<pre>";		print_r($member);
+		foreach ($member as $key => $value) 
+		{
 			$member_id = $value->id;
 		}
 		$where = ['members_id' => $member_id];
@@ -265,10 +266,10 @@ class Member_Controller extends Check_Logged
 	
 		if ($query != false) 
 		{
-			$this->table->set_heading(array('id', 'bankname', 'accountno', 'loantype', 'mobile', 'email', 'loanamount','status'));
+			$this->table->set_heading(array('bankname', 'accountno', 'loantype', 'mobile', 'email', 'loanamount', anchor(base_url(uri_string().'/apply/'.$member_id), 'apply loan', ['class' => 'button normal-button' ])));
 			foreach ($query as $key => $value) 
 			{
-				$this->table->add_row(array($value->id, $value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount, $value->status ));
+				$this->table->add_row(array($value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount, $value->status ));
 			}
 		$template = array(
         'table_open'            => '<table class="table">',
@@ -310,6 +311,68 @@ class Member_Controller extends Check_Logged
 			$this->load->view('member/view_loan', $data);
 		}
 
+	}
+
+
+	public function loan_submit()
+	{
+		$this->form_validation->set_rules('bname', 'bankname', 'required');
+		$this->form_validation->set_rules('accountno', 'accountno', 'required');
+		$this->form_validation->set_rules('loantype', 'loantype', 'required');
+		$this->form_validation->set_rules('mobno', 'mobno', 'required');
+		$this->form_validation->set_rules('email', 'email', '');
+		$this->form_validation->set_rules('loanamt', 'loanamt', 'required');
+
+		if ($this->form_validation->run() === FALSE) 
+		{
+			$this->load->view('member/loan_request');
+		}
+		else
+		{
+			$bankname = $this->input->post('bname');
+			$accountno = $this->input->post('accountno');
+			$loantype = $this->input->post('loantype');
+			$mobno = $this->input->post('mobno');
+			$email= $this->input->post('email');
+			$loanamt= $this->input->post('loanamt');
+			$member_id = $this->input->post('member_id');
+
+			$data = [
+				//'id' => $id,
+				'bankname' => $bankname,
+				'accountno' => $accountno,
+				'loantype' => $loantype,
+				'mobile' => $mobno, 
+				'email' => $email,
+				'loanamount' => $loanamt,
+				'members_id' => $member_id,
+				'status' => 'request'
+				];
+
+			// $query=$this->Loan_Model->add($data);
+
+			$query = $this->Loan_Model->add($data);
+			if($query != false)
+	        {
+	        	$data['error'] = '<script type="text/javascript">
+	        		alert("sucess.");
+	        		window.location = "'.base_url($_SESSION['username'].'/loan').'";
+	        	</script>';
+	        	$this->load->view('member/loan_request', $data);
+
+
+	        	// redirect(base_url($_SESSION['username'].'/loan')); //Loan_Controller/view
+	        }
+	        else
+	        {
+	        	$data['error'] = '<script type="text/javascript">
+	        		alert("Server down! try again later");
+	        		window.location = "'.base_url($_SESSION['username'].'/loan').'";
+	        	</script>';
+	        	$this->load->view('member/loan_request', $data);
+	        	
+	        }
+	    }
 	}
 
 	public function available_balance()

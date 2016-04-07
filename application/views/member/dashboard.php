@@ -38,7 +38,7 @@
 					  </ul>
 					</li>
 					<li>
-						<a href="<?php echo base_url('dashboard/logout');?>">logout</a>
+						<a href="<?php echo base_url('member/logout');?>">logout</a>
 					</li>
 				</ul>
 			</div>
