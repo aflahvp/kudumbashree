@@ -6,7 +6,7 @@
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title>Kudumba sree</title>
+  <title><?php echo ucfirst($currentPage); ?> Kudumba sree</title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -19,7 +19,7 @@
 <body>
   <div class="page-wrapper">
     <div class="left-wrapper">
-      <?php echo dashboard_menu('events');?>
+      <?php echo dashboard_menu('members');?>
     </div>
   
     <nav class="top-wrapper">
@@ -43,18 +43,18 @@
 		<div class="left">
 			<div class="group">
 				<label for="username"> USER NAME</label>
-				<input type="text" name="username" id="username" value="<?php echo set_value('username') ?>" >
+				<input type="text" name="username" id="username" placeholder="User Name" value="<?php echo set_value('username') ?>" >
 			</div>
 
 
 			<div class="group">
 				<label for="password">PASSWORD</label>
-				<input type="password" name="password" id="password" required value="<?php echo set_value('password') ?>" >
+				<input type="password" name="password" id="password" placeholder=" Password" required value="<?php echo set_value('password') ?>" >
 			</div>
 
 			<div class="group">
 				<label for="confirmpassword">CONFIRM PASSWORD</label>	
-				<input type="password" name="confirmpassword" id="confirmpassword" value="<?php echo set_value('confirmpassword') ?>">
+				<input type="password" name="confirmpassword" id="confirmpassword" placeholder=" Confirm Password" value="<?php echo set_value('confirmpassword') ?>">
 			</div>
 
 			<div class="group">
@@ -143,7 +143,7 @@
 
 			<div class="group">
 					<label for="email">E-mail id</label>	
-			<input type="email" name="email" id="email" value="<?php echo set_value('email') ?>">
+			<input type="email" name="email" id="email" placeholder="test@mail.com" value="<?php echo set_value('email') ?>">
 			</div>
 
 			<div class="group">

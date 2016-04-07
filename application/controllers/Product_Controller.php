@@ -3,6 +3,7 @@
 /**
  * 
  */
+require_once(APPPATH.'controllers/Check_Logged.php');
  class Product_Controller extends Check_Logged
  {
  	
@@ -18,11 +19,15 @@
  	public function index()
  	{
  		$data['result'] = $this->Product_Model->view();
- 		if ($data['result'] != FALSE)
- 		{
- 			$this->load->view('admin/view_product');
- 		}
-
+		if ($data['result'] != FALSE) {
+			$this->load->view('admin/view_product',$data);
+		}
+		else
+		{
+			$data['message'] = 'No record found';
+			$this->load->view('admin/view_product',$data);
+			
+		}
  	}
 
  // 	public function view()
@@ -56,7 +61,7 @@
 
  		if($query == true)
  		{
- 			redirect(base_url('Product_Model/view'));
+ 			redirect(base_url('dashboard/products'));
 
  		}
  		else
@@ -65,6 +70,29 @@
  		}
 	 	}
  	}
+
+ 	public function delete($id)
+	{
+
+		$where = ['id' => $id];							//$a=['0'=>1]
+							     
+		if($this->Product_Model->delete($where))
+		{
+			$data['message'] = '<script>
+									alert("deleted!");
+									window.location = "'.base_url('dashboard/products').'";
+								</script>';
+			$this->load->view('admin/view_product',$data);
+		}
+		else
+		{
+			$data['message'] = '<script>
+									alert("Server Error .please try again later!");
+									window.location = "'.base_url('dashboard/products').'";
+								</script>';
+			$this->load->view('admin/view_product',$data);
+		}
+	}
 
  } 
  ?>

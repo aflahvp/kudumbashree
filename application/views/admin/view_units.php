@@ -6,7 +6,7 @@
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title><?php echo ucfirst($currentPage); ?> - Psybo Technologies</title>
+  <title><?php echo ucfirst($currentPage); ?> E-KUDUMBASHREE</title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -19,7 +19,7 @@
 <body>
   <div class="page-wrapper">
     <div class="left-wrapper">
-      <?php echo dashboard_menu('portfolios');?>
+      <?php echo dashboard_menu('units');?>
     </div>
   
     <nav class="top-wrapper">
@@ -54,6 +54,7 @@
 						<td><a href="<?php echo base_url('dashboard/units/add') ?>">add</a></td>
 					</tr>
 				</thead>
+        <body>
 			<?php foreach ($result as $key => $value) {?>
 				<tr>
 					<td><?php echo $value->id ?></td>
@@ -63,11 +64,13 @@
 					<td><?php echo $value->place ?></td>
 					<td><?php echo $value->username ?></td>
 					<td><?php echo $value->password ?></td>
-					<td><a href="<?php echo base_url('index.php/Unit_Controller/delete/'.$value->id) ?>"> Delete</a></td> 
+					<td><a href="<?php echo base_url('dashboard/units/delete/'.$value->id) ?>" onclick = "return confirm('Are you sure to delete this?');"> Delete</a></td> 
 				</tr>
 			<?php }
 		}
 	 ?>
+   </body>
+   </table>
   </div>
 </body>
 </html>

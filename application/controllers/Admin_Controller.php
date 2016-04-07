@@ -26,6 +26,19 @@ class Admin_Controller extends Check_Logged
 		$this->load->view('admin/'.$page);
 	}	
 
+	    /*LOGIN*/
+
+	// public function login()
+	// {
+	   
+	// }
+
+	// public function logout()
+	// {
+	// 	$this->session->unset_userdata('logged_in');
+	// 	redirect(base_url('dashboard/'))
+	// }
+
         /* UNITS */
 	public function add_unit()
 	{
@@ -47,6 +60,12 @@ class Admin_Controller extends Check_Logged
 		
 	}
 
+	/*PRODUCTS*/
+	public function add_product()
+	{
+		$this->load->view('admin/add_product');
+	}
+
 
 	     /* LOANS */
 
@@ -63,16 +82,7 @@ class Admin_Controller extends Check_Logged
 		}
 		$this->load->view('admin/view_loans',$data);
 	}
-	 public function accept()
-	 {
-	 	
-	 }
-
-	 public function reject()
-	 {
-	 	
-	 }
-
-}
+}	
+	 
 
   ?>

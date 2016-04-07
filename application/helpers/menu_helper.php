@@ -95,41 +95,51 @@ $html .='            </ul>
 function dashboard_menu($current)
 {
     $menu = [
-        'dashboard' => [
+        'Dashboard' => [
             'title' => 'dashboard',
             'icon' => 'fa-tachometer',
             'link' => ''
         ],
-        'units' => [
+        'Units' => [
             'title' => 'units',
             'icon' => 'fa-folder',
             'link' => 'units'
         ],
-        'members' => [
+        'Members' => [
             'title' => 'members',
-            'icon' => 'fa-picture-o',
+            'icon' => 'fa-folder',
             'link' => 'members'
         ],
-        'events' => [
+        'Events' => [
             'title' => 'events',
-            'icon' => 'fa-trophy',
+            'icon' => 'fa-folder',
             'link' => 'events'
         ],
-        'products' => [
+        'Products' => [
             'title' => 'products',
-            'icon' => 'fa-trophy',
+            'icon' => 'fa-folder',
             'link' => 'products'
         ],
-        'loan' => [
+        'Loan' => [
             'title' => 'loan',
-            'icon' => 'fa-trophy',
+            'icon' => 'fa-folder',
             'link' => 'loan'
         ],
-        'gallery' => [
+        'Gallery' => [
             'title' => 'gallery',
-            'icon' => 'fa-trophy',
+            'icon' => 'fa-picture-o',
             'link' => 'gallery'
         ]
+        // 'About Us' => [
+        //     'title' => 'About Us',
+        //     'icon' => 'fa-folder',
+        //     'link' => 'About Us'
+        // ],
+        // 'Contacts' => [
+        //     'title' => 'Contacts',
+        //     'icon' => 'fa-folder',
+        //     'link' => 'Contacts'
+        // ]
     ];
 
     $html = '';
@@ -164,25 +174,30 @@ function dashboard_menu($current)
 function member_menu($current)
 {
     $menu = [
-        'home' => [
-            'title' => 'dashboard',
+        'Home' => [
+            'title' => 'home',
             'icon' => 'fa-tachometer',
-            'link' => ''
+            'link' => 'home'
         ],
-        'loan' => [
-            'title' => 'units',
+        'Loan' => [
+            'title' => 'loan',
             'icon' => 'fa-folder',
-            'link' => 'units'
+            'link' => 'loan'
         ],
-        'profile' => [
-            'title' => 'members',
+        'Profile' => [
+            'title' => 'profile',
             'icon' => 'fa-picture-o',
-            'link' => 'members'
+            'link' => 'profile'
         ],
-        'deposit' => [
+        'Deposit' => [
             'title' => 'deposit',
             'icon' => 'fa-trophy',
             'link' => 'deposit'
+        ],
+        'Feedback' => [
+            'title' => 'Feedback',
+            'icon' => 'fa-trophy',
+            'link' => 'Feedback'
         ]
     ];
 
@@ -200,9 +215,9 @@ function member_menu($current)
             </li>';
     foreach ($menu as $key => $value) {
         if ($current == $key) {
-            $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         } else {
-            $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         }
     }
     $html .= '</ul>

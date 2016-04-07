@@ -6,7 +6,7 @@
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title><?php echo ucfirst($currentPage); ?> - Psybo Technologies</title>
+  <title><?php echo ucfirst($currentPage); ?>  E-KUDUMBASHREE</title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -48,12 +48,12 @@
 					<th>date</th>
 					<th>venue</th>
 					<th>description</th>
-					<th><a href="<?php echo base_url('Event_Controller/add'); ?>">Add</a></th>
+					<th><a href="<?php echo base_url('dashboard/events/add/submit'); ?>">Add</a></th>
 
 				</tr>
 			</thead>
-			<?php foreach ($result as $value) {?>
 			<tbody>
+			<?php foreach ($result as $value) {?>
 				<tr>
 					<td><?php echo $value->id ?></td>
 					<td><?php echo $value->name ?></td>
@@ -62,13 +62,15 @@
 					<td><?php echo $value->date ?></td>
 					<td><?php echo $value->venue ?></td>
 					<td><?php echo $value->description ?></td>
-					<td><a href="<?php echo base_url('Event_Controller/delete/'.$value->id) ?>">delete</a></td>
+					<td><a href="<?php echo base_url('dashboard/events/delete/'.$value->id) ?>" onclick = "return confirm('Are you sure to delete this?');">Delete</a></td>
 				</tr>
-			</tbody>
 		<?php } }?>
+			</tbody>
+			</table>
 		
 		<?php if (isset($message)) {
 			echo $message;
+			echo anchor('dashboard/events/add','add',['class' => 'button']);
 		} ?>
 	</div>
 </body>

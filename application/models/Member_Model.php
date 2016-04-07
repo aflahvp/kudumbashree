@@ -15,6 +15,19 @@ class Member_Model extends CI_Model
 		$this->load->database();
 	}
 
+	public function login($username, $password, $utype)
+	{
+		$query = $this->db->get_where($this->table, ['username' => $username, 'password' => $password,'usertype' => $utype]);
+		if($query->num_rows() >= 1)
+		{
+			return true;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
 	public function view_all()
 	{
 		$query = $this->db->get($this->table);
@@ -58,6 +71,28 @@ class Member_Model extends CI_Model
 		if($this->db->delete($this->table))
 		{
 			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
+	public function get_where($where)
+	{
+		$this->db->where($where);
+		$query = $this->db->get($this->table);
+		// var_dump($this->db->get_compiled_select($this->table));
+		if($query != FALSE)
+		{
+			if($query->num_rows() >= 1)
+			{
+				return $query->result();
+			}
+			else
+			{
+				return FALSE;
+			}
 		}
 		else
 		{

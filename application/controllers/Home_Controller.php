@@ -17,10 +17,10 @@ class Home_Controller extends Check_Logged
 		$this->load->view('aaa');
 	}
 
-	public function registration()
-	{
-		$this->load->view('registration');
-	}
+	// public function registration()
+	// {
+	// 	$this->load->view('registration');
+	// }
 
 }
 

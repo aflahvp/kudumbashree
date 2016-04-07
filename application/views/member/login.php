@@ -10,7 +10,7 @@
 <body>
 
 <div class="login-box">
-	<?php echo form_open(base_url('User_Controller/verify'), ['id' => 'loginform', 'name' => 'loginform' , 'method' => 'post']);
+	<?php echo form_open(base_url('Member_Controller/verify'), ['id' => 'loginform', 'name' => 'loginform' ]);
 	echo validation_errors();
 	?>
 
@@ -30,5 +30,10 @@
 		</div>
 	</form>
 </div>
+<?php if (isset($message)): ?>
+	<div >
+		<?php echo $message ?>
+	</div>
+<?php endif ?>
 </body>
 </html>

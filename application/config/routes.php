@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | would be loaded.
 |
 |	$route['404_override'] = 'errors/page_missing';
-|
+| 
 | This route will tell the Router which controller/method to use if those
 | provided in the URL cannot be matched to a valid route.
 |
@@ -49,30 +49,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+///////PUBLIC ROUTES/////////////////
+$route['home'] = 'Home_Controller';
+
+
+/////////MEMBER ROUTES/////////
+/*MEMBER LOGIN*/
+$route['member-login'] = 'Member_Controller/login';
+$route['member/logout'] = 'Member_Controller/logout';
+
+$route['(:any)/home'] = 'Member_Controller/dashboard';
+$route['(:any)/loan'] = 'Member_Controller/view_loans';
+$route['(:any)/loan/apply/(:num)'] = 'Member_Controller/loan_registration/$1';
+
+
+
+
 /////Admin  routes//////
 $route['dashboard'] = 'Admin_Controller/dashboard';
 
+
 /*user*/
+$route['dashboard/'] = 'User_Controller/';
+
+/*USER LOGIN*/
+$route['dashboard/users/login'] = 'User_Controller/login';
+
 
 
 /*units*/
-$route['dashboard/units'] = 'Unit_Controller/view_all';
+
 $route['dashboard/units/add'] = 'Admin_Controller/add_unit';
+$route['dashboard/units'] = 'Unit_Controller/view_all';
 $route['dashboard/units/add/submit'] = 'Unit_Controller/add_unit';
+$route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
 
 
 /*member*/
+$route['dashboard/members/add'] = 'Admin_Controller/add_member';
+$route['dashboard/members/delete/(:num)'] = 'Member_Controller/delete/$1';
+$route['dashboard/members/add/submit'] = 'Member_Controller/add_member';
 $route['dashboard/members'] = 'Member_Controller/view_all';
-$route['dashboard/members/add'] = 'Admin_COntroller/add_member';
-$route['dashboard/members/delete'] = 'Admin_Controller/delete_member';
+
 
 /*events*/
-$route['dashboard/events'] = 'Event_Controller';
+$route['dashboard/events/add'] = 'Admin_Controller/add_event';
+//$route['dashboard/events/delete'] = 'Event_Controller/delete';
+$route['dashboard/events'] = 'Event_Controller/index';
+$route['dashboard/events/add/submit'] = 'Event_Controller/add';
+$route['dashboard/events/delete/(:num)'] = 'Event_Controller/delete/$1';
+
 
 /*products*/
-$route['dashboard/products'] = 'Product_Controller';
+
 $route['dashboard/products/add'] = 'Admin_Controller/add';
-$route['dashboard/products'] = 'Admin_Controller/index';
+$route['dashboard/products'] = 'Product_Controller/index';
+$route['dashboard/products/delete/(:num)'] = 'Product_Controller/delete/$1';
+$route['dashboard/products/add/submit'] = 'Product_Controller/add';
+
+
+/*loans*/
+
+$route['dashboard/loans'] = 'Loan_Controller/view';
+$route['dashboard/loans/add'] = 'Loan_Controller/add';
+
 
 
 /*Application routes*/
