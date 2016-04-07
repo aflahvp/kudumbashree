@@ -71,7 +71,7 @@ class Loan_Model extends CI_Model
 	{
 		if($this->db->insert($this->table,$data))
 		{
-			return true;
+			return $this->db->insert_id();
 		}
 		else
 		{

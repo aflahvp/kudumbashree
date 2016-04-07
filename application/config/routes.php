@@ -52,15 +52,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ///////PUBLIC ROUTES/////////////////
 $route['home'] = 'Home_Controller';
 
+// unit 
+$route['unit-login'] = 'Unit_Controller/dashboard';
+
+
+
+/*loans*/
+
+$route['dashboard/loans'] = 'Loan_Controller/view';
+$route['dashboard/loans/add'] = 'Loan_Controller/add';
+
 
 /////////MEMBER ROUTES/////////
 /*MEMBER LOGIN*/
-$route['member-login'] = 'Member_Controller/login';
+$route['member/login'] = 'Member_Controller/login';
 $route['member/logout'] = 'Member_Controller/logout';
 
 $route['(:any)/home'] = 'Member_Controller/dashboard';
 $route['(:any)/loan'] = 'Member_Controller/view_loans';
 $route['(:any)/loan/apply/(:num)'] = 'Member_Controller/loan_registration/$1';
+$route['(:any)/loan/apply/submit'] = 'Member_Controller/loan_submit';
 
 
 
@@ -108,10 +119,6 @@ $route['dashboard/products/delete/(:num)'] = 'Product_Controller/delete/$1';
 $route['dashboard/products/add/submit'] = 'Product_Controller/add';
 
 
-/*loans*/
-
-$route['dashboard/loans'] = 'Loan_Controller/view';
-$route['dashboard/loans/add'] = 'Loan_Controller/add';
 
 
 

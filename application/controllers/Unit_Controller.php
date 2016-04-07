@@ -18,7 +18,64 @@ class Unit_Controller extends Check_Logged
 
 	}
 
+public function login()
+	{
+		 if($this->logged === true)
+	    {
+	    	redirect(base_url('unit-admin/dashboard'));
+	    }
+	    else
+	    {
+	    	$this->load->view('unit/login');
+	    }
+		
+	}
 
+	public function verify()
+	{
+		//to form action
+		// 'type' => 'member';
+		$this->form_validation->set_rules('username', 'User name', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->view('unit/login');
+		}
+		else
+		{
+
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+
+			$password = md5($password);
+
+			/*call the method from User Model*/
+
+			if($this->User_Model->login($username, $password,'unit') === TRUE)
+			{
+				$user_data = [
+					'username' => $username,
+					'type' => 'unit',
+					'logged_in' => TRUE
+				];
+				$this->session->set_userdata($user_data,'logged_in');
+				redirect(base_url($_SESSION['username'].'/unit-admin'));
+			}
+			else
+			{
+				
+				$data['message'] = 'invalid username or password';
+
+				$this->load->view('unit/login',$data);
+			}
+		}
+	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('logged_in');
+		redirect(base_url('home'));
+	}
 
 	public function view_all()
 	{
