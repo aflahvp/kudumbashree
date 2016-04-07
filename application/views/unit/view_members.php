@@ -32,7 +32,7 @@
           <li><a href="#"><i class="fa fa-bell-o fa-lg"></i></a></li>
           <li><a href="#"><i class="fa fa-cog fa-lg"></i></a></li>
           <li>
-            <a href="<?php echo base_url('dashboard/logout');?>">logout</a>
+            <a href="<?php echo base_url('unit/logout');?>">logout</a>
           </li>
         </ul>
       </div>
