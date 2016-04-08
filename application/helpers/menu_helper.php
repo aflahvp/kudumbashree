@@ -227,3 +227,67 @@ function member_menu($current)
 
 }
 
+
+
+function unit_menu($current)
+{
+    $menu = [
+        'Home' => [
+            'title' => 'home',
+            'icon' => 'fa-tachometer',
+            'link' => 'unit-home'
+        ],
+        // 'Loan' => [
+        //     'title' => 'loan',
+        //     'icon' => 'fa-folder',
+        //     'link' => 'loan'
+        // ],
+        
+        'members' => [
+            'title' => 'members',
+            'icon' => 'fa-trophy',
+            'link' => 'unit-members'
+        ],
+        'products' => [
+            'title' => 'products',
+            'icon' => 'fa-trophy',
+            'link' => 'unit-products'
+        ],
+        'events' => [
+            'title' => 'events',
+            'icon' => 'fa-trophy',
+            'link' => 'unit-events'
+        ],
+        'loans' => [
+            'title' => 'loans',
+            'icon' => 'fa-trophy',
+            'link' => 'unit-loans'
+        ]
+    ];
+
+    $html = '';
+    $html .='<nav class="sidebar-left">
+        <div class="">
+          <ul class="menu-left">
+            <li>
+              <div class="user-img">
+                <img class="img-responsive img-circle center-block" src="'.base_url().'" alt="User">
+              </div>
+              <div class="user-id text-center">
+                <span class="">Kudumbsree-'.$_SESSION['username'].'</span>
+              </div>
+            </li>';
+    foreach ($menu as $key => $value) {
+        if ($current == $key) {
+            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+        } else {
+            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+        }
+    }
+    $html .= '</ul>
+        </div>
+      </nav>';
+    return $html;
+
+}
+

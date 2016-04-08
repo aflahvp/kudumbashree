@@ -44,6 +44,27 @@ class Product_Model extends CI_Model
 			return false;
 		}
 	}
+	public function view_where($where)
+	{
+		$this->db->where($where);
+		$query = $this->db->get($this->table);
+
+		if ($query != false) 
+		{
+			if ($query->num_rows() >= 1) {
+				
+				return $query->result();
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
 
 	public function delete($where)
 	{

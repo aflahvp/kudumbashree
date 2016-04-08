@@ -53,7 +53,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['home'] = 'Home_Controller';
 
 // unit 
-$route['unit-login'] = 'Unit_Controller/dashboard';
+$route['unit-login'] = 'Unit_Controller/login';
+$route['unit/logout'] = 'Unit_Controller/logout';
+$route['unit-login/verify'] = 'Unit_Controller/verify';
+$route['unit-admin'] = 'Unit_Controller/dashboard';
+$route['(:any)/unit-home'] = 'Unit_Controller/dashboard';
+$route['(:any)/unit-members'] = 'Unit_Controller/view_all_members';
+$route['(:any)/unit-members/add'] = 'Unit_Controller/add_member';
+$route['(:any)/unit-members/add/submit'] = 'Unit_Controller/add_member_submit';
+$route['(:any)/unit-members/delete/(:num)'] = 'Unit_Controller/deleet_member/$1';
+
+$route['(:any)/unit-products'] = 'Unit_Controller/view_products';
+$route['(:any)/unit-products/add'] = 'Unit_Controller/add_products';
+$route['(:any)/unit-products/add/submit'] = 'Unit_Controller/add_product_submit';
+$route['(:any)/unit-products/delete/(:num)'] = 'Unit_Controller/delete_product/$1';
+
+$route['(:any)/unit-loans'] = 'Unit_Controller/view_loan';
+
+$route['(:any)/unit-events'] = 'Unit_Controller/view_event';
+$route['(:any)/unit-events/add'] = 'Unit_Controller/add_event';
+$route['(:any)/unit-events/add/submit'] = 'Unit_Controller/add_event_submit';
+$route['(:any)/unit-events/delete/(:num)'] = 'Unit_Controller/delete_event/$1';
+
+
+
 
 
 
