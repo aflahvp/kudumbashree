@@ -145,8 +145,8 @@ $route['dashboard/products/add/submit'] = 'Product_Controller/add';
 
 /*DEPOSIT*/
 $route['dashboard/deposits/add'] = 'Admin_Controller/add';
-$route['dashboard/deposits/'] = 'Deposit_Controller/add';
-$route['dashboard/deposits/view'] = 'Admin_Controller/view';
+$route['dashboard/deposits/add/submit'] = 'Deposit_Controller/add';
+$route['dashboard/deposits/view_deposit'] = 'Admin_Controller/view_deposit';
 
 
 // /*user*/

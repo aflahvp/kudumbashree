@@ -41,12 +41,12 @@
 	<div class="event_head">
 	<h1><font color="red">DEPOSIT</font></h1>
 	<?php echo validation_errors(); ?>
-	<form action="<?php echo base_url('Deposit_Controller/add'); ?>" method="post">
-	<div class="grp">
-	<div class="grp">
+	<form action="<?php echo base_url('dashboard/deposits/add/submit'); ?>" method="post">
+  <div class="grp">
+	<!-- <div class="grp">
 		<label for="id">Id</label>
 			<input type="text" name="id" id="id" placeholder="id"></br></div>
-
+ -->
 		<label for="amount">Amount</label>
 			<input type="text" name="amount" id="amount" placeholder="amount"></br></div>
 	
