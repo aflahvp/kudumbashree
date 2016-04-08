@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>login</title>
-	<link rel="stylesheet" href="../../css/normalize.css">
-	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url('css/normalize.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('css/style.css') ?>">
 </head>
 <body>
 

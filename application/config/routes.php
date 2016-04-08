@@ -90,6 +90,8 @@ $route['dashboard/loans/add'] = 'Loan_Controller/add';
 /*MEMBER LOGIN*/
 $route['member/login'] = 'Member_Controller/login';
 $route['member/logout'] = 'Member_Controller/logout';
+$route['member/login/verify'] = 'Member_Controller/verify';
+
 
 $route['(:any)/home'] = 'Member_Controller/dashboard';
 $route['(:any)/loan'] = 'Member_Controller/view_loans';
