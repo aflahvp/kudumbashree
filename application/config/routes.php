@@ -76,6 +76,9 @@ $route['(:any)/unit-events/add/submit'] = 'Unit_Controller/add_event_submit';
 $route['(:any)/unit-events/delete/(:num)'] = 'Unit_Controller/delete_event/$1';
 
 
+// admin
+$route['admin-login'] = 'User_Controller/login';
+
 
 
 
@@ -103,6 +106,7 @@ $route['(:any)/loan/apply/submit'] = 'Member_Controller/loan_submit';
 
 /////Admin  routes//////
 $route['dashboard'] = 'Admin_Controller/dashboard';
+$route['dashboard/logout'] = 'Admin_Controller/logout';
 
 
 /*user*/
