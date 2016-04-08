@@ -68,6 +68,12 @@ class Admin_Controller extends Check_Logged
 	}
 
 
+/*DEPOSIT*/
+	public function add_deposit()
+	{
+		$this->load->view('admin/add_deposit');
+	}
+
 	     /* LOANS */
 
 	public function view_loans($page = 'view_loans')

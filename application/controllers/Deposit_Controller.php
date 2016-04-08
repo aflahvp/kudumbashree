@@ -18,7 +18,7 @@ class Deposit_Controller extends Check_Logged
 		$data = $this->Deposit_Model->get_all();
 		if($data != FALSE)
 		{
-			$this->load->view('admin/add_deposit',$data);
+			$this->load->view('admin/view_deposit',$data);
 		}
 		else
 		{
@@ -30,7 +30,7 @@ class Deposit_Controller extends Check_Logged
 
 	public function add()
 	{
-		$this->form_validation->set_rules('id', 'id', 'required');
+		// $this->form_validation->set_rules('id', 'id', 'required');
 		$this->form_validation->set_rules('amount', 'amount', 'required');
 		$this->form_validation->set_rules('date', 'date', 'required');
 		// $this->form_validation->set_rules('balance', 'balance', 'required');
@@ -42,7 +42,7 @@ class Deposit_Controller extends Check_Logged
    
  		else
 		{	
-			$id = $this->input->post('id');
+			// $id = $this->input->post('id');
 			$amount = md5($this->input->post('amount'));
 			$date = $this->input->post('date');
 			// $balance = $this->input->post('balance');
@@ -56,11 +56,11 @@ class Deposit_Controller extends Check_Logged
 					];
 					
 
-			$query=$this->Deposit_Model->add($data);		//call add() in event_model
+			$query=$this->Deposit_Model->add($data);		//call add() in deposit_model
 	        
 	        if($query==true)
 	        {
-	        	redirect(base_url('Deposit_Controller/view'));   //Deposit_Controller/index
+	        	redirect(base_url('Deposit_Controller/view_deposit'));   //Deposit_Controller/index
 	        	$this->load->view('admin/view_deposit',$data);
 	        	//$this->load->view('Event_Controller/view');
 	        }
@@ -80,7 +80,19 @@ class Deposit_Controller extends Check_Logged
   /*member_controller*/
 	public function view_deposit()
 	{
-		$query = $this->Deposit_Model->get_where();
+		if($this->logged === true and $_SESSION['type'] == 'member'){
+		// var_dump($this->uri->segment(1));
+			$username = $this->uri->segment(1);
+			$where = ['username' => $username];
+			$member = $this->Deposit_Model->get_where(['name' => $username]);
+			// echo "<pre>";		print_r($member);
+			foreach ($member as $key => $value) 
+			{
+				$member_id = $value->id;
+				$this->table->add_row(array($value->amount, $value->payeddate));
+			}
+		$where = ['members_id' => $member_id];
+		$query = $this->Deposit_Model->get_where($where);
 		if($query != false)
 		{
 			$this->table->set_heading(array('amount', 'payeddate'));
@@ -121,6 +133,15 @@ class Deposit_Controller extends Check_Logged
 			
 			$this->load->view('admin/view_deposit', $data);
 		}
+		else
+			{
+				// var_dump(base_url(uri_string()));
+				$data['message'] = anchor(base_url(uri_string().'/apply/'.$member_id), 'apply loan', ['class' => 'button normal-button' ]);
+				$this->load->view('admin/view_deposit', $data);
+			}
+		}
+		else
+			redirect(base_url('admin/add_deposit'));
 		
 	}
 
