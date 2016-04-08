@@ -93,6 +93,7 @@ class Deposit_Controller extends Check_Logged
 			}
 		$where = ['members_id' => $member_id];
 		$query = $this->Deposit_Model->get_where($where);
+		var_dump($query);
 		if($query != false)
 		{
 			$this->table->set_heading(array('amount', 'payeddate'));

@@ -118,6 +118,7 @@ $route['(:any)/home'] = 'Member_Controller/dashboard';
 $route['(:any)/loan'] = 'Member_Controller/view_loans';
 $route['(:any)/loan/apply/(:num)'] = 'Member_Controller/loan_registration/$1';
 $route['(:any)/loan/apply/submit'] = 'Member_Controller/loan_submit';
+$route['(:any)/deposit'] = 'Deposit_COntroller/view_deposit';
 
 
 /*member*/
@@ -146,7 +147,6 @@ $route['dashboard/products/add/submit'] = 'Product_Controller/add';
 /*DEPOSIT*/
 $route['dashboard/deposits/add'] = 'Admin_Controller/add';
 $route['dashboard/deposits/add/submit'] = 'Deposit_Controller/add';
-$route['dashboard/deposits/view_deposit'] = 'Admin_Controller/view_deposit';
 
 
 // /*user*/

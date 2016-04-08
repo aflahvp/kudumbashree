@@ -283,8 +283,7 @@ class Member_Controller extends Check_Logged
 	public function view_loans()
 	{
 		if($this->logged === true and $_SESSION['type'] == 'member'){
-
-
+			
 			// var_dump($this->uri->segment(1));
 			$username = $this->uri->segment(1);
 			$where = ['username' => $username];
