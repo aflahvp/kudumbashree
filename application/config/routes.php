@@ -49,10 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-///////PUBLIC ROUTES/////////////////
+//////////////////////PUBLIC ROUTES/////////////////////////
 $route['home'] = 'Home_Controller';
 
-// unit 
+
+//////////////////////ADMIN  ROUTES//////////////////////////
+$route['dashboard'] = 'Admin_Controller/dashboard';
+
+
+///////////////////// UNIT ROUTES////////////////////////////
 $route['unit-login'] = 'Unit_Controller/login';
 $route['unit/logout'] = 'Unit_Controller/logout';
 $route['unit-login/verify'] = 'Unit_Controller/verify';
@@ -76,17 +81,21 @@ $route['(:any)/unit-events/add/submit'] = 'Unit_Controller/add_event_submit';
 $route['(:any)/unit-events/delete/(:num)'] = 'Unit_Controller/delete_event/$1';
 
 
+/*units*/
+$route['dashboard/units/add'] = 'Admin_Controller/add_unit';
+$route['dashboard/units'] = 'Unit_Controller/view_all';
+$route['dashboard/units/add/submit'] = 'Unit_Controller/add_unit';
+$route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
 
 
 
 
 /*loans*/
-
 $route['dashboard/loans'] = 'Loan_Controller/view';
 $route['dashboard/loans/add'] = 'Loan_Controller/add';
 
 
-/////////MEMBER ROUTES/////////
+///////////////////////MEMBER ROUTES/////////////////////////
 /*MEMBER LOGIN*/
 $route['member/login'] = 'Member_Controller/login';
 $route['member/logout'] = 'Member_Controller/logout';
@@ -95,28 +104,6 @@ $route['(:any)/home'] = 'Member_Controller/dashboard';
 $route['(:any)/loan'] = 'Member_Controller/view_loans';
 $route['(:any)/loan/apply/(:num)'] = 'Member_Controller/loan_registration/$1';
 $route['(:any)/loan/apply/submit'] = 'Member_Controller/loan_submit';
-
-
-
-
-/////Admin  routes//////
-$route['dashboard'] = 'Admin_Controller/dashboard';
-
-
-/*user*/
-$route['dashboard/'] = 'User_Controller/';
-
-/*USER LOGIN*/
-$route['dashboard/users/login'] = 'User_Controller/login';
-
-
-
-/*units*/
-
-$route['dashboard/units/add'] = 'Admin_Controller/add_unit';
-$route['dashboard/units'] = 'Unit_Controller/view_all';
-$route['dashboard/units/add/submit'] = 'Unit_Controller/add_unit';
-$route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
 
 
 /*member*/
@@ -135,7 +122,6 @@ $route['dashboard/events/delete/(:num)'] = 'Event_Controller/delete/$1';
 
 
 /*products*/
-
 $route['dashboard/products/add'] = 'Admin_Controller/add';
 $route['dashboard/products'] = 'Product_Controller/index';
 $route['dashboard/products/delete/(:num)'] = 'Product_Controller/delete/$1';
@@ -147,6 +133,13 @@ $route['dashboard/products/add/submit'] = 'Product_Controller/add';
 $route['dashboard/deposits/add'] = 'Admin_Controller/add';
 $route['dashboard/deposits/'] = 'Deposit_Controller/add';
 $route['dashboard/deposits/view'] = 'Admin_Controller/view';
+
+
+/*user*/
+$route['dashboard/'] = 'User_Controller/';
+
+/*USER LOGIN*/
+$route['dashboard/users/login'] = 'User_Controller/login';
 
 
 
