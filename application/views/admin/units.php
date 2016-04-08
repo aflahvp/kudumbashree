@@ -43,8 +43,8 @@ echo validation_errors();
 ?>
  
  	<div class="group">
-		<label for="username">Name</label>
-		<input type="text" name="username" id="username" value="">
+		<label for="name">Name</label>
+		<input type="text" name="name" id="name" value="">
  	</div>
   	<div class="group">
        <label for="ward">Ward</label>
@@ -58,16 +58,29 @@ echo validation_errors();
   		<label for="place">Place</label>	
 	  	<input type="text" name="place" id="place" value="">
   	</div>	
+
+   
    <div class="group">
 	 <label for="username">User Name</label>
 	 <input type="text" name="username" id="username" placeholder="User Name">
    </div>
-	<div class="group">
+    <div class="group">
 	 <label for="password">Password</label>
 
-	 <input type="password" name="password" id="password" placeholder=" Password">
+	 <input type="password" name="password" id="password" placeholder=" PassWord">
 
 		</div>
+
+     <div class="group">
+   <label for="usertype">User Type</label> 
+      <select class="width-60" name="usertype" id="usertype">
+          <option value="" selected="" disabled="">select</option>
+          <option value="secretary"  <?php echo  set_select('usertype', 'secretary' ); ?>>----Secretary----</option>
+          <option value="member1"  <?php echo  set_select('usertype', 'member1' ); ?>>----Member1----</option>
+          <option value="member2"  <?php echo  set_select('usertype', 'member2' ); ?>>----Member2----</option>
+   </select>
+   </div>
+
 	<div class="group txt-center">
 		<input type="submit" name="submit" value="Submit" class="btn-submit">
 

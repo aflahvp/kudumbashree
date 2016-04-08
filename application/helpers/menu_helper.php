@@ -105,31 +105,33 @@ function dashboard_menu($current)
             'icon' => 'fa-folder',
             'link' => 'units'
         ],
-        'Members' => [
-            'title' => 'members',
-            'icon' => 'fa-folder',
-            'link' => 'members'
-        ],
         'Events' => [
             'title' => 'events',
             'icon' => 'fa-folder',
             'link' => 'events'
-        ],
-        'Products' => [
-            'title' => 'products',
-            'icon' => 'fa-folder',
-            'link' => 'products'
-        ],
-        'Loan' => [
-            'title' => 'loan',
-            'icon' => 'fa-folder',
-            'link' => 'loan'
         ],
         'Gallery' => [
             'title' => 'gallery',
             'icon' => 'fa-picture-o',
             'link' => 'gallery'
         ]
+        // 'Members' => [
+        //     'title' => 'members',
+        //     'icon' => 'fa-folder',
+        //     'link' => 'members'
+        // ],
+        
+        // 'Products' => [
+        //     'title' => 'products',
+        //     'icon' => 'fa-folder',
+        //     'link' => 'products'
+        // ],
+        // 'Loan' => [
+        //     'title' => 'loan',
+        //     'icon' => 'fa-folder',
+        //     'link' => 'loan'
+        // ],
+        
         // 'About Us' => [
         //     'title' => 'About Us',
         //     'icon' => 'fa-folder',
@@ -167,66 +169,6 @@ function dashboard_menu($current)
     return $html;
 
 }
-
-
-
-
-function member_menu($current)
-{
-    $menu = [
-        'Home' => [
-            'title' => 'home',
-            'icon' => 'fa-tachometer',
-            'link' => 'home'
-        ],
-        'Loan' => [
-            'title' => 'loan',
-            'icon' => 'fa-folder',
-            'link' => 'loan'
-        ],
-        'Profile' => [
-            'title' => 'profile',
-            'icon' => 'fa-picture-o',
-            'link' => 'profile'
-        ],
-        'Deposit' => [
-            'title' => 'deposit',
-            'icon' => 'fa-trophy',
-            'link' => 'deposit'
-        ],
-        'Feedback' => [
-            'title' => 'Feedback',
-            'icon' => 'fa-trophy',
-            'link' => 'Feedback'
-        ]
-    ];
-
-    $html = '';
-    $html .='<nav class="sidebar-left">
-        <div class="">
-          <ul class="menu-left">
-            <li>
-              <div class="user-img">
-                <img class="img-responsive img-circle center-block" src="'.base_url().'" alt="User">
-              </div>
-              <div class="user-id text-center">
-                <span class="">Kudumbsree</span>
-              </div>
-            </li>';
-    foreach ($menu as $key => $value) {
-        if ($current == $key) {
-            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
-        } else {
-            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
-        }
-    }
-    $html .= '</ul>
-        </div>
-      </nav>';
-    return $html;
-
-}
-
 
 
 function unit_menu($current)
@@ -290,4 +232,65 @@ function unit_menu($current)
     return $html;
 
 }
+
+
+
+function member_menu($current)
+{
+    $menu = [
+        'Home' => [
+            'title' => 'home',
+            'icon' => 'fa-tachometer',
+            'link' => 'home'
+        ],
+        'Loan' => [
+            'title' => 'loan',
+            'icon' => 'fa-folder',
+            'link' => 'loan'
+        ],
+        'Profile' => [
+            'title' => 'profile',
+            'icon' => 'fa-picture-o',
+            'link' => 'profile'
+        ],
+        'Deposit' => [
+            'title' => 'deposit',
+            'icon' => 'fa-trophy',
+            'link' => 'deposit'
+        ],
+        'Feedback' => [
+            'title' => 'Feedback',
+            'icon' => 'fa-trophy',
+            'link' => 'Feedback'
+        ]
+    ];
+
+    $html = '';
+    $html .='<nav class="sidebar-left">
+        <div class="">
+          <ul class="menu-left">
+            <li>
+              <div class="user-img">
+                <img class="img-responsive img-circle center-block" src="'.base_url().'" alt="User">
+              </div>
+              <div class="user-id text-center">
+                <span class="">Kudumbsree</span>
+              </div>
+            </li>';
+    foreach ($menu as $key => $value) {
+        if ($current == $key) {
+            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+        } else {
+            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+        }
+    }
+    $html .= '</ul>
+        </div>
+      </nav>';
+    return $html;
+
+}
+
+
+
 
