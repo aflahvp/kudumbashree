@@ -12,6 +12,7 @@ class Member_Controller extends Check_Logged
 		$this->load->model('Member_Model');
 		$this->load->model('User_Model');
 		$this->load->model('Loan_Model');
+		$this->load->model('Deposit_Model');
 		$this->load->library('table');
 
 		$this->load->helper('html');
@@ -269,7 +270,7 @@ class Member_Controller extends Check_Logged
 			$this->table->set_heading(array('bankname', 'accountno', 'loantype', 'mobile', 'email', 'loanamount', anchor(base_url(uri_string().'/apply/'.$member_id), 'apply loan', ['class' => 'button normal-button' ])));
 			foreach ($query as $key => $value) 
 			{
-				$this->table->add_row(array($value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount, $value->status ));
+				$this->table->add_row(array($value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount));
 			}
 		$template = array(
         'table_open'            => '<table class="table">',
