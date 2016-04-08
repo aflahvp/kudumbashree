@@ -55,6 +55,11 @@ $route['home'] = 'Home_Controller';
 
 //////////////////////ADMIN  ROUTES//////////////////////////
 $route['dashboard'] = 'Admin_Controller/dashboard';
+$route['dashboard/logout'] = 'Admin_Controller/logout';
+
+// admin
+$route['admin-login'] = 'User_Controller/login';
+
 
 
 ///////////////////// UNIT ROUTES////////////////////////////
@@ -90,15 +95,24 @@ $route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
 
 
 
+
+
+
 /*loans*/
 $route['dashboard/loans'] = 'Loan_Controller/view';
 $route['dashboard/loans/add'] = 'Loan_Controller/add';
+
+/*USER LOGIN*/
+$route['dashboard/users/login'] = 'User_Controller/login';
+
 
 
 ///////////////////////MEMBER ROUTES/////////////////////////
 /*MEMBER LOGIN*/
 $route['member/login'] = 'Member_Controller/login';
 $route['member/logout'] = 'Member_Controller/logout';
+$route['member/login/verify'] = 'Member_Controller/verify';
+
 
 $route['(:any)/home'] = 'Member_Controller/dashboard';
 $route['(:any)/loan'] = 'Member_Controller/view_loans';
@@ -135,11 +149,10 @@ $route['dashboard/deposits/'] = 'Deposit_Controller/add';
 $route['dashboard/deposits/view'] = 'Admin_Controller/view';
 
 
-/*user*/
-$route['dashboard/'] = 'User_Controller/';
+// /*user*/
+// $route['dashboard/'] = 'User_Controller/';
 
-/*USER LOGIN*/
-$route['dashboard/users/login'] = 'User_Controller/login';
+
 
 
 

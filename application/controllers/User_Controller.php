@@ -21,7 +21,7 @@ class User_Controller extends Check_Logged
 	{
 		 if($this->logged === true)
 	    {
-	    	redirect(base_url('dashboard/veiw'));
+	    	redirect(base_url('dashboard'));
 	    }
 	    else
 	    {

@@ -33,11 +33,12 @@ class Admin_Controller extends Check_Logged
 	   
 	// }
 
-	// public function logout()
-	// {
-	// 	$this->session->unset_userdata('logged_in');
-	// 	redirect(base_url('dashboard/'))
-	// }
+	public function logout()
+	{
+		$this->session->unset_userdata('logged_in');
+		$this->session->sess_destroy();
+		redirect(base_url('admin-login'));
+	}
 
         /* UNITS */
 	public function add_unit()
