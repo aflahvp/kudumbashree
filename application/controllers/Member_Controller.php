@@ -138,7 +138,7 @@ class Member_Controller extends Check_Logged
 				// call the add_user() from model
 				if ($this->User_Model->add_user($data))
 				{
-					redirect(base_url('dashboard/members.'));
+					redirect(base_url('dashboard/members'));
 					// sucess
 				}
 				else
@@ -182,7 +182,7 @@ class Member_Controller extends Check_Logged
 	{
 		 if($this->logged === true)
 	    {
-	    	redirect(base_url('dashboard/veiw'));
+	    	redirect(base_url($_SESSION['username'].'/home'));
 	    }
 	    else
 	    {
@@ -257,6 +257,7 @@ class Member_Controller extends Check_Logged
 		$where = ['username' => $username];
 		$member = $this->Member_Model->get_where(['name' => $username]);
 		// echo "<pre>";		print_r($member);
+	 
 		foreach ($member as $key => $value) 
 		{
 			$member_id = $value->id;
@@ -271,6 +272,7 @@ class Member_Controller extends Check_Logged
 			{
 				$this->table->add_row(array($value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount, $value->status ));
 			}
+			
 		$template = array(
         'table_open'            => '<table class="table">',
 
@@ -361,7 +363,7 @@ class Member_Controller extends Check_Logged
 	        	$this->load->view('member/loan_request', $data);
 
 
-	        	// redirect(base_url($_SESSION['username'].'/loan')); //Loan_Controller/view
+	        	redirect(base_url($_SESSION['username'].'/loan')); //Loan_Controller/view
 	        }
 	        else
 	        {
