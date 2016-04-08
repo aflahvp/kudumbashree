@@ -683,8 +683,7 @@ public function login()
 
 	public function add_unit()
 	{
-		$this->form_validation->set_rules('name', 'User name', 'required');
-		
+		$this->form_validation->set_rules('name', 'name', 'required');
 		$this->form_validation->set_rules('ward', 'ward', 'required');
 		$this->form_validation->set_rules('address', 'address', 'required');
 		$this->form_validation->set_rules('place', 'place', 'required');
