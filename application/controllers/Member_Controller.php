@@ -12,6 +12,7 @@ class Member_Controller extends Check_Logged
 		$this->load->model('Member_Model');
 		$this->load->model('User_Model');
 		$this->load->model('Loan_Model');
+		$this->load->model('Deposit_Model');
 		$this->load->library('table');
 
 		$this->load->helper('html');
@@ -291,6 +292,7 @@ class Member_Controller extends Check_Logged
 			foreach ($member as $key => $value) 
 			{
 				$member_id = $value->id;
+				$this->table->add_row(array($value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount));
 			}
 			$where = ['members_id' => $member_id];
 			$query = $this->Loan_Model->get_where($where);

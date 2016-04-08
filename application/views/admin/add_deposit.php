@@ -6,7 +6,7 @@
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title><?php echo ucfirst($currentPage); ?> E-Kudumbashree</title>
+  <title>  E-Kudumbashree</title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -19,7 +19,7 @@
 <body>
 <div class="page-wrapper">
     <div class="left-wrapper">
-      <?php echo dashboard_menu('events');?>
+      <?php echo member_menu('deposit');?>
     </div>
   
     <nav class="top-wrapper">
@@ -39,33 +39,27 @@
     </nav>
 
 	<div class="event_head">
-	<h1><font color="red">ADD EVENTS</font></h1>
+	<h1><font color="red">DEPOSIT</font></h1>
 	<?php echo validation_errors(); ?>
-	<form action="<?php echo base_url('dashboard/events/add/submit'); ?>" method="post"> <!-- Event_Controller/add -->
+	<form action="<?php echo base_url('Deposit_Controller/add'); ?>" method="post">
 	<div class="grp">
-		<label for="name">Event Name</label>
-			<input type="text" name="name" id="name" placeholder=" Name"></br></div>
+	<div class="grp">
+		<label for="id">Id</label>
+			<input type="text" name="id" id="id" placeholder="id"></br></div>
+
+		<label for="amount">Amount</label>
+			<input type="text" name="amount" id="amount" placeholder="amount"></br></div>
 	
 	<div class="grp">
-		<label for="type">Event Type</label>
-			<input type="text" name="type" id="type" placeholder="Type"></br></div>
+		<label for="date">Payed-date</label>
+			<input type="date" name="date" id="date" placeholder="date"></br></div>
 	
 
-	<div class="grp">
-		<label for="time">Event Time</label>
-			<input type="time" name="time" id="time" placeholder="00:00"></br></div>
+	<!-- <div class="grp">
+		<label for="balance">Balance</label>
+			<input type="text" name="balance" id="balance" ></br></div>
+	 -->
 	
-	<div class="grp">
-		<label for="date">Event Date</label>
-			<input type="date" name="date" id="date" placeholder="0000/00/00"></br></div>
-	
-	<div class="grp">
-		<label for="venue">Event Venue</label>
-			<input type="text" name="venue" id="venue" placeholder="Venue"></br></div>
-	
-	<div class="grp">
-		<label for="description">Event Description</label>
-			<input type="text" name="description" id="description" placeholder="Description"></br></div>
 	
 	<div class="grp_btn">
 		<button>SUBMIT</button>
