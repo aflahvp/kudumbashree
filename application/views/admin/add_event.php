@@ -41,7 +41,7 @@
 	<div class="event_head">
 	<h1><font color="red">ADD EVENTS</font></h1>
 	<?php echo validation_errors(); ?>
-	<form action="<?php echo base_url('dashboard/events/add/submit'); ?>" method="post">
+	<form action="<?php echo base_url('dashboard/events/add/submit'); ?>" method="post"> <!-- Event_Controller/add -->
 	<div class="grp">
 		<label for="name">Event Name</label>
 			<input type="text" name="name" id="name" placeholder=" Name"></br></div>

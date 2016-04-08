@@ -49,51 +49,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-///////PUBLIC ROUTES/////////////////
+//////////////////////PUBLIC ROUTES/////////////////////////
 $route['home'] = 'Home_Controller';
 
-// unit 
-$route['unit-login'] = 'Unit_Controller/dashboard';
+
+//////////////////////ADMIN  ROUTES//////////////////////////
+$route['dashboard'] = 'Admin_Controller/dashboard';
+$route['dashboard/logout'] = 'Admin_Controller/logout';
+
+// admin
+$route['admin-login'] = 'User_Controller/login';
+
+
+
+///////////////////// UNIT ROUTES////////////////////////////
+$route['unit-login'] = 'Unit_Controller/login';
+$route['unit/logout'] = 'Unit_Controller/logout';
+$route['unit-login/verify'] = 'Unit_Controller/verify';
+$route['unit-admin'] = 'Unit_Controller/dashboard';
+$route['(:any)/unit-home'] = 'Unit_Controller/dashboard';
+$route['(:any)/unit-members'] = 'Unit_Controller/view_all_members';
+$route['(:any)/unit-members/add'] = 'Unit_Controller/add_member';
+$route['(:any)/unit-members/add/submit'] = 'Unit_Controller/add_member_submit';
+$route['(:any)/unit-members/delete/(:num)'] = 'Unit_Controller/deleet_member/$1';
+
+$route['(:any)/unit-products'] = 'Unit_Controller/view_products';
+$route['(:any)/unit-products/add'] = 'Unit_Controller/add_products';
+$route['(:any)/unit-products/add/submit'] = 'Unit_Controller/add_product_submit';
+$route['(:any)/unit-products/delete/(:num)'] = 'Unit_Controller/delete_product/$1';
+
+$route['(:any)/unit-loans'] = 'Unit_Controller/view_loan';
+
+$route['(:any)/unit-events'] = 'Unit_Controller/view_event';
+$route['(:any)/unit-events/add'] = 'Unit_Controller/add_event';
+$route['(:any)/unit-events/add/submit'] = 'Unit_Controller/add_event_submit';
+$route['(:any)/unit-events/delete/(:num)'] = 'Unit_Controller/delete_event/$1';
+
+
+/*units*/
+$route['dashboard/units/add'] = 'Admin_Controller/add_unit';
+$route['dashboard/units'] = 'Unit_Controller/view_all';
+$route['dashboard/units/add/submit'] = 'Unit_Controller/add_unit';
+$route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
+
+
+
+
 
 
 
 /*loans*/
-
 $route['dashboard/loans'] = 'Loan_Controller/view';
 $route['dashboard/loans/add'] = 'Loan_Controller/add';
-
-
-/////////MEMBER ROUTES/////////
-/*MEMBER LOGIN*/
-$route['member/login'] = 'Member_Controller/login';
-$route['member/logout'] = 'Member_Controller/logout';
-
-$route['(:any)/home'] = 'Member_Controller/dashboard';
-$route['(:any)/loan'] = 'Member_Controller/view_loans';
-$route['(:any)/loan/apply/(:num)'] = 'Member_Controller/loan_registration/$1';
-$route['(:any)/loan/apply/submit'] = 'Member_Controller/loan_submit';
-
-
-
-
-/////Admin  routes//////
-$route['dashboard'] = 'Admin_Controller/dashboard';
-
-
-/*user*/
-$route['dashboard/'] = 'User_Controller/';
 
 /*USER LOGIN*/
 $route['dashboard/users/login'] = 'User_Controller/login';
 
 
 
-/*units*/
+///////////////////////MEMBER ROUTES/////////////////////////
+/*MEMBER LOGIN*/
+$route['member/login'] = 'Member_Controller/login';
+$route['member/logout'] = 'Member_Controller/logout';
+$route['member/login/verify'] = 'Member_Controller/verify';
 
-$route['dashboard/units/add'] = 'Admin_Controller/add_unit';
-$route['dashboard/units'] = 'Unit_Controller/view_all';
-$route['dashboard/units/add/submit'] = 'Unit_Controller/add_unit';
-$route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
+
+$route['(:any)/home'] = 'Member_Controller/dashboard';
+$route['(:any)/loan'] = 'Member_Controller/view_loans';
+$route['(:any)/loan/apply/(:num)'] = 'Member_Controller/loan_registration/$1';
+$route['(:any)/loan/apply/submit'] = 'Member_Controller/loan_submit';
 
 
 /*member*/
@@ -112,11 +136,22 @@ $route['dashboard/events/delete/(:num)'] = 'Event_Controller/delete/$1';
 
 
 /*products*/
-
 $route['dashboard/products/add'] = 'Admin_Controller/add';
 $route['dashboard/products'] = 'Product_Controller/index';
 $route['dashboard/products/delete/(:num)'] = 'Product_Controller/delete/$1';
 $route['dashboard/products/add/submit'] = 'Product_Controller/add';
+
+
+
+/*DEPOSIT*/
+$route['dashboard/deposits/add'] = 'Admin_Controller/add';
+$route['dashboard/deposits/'] = 'Deposit_Controller/add';
+$route['dashboard/deposits/view'] = 'Admin_Controller/view';
+
+
+// /*user*/
+// $route['dashboard/'] = 'User_Controller/';
+
 
 
 

@@ -3,16 +3,15 @@
 /**
 * 
 */
-class Product_Model extends CI_Model
+class Deposit_model extends CI_Model
 {
-	protected $table='products';
+	protected $table='deposits';	
 	
-	function __construct()
+	public function __construct()
 	{
 		parent::__construct();
 		$this->load->database();
 	}
-
 
 	public function add($data)
 	{
@@ -22,11 +21,31 @@ class Product_Model extends CI_Model
 		}
 		else
 		{
-			return FALSE;
+			return false;
 		}
 	}
 
-	public function view()
+	public function view_all()
+	{
+		$query = $this->db->get($this->table);
+		if ($query != false) 
+		{
+			if ($query->num_rows() >= 1) 
+			{
+				return $query->result();
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function get_all()
 	{
 		$query = $this->db->get($this->table);
 		if ($query != false) 
@@ -44,15 +63,15 @@ class Product_Model extends CI_Model
 			return false;
 		}
 	}
-	public function view_where($where)
+
+	public function get_where($where)
 	{
 		$this->db->where($where);
 		$query = $this->db->get($this->table);
-
-		if ($query != false) 
+		if($query)
 		{
-			if ($query->num_rows() >= 1) {
-				
+			if($query->num_rows() >= 1)
+			{
 				return $query->result();
 			}
 			else
@@ -60,25 +79,7 @@ class Product_Model extends CI_Model
 				return false;
 			}
 		}
-		else
-		{
-			return false;
-		}
 	}
 
-	public function delete($where)
-	{
-		$this->db->where($where);
-
-		if($this->db->delete($this->table))
-		{
-			return true;
-		}
-
-		else
-		{
-			return false;
-		}
-	}
 }
  ?>

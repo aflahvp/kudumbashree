@@ -6,7 +6,7 @@
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title>E-KUDUMBASHREE</title>
+  <title>E-Kudumbashree</title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -19,7 +19,7 @@
 <body>
   <div class="page-wrapper">
     <div class="left-wrapper">
-      <?php echo dashboard_menu('units');?>
+      <?php echo member_menu('deposit');?>
     </div>
   
     <nav class="top-wrapper">
@@ -32,50 +32,20 @@
           <li><a href="#"><i class="fa fa-bell-o fa-lg"></i></a></li>
           <li><a href="#"><i class="fa fa-cog fa-lg"></i></a></li>
           <li>
-            <a href="<?php echo base_url('dashboard/logout');?>">logout</a>
+            <a href="<?php echo base_url('member/logout');?>">logout</a>
           </li>
         </ul>
       </div>
     </nav>
-    <?php 
-		if (isset($result) ) {
+    <?php //echo "<pre>";print_r($loan);?>
 
-			?>
-			<table class="table">
-				<thead class="header">
-					<tr>
-						<td>id</td>
-						<td>name</td>
-						<td>ward</td>
-						<td>address</td>
-						<td>place</td>
-						<td>username</td>
-						<td>pasword</td>
-						<td><a href="<?php echo base_url('dashboard/units/add') ?>">add</a></td>
-					</tr>
-				</thead>
-        <body>
-			<?php foreach ($result as $key => $value) {?>
-				<tr>
-					<td><?php echo $value->id ?></td>
-					<td><?php echo $value->name ?></td>
-					<td><?php echo $value->ward ?></td>
-					<td><?php echo $value->address ?></td>
-					<td><?php echo $value->place ?></td>
-					<td><?php echo $value->username ?></td>
-					<td><?php echo $value->password ?></td>
-					<td><a href="<?php echo base_url('dashboard/units/delete/'.$value->id) ?>" onclick = "return confirm('Are you sure to delete this?');"> Delete</a></td> 
-				</tr>
-			<?php }
-		}
+    <?php if (isset($deposit)): ?>
+    	<?php  echo $deposit; ?>
+    <?php endif ?>
+    <?php if (isset($message)): ?>
+      <?php echo $message ?>
+    <?php endif ?>
 
-    if (isset($message)) {
-      echo $message;
-    }
-	 ?>
-
-   </body>
-   </table>
-  </div>
+	</div>
 </body>
 </html>

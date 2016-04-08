@@ -1,12 +1,12 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+	<meta charset="UTF-8">
   <meta name="keywords" content="web design, web development, web site development, web site design, web design development, e-commerce, ecommerce, interactive, new media, development, Manjeri, hove, Manjeri web design, Manjeri ecommerce, Manjeri e-commerce, Manjeri web development, malappuram, content management, cms, web site, web sites, psybo, psybo technologies, psybotechnologies">
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title>E-KUDUMBASHREE</title>
+  <title>  E-Kudumbashree</title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -17,9 +17,9 @@
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
+<div class="page-wrapper">
     <div class="left-wrapper">
-      <?php echo dashboard_menu('units');?>
+      <?php echo member_menu('deposit');?>
     </div>
   
     <nav class="top-wrapper">
@@ -37,45 +37,36 @@
         </ul>
       </div>
     </nav>
-    <?php 
-		if (isset($result) ) {
 
-			?>
-			<table class="table">
-				<thead class="header">
-					<tr>
-						<td>id</td>
-						<td>name</td>
-						<td>ward</td>
-						<td>address</td>
-						<td>place</td>
-						<td>username</td>
-						<td>pasword</td>
-						<td><a href="<?php echo base_url('dashboard/units/add') ?>">add</a></td>
-					</tr>
-				</thead>
-        <body>
-			<?php foreach ($result as $key => $value) {?>
-				<tr>
-					<td><?php echo $value->id ?></td>
-					<td><?php echo $value->name ?></td>
-					<td><?php echo $value->ward ?></td>
-					<td><?php echo $value->address ?></td>
-					<td><?php echo $value->place ?></td>
-					<td><?php echo $value->username ?></td>
-					<td><?php echo $value->password ?></td>
-					<td><a href="<?php echo base_url('dashboard/units/delete/'.$value->id) ?>" onclick = "return confirm('Are you sure to delete this?');"> Delete</a></td> 
-				</tr>
-			<?php }
-		}
+	<div class="event_head">
+	<h1><font color="red">DEPOSIT</font></h1>
+	<?php echo validation_errors(); ?>
+	<form action="<?php echo base_url('Deposit_Controller/add'); ?>" method="post">
+	<div class="grp">
+	<div class="grp">
+		<label for="id">Id</label>
+			<input type="text" name="id" id="id" placeholder="id"></br></div>
 
-    if (isset($message)) {
-      echo $message;
-    }
-	 ?>
+		<label for="amount">Amount</label>
+			<input type="text" name="amount" id="amount" placeholder="amount"></br></div>
+	
+	<div class="grp">
+		<label for="date">Payed-date</label>
+			<input type="date" name="date" id="date" placeholder="date"></br></div>
+	
 
-   </body>
-   </table>
-  </div>
+	<!-- <div class="grp">
+		<label for="balance">Balance</label>
+			<input type="text" name="balance" id="balance" ></br></div>
+	 -->
+	
+	
+	<div class="grp_btn">
+		<button>SUBMIT</button>
+		<input type="reset" name="reset" id="reset" value="RESET">
+		<input type="button" name="cancel" id="cancel" value="CANCEL">
+		</div>
+	</form>
+	</div>
 </body>
 </html>

@@ -22,7 +22,9 @@ class Loan_Model extends CI_Model
 		'members.age',
 		'members.dob',
 		'members.address',
-		'members.place'
+		'members.place',
+		'units.id as units_id'
+
 	];
 	public function __construct()
 	{
@@ -86,6 +88,8 @@ class Loan_Model extends CI_Model
 		$this->db->where($where);
 		$this->db->from($this->table);
 		$this->db->join('members','members.id ='.$this->table.'.members_id');
+		$this->db->join('units','units.id =loans.members_id');
+
 		// var_dump($this->db->get_compiled_select($this->table));
 		$query = $this->db->get();
 		if($query)

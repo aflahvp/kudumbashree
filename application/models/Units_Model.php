@@ -15,6 +15,20 @@ class Units_Model extends CI_Model
 		$this->load->database();
 	}
 
+	public function view_where($where)
+	{
+		$this->db->where($where);
+		$query = $this->db->get($this->table);
+		if($query->num_rows() >= 1)
+		{
+			return $query->result();
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
 	public function view_all()
 	{
 		$query = $this->db->get($this->table);
@@ -63,5 +77,7 @@ class Units_Model extends CI_Model
 			return FALSE;
 		}
 	}
+
+	
 }
  ?>
