@@ -84,16 +84,16 @@ class Deposit_Controller extends Check_Logged
 		// var_dump($this->uri->segment(1));
 			$username = $this->uri->segment(1);
 			$where = ['username' => $username];
-			$member = $this->Deposit_Model->get_where(['name' => $username]);
-			// echo "<pre>";		print_r($member);
-			foreach ($member as $key => $value) 
-			{
-				$member_id = $value->id;
-				$this->table->add_row(array($value->amount, $value->payeddate));
-			}
+			// $member = $this->Deposit_Model->get_where(['name' => $username]);
+			// // echo "<pre>";		print_r($member);
+			// foreach ($member as $key => $value) 
+			// {
+			// 	$member_id = $value->id;
+			// }
+		// $where = ['members_id' => $member_id];
+			$member_id = $_SESSION['id'];
 		$where = ['members_id' => $member_id];
 		$query = $this->Deposit_Model->get_where($where);
-		var_dump($query);
 		if($query != false)
 		{
 			$this->table->set_heading(array('amount', 'payeddate'));
@@ -128,16 +128,15 @@ class Deposit_Controller extends Check_Logged
         'table_close'           => '</table>'
 		);
 
-			$this->table->set_template($template);
-			$data['deposit']= $this->table->generate();
-			
-			
-			$this->load->view('admin/view_deposit', $data);
+		$this->table->set_template($template);
+		$data['deposit']= $this->table->generate();
+		
+		$this->load->view('admin/view_deposit', $data);
 		}
 		else
 			{
 				// var_dump(base_url(uri_string()));
-				$data['message'] = anchor(base_url(uri_string().'/apply/'.$member_id), 'apply loan', ['class' => 'button normal-button' ]);
+				$data['message'] = 'No result fond';
 				$this->load->view('admin/view_deposit', $data);
 			}
 		}

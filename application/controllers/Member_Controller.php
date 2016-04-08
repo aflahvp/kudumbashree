@@ -234,11 +234,14 @@ class Member_Controller extends Check_Logged
 				$password = md5($password);
 
 				/*call the method from User Model*/
-				if($this->User_Model->login($username, $password,'member') === TRUE)
+				$query =$this->User_Model->login($username, $password,'member');
+				if($query != FALSE)
 				{
+					$id = $query[0]->id;
 					$user_data = [
 						'username' => $username,
 						'type' => 'member',
+						'id' => $id,
 						'logged_in' => TRUE
 					];
 					$this->session->set_userdata($user_data,'logged_in');
@@ -283,17 +286,17 @@ class Member_Controller extends Check_Logged
 	public function view_loans()
 	{
 		if($this->logged === true and $_SESSION['type'] == 'member'){
-			
+
 			// var_dump($this->uri->segment(1));
 			$username = $this->uri->segment(1);
 			$where = ['username' => $username];
-			$member = $this->Member_Model->get_where(['name' => $username]);
+			$id = $_SESSION['id'];
+			$member = $this->Member_Model->get_where(['id' => $id]);
 			// echo "<pre>";		print_r($member);
 			foreach ($member as $key => $value) 
 
 			{
 				$member_id = $value->id;
-				$this->table->add_row(array($value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount));
 			}
 
 			$where = ['members_id' => $member_id];
