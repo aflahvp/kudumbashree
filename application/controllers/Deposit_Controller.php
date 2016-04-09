@@ -15,7 +15,7 @@ class Deposit_Controller extends Check_Logged
 
 	public function view()
 	{
-		$data = $this->Deposit_Model->get_all();
+		$data = $this->Deposit_Model->view_all();
 		if($data != FALSE)
 		{
 			$this->load->view('admin/view_deposit',$data);
@@ -60,7 +60,7 @@ class Deposit_Controller extends Check_Logged
 	        
 	        if($query==true)
 	        {
-	        	redirect(base_url('Deposit_Controller/view_deposit'));   //Deposit_Controller/index
+	        	redirect(base_url('dashboard/deposits/view'));   //Deposit_Controller/index
 	        	$this->load->view('admin/view_deposit',$data);
 	        	//$this->load->view('Event_Controller/view');
 	        }
@@ -136,7 +136,8 @@ class Deposit_Controller extends Check_Logged
 		else
 			{
 				// var_dump(base_url(uri_string()));
-				$data['message'] = 'No result fond';
+				$data['message'] = anchor(base_url(uri_string().'/add/'.$member_id), 'add ', ['class' => 'button normal-button' ]);
+				// $data['message'] = 'No result fond';
 				$this->load->view('admin/view_deposit', $data);
 			}
 		}
