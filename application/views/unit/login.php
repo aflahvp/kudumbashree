@@ -1,39 +1,17 @@
+
 <!DOCTYPE html>
-<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>login</title>
-	<link rel="stylesheet" href="<?php echo base_url('css/normalize.css') ?>">
-	<link rel="stylesheet" href="<?php echo base_url('css/style.css') ?>">
+<meta charset="utf-8">
+<title>Slick Login</title>
+<meta name="description" content="slick Login">
+<link rel="stylesheet" href="<?php echo base_url('css/login.css') ?>">
 </head>
 <body>
-
-<div class="login-box">
-	<?php echo form_open(base_url('unit-login/verify'), ['id' => 'loginform', 'name' => 'loginform' ]);
-	echo validation_errors();
-	?>
-
-		<h1>Login</h1>
-		<div class="group">
-			<!-- //<label for="username">User Name</label>  -->
-			<input type="text" name="username" id="username" value="" placeholder="User Name" required="">
-			<span></span>
-		</div>
-		<div class="group">
-			 <!-- <label for="password">Password</label>  -->
-			<input type="password" name="password" id="password" value="" placeholder="Password" required="">
-			<span></span>
-		</div>
-		<div class="group pull-right">
-			<input type="submit" name="submit" value="submit" class="btn-submit">
-		</div>
-	</form>
-</div>
-<?php if (isset($message)): ?>
-	<div >
-		<?php echo $message ?>
-	</div>
-<?php endif ?>
+<?php echo form_open(base_url('unit-login/verify'), ['id' => 'loginform', 'name' => 'loginform', 'id' => 'slick-login' ]);
+	echo validation_errors();?>
+<label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="me@tutsplus.com">
+<label for="password">password</label><input type="password" name="password" class="placeholder" placeholder="password">
+<input type="submit" value="Log In">
+</form>
 </body>
 </html>
