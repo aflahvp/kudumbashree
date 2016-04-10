@@ -94,7 +94,6 @@ class Member_Controller extends Check_Logged
 				$fathername = $this->input->post('fathername');
 				$mothername = $this->input->post('mothername');
 				$rationcardtype = $this->input->post('rationcardtype');
-				$category = $this->input->post('category');
 				$bloodgroup = $this->input->post('bloodgroup');
 				$eligibility = $this->input->post('eligibility');
 				$religion = $this->input->post('religion');
@@ -121,7 +120,6 @@ class Member_Controller extends Check_Logged
 					'fathername' => $fathername,
 					'mothername' => $mothername,
 					'rationcardtype' => $rationcardtype,
-					'category' => $category,
 					'bloodgroup' => $bloodgroup,
 					'eligibility' => $eligibility, 
 					'religion' => $religion,

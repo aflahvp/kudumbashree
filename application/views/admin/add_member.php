@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -234,15 +234,6 @@
 			</div>
 		</div> <!-- right div -->
 
-			<div class="group">
-   			<label for="position">Position</label> 
-      		<select class="width-60" name="usertype" id="usertype">
-          <option value="" selected="" disabled="">select</option>
-          <option value="secretary"  <?php echo  set_select('usertype', 'secretary' ); ?>>----Secretary----</option>
-          <option value="member1"  <?php echo  set_select('usertype', 'member1' ); ?>>----Member1----</option>
-          <option value="member2"  <?php echo  set_select('usertype', 'member2' ); ?>>----Member2----</option>
-   </select>
-   </div>
 		<div class="group">
 			<div class="btn-grp">
 				<button class="button">Submit</button>
