@@ -39,7 +39,7 @@ function clearText(field)
     
     	<div id="templatemo_banner_image">
         	<div id="templatemo_banner_image_wrapper">
-            	<img src="images/templatemo_image_01.jpg" alt="image 1" />
+            	<img src="images/main.gif" alt="image 1" />
             </div>
         </div>
         
