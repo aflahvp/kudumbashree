@@ -6,6 +6,23 @@
 	<title>login</title>
 	<link rel="stylesheet" href="../../css/normalize.css">
 	<link rel="stylesheet" href="../../css/style.css">
+
+	<style>
+		#container
+		{
+			width:35%;
+			height:80%;
+			margin:5% 0% 0% 35%;
+			background:#cccccc;
+			background-position:center;
+			border-radius:9px;
+			/* box-shadow:rgb(73, 73, 73) 0px 10px 20px; */
+			box-shadow:0px 20px 20px black;
+			/* margin right:20%; */
+
+
+		}
+	</style>
 </head>
 <body>
 
@@ -13,20 +30,27 @@
 	<?php echo form_open(base_url('User_Controller/verify'), ['id' => 'loginform', 'name' => 'loginform' , 'method' => 'post']);
 	echo validation_errors();
 	?>
-
-		<h1>Login</h1>
+		<div id = "container"><br/>
+		<h1 style="color:red;"><center>Admin Login</center></h1>
 		<div class="group">
-			<!-- //<label for="username">User Name</label>  -->
-			<input type="text" name="username" id="username" value="" placeholder="User Name">
+
+			<!-- <label for="username"><big><b>User Name</b></big></label>  -->
+			<center><input type="text" name="username" id="username" value="" placeholder="User Name"></center><br/>
 			<span></span>
 		</div>
 		<div class="group">
 			 <!-- <label for="password">Password</label>  -->
-			<input type="password" name="password" id="password" value="" placeholder="Password">
+			<center><input type="password" name="password" id="password" value="" placeholder="Password"></center><br/>
 			<span></span>
 		</div>
 		<div class="group pull-right">
-			<input type="submit" name="submit" value="submit" class="btn-submit">
+			<center><input type="submit" name="submit" value="SUBMIT" class="btn-submit" style="color:white;background:black;"></center>
+		</div>
+		
+		<!-- <a href="application.html"> </a> -->
+		<!-- <img src="pics/reaflah.png" width="45%" height="50%" align="right"> -->
+		<br/><br/>
+
 		</div>
 	</form>
 </div>

@@ -455,7 +455,7 @@ public function login()
 			$unit_id = $_SESSION['id'];
 			$where = ['units_id' => $unit_id];
 
-			var_dump($this->Loan_Model->get_join($where));
+			// var_dump($this->Loan_Model->get_join($where));
 
 			$query = $this->Loan_Model->get_join($where);
 			if($query != FALSE)
