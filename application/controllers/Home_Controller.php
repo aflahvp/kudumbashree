@@ -14,7 +14,7 @@ class Home_Controller extends Check_Logged
 
 	public function index()
 	{
-		$this->load->view('aaa');
+		$this->load->view('index');
 	}
 
 	// public function registration()
