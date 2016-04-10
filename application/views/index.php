@@ -27,6 +27,7 @@ function clearText(field)
                   <!-- <li><a href="">Gallery</a></li> -->
                   <li><a href="<?php echo base_url('admin-login') ?>">admin</a></li>
                   <li><a href="<?php echo base_url('member/login') ?>" class="last">member login</a></li>
+                  <li><a href="<?php echo base_url('unit-login') ?>" class="last">Unit login</a></li>
             </ul>    	
 		</div> <!-- end of menu -->
     

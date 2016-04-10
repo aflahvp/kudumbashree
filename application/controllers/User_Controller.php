@@ -55,7 +55,8 @@ class User_Controller extends Check_Logged
 
 			/*call the method from User Model*/
 
-			if($this->User_Model->login($username, $password,'admin') === TRUE)
+			$query = $this->User_Model->login($username, $password,'admin');
+			if( $query != FALSE)
 			{
 				$user_data = [
 					'username' => $username,
@@ -65,6 +66,12 @@ class User_Controller extends Check_Logged
 				$this->session->set_userdata($user_data,'logged_in');
 				redirect(base_url('dashboard'));
 			}
+			else{
+
+				echo "login error";
+				$this->load->view('admin/login');
+			}
+
 		}
 	}
 

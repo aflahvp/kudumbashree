@@ -49,7 +49,7 @@ class Loan_Controller extends Check_Logged
 	 	
 	 	// }
 
-}
+// }
 	}
 
 
