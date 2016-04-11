@@ -22,7 +22,7 @@
         <div id="templatemo_menu">
             <div id="templatemo_menu_left"></div>
             <ul>
-                <li><a href="#" class="current">Home</a></li>
+                <li><a href="<?php echo base_url('home') ?>" class="current">Home</a></li>
                 <!-- <li><a href="">Services</a></li> -->
                 <!-- <li><a href="">Gallery</a></li> -->
                 <li><a href="<?php echo base_url('gallery') ?>">gallery</a></li>
