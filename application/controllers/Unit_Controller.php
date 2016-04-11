@@ -17,6 +17,7 @@ class Unit_Controller extends Check_Logged
 		$this->load->model('Product_Model');
 		$this->load->model('Loan_Model');
 		$this->load->model('Event_Model');
+		$this->load->model('Deposit_Model');
 		$this->load->library('table');
 		// $this->load->helper('url');
 	 //    $this->load->helper('form');
@@ -115,7 +116,7 @@ public function login()
 
 			if($query != FALSE)
 			{
-				$this->table->set_heading(array('id', 'name', 'address', 'place', anchor(base_url(uri_string()), 'add member', ['class' => 'button normal-button' ])));
+				$this->table->set_heading(array('id', 'name', 'address', 'place', anchor(base_url(uri_string().'/add'), 'add member', ['class' => 'button normal-button' ])));
 				foreach ($query as $key => $value) 
 				{
 					$this->table->add_row(array($value->id, $value->name, $value->address, $value->place));
@@ -240,6 +241,8 @@ public function login()
 			
 				$data = [
 					'name' => $name,
+                    'username' => $username,
+                    'password' => $password,
 					'age' => $age,
 					'dob' => $dob,
 					'address' => $address,
@@ -269,28 +272,28 @@ public function login()
 				if ($query != FALSE)
 				{
 
-					$data = [
-						'username' => $username,
-						'password' => $password,
-						'usertype' => 'member'
-					];
-					
+//					$data = [
+//						'username' => $username,
+//						'password' => $password,
+//						'usertype' => 'member'
+//					];
+//
 
 					// call the add_user() from model
-					if ($this->User_Model->add_user($data))
-					{
+//					if ($this->User_Model->add_user($data))
+//					{
 						redirect(base_url($_SESSION['username'].'/unit-members'));
 						// sucess
-					}
-					else
-					{
+//					}
+//					else
+//					{
 
 						
-					$data['error'] = '<script type="text/javaScript">
-						alert("Server down");
-					</script>';
-					$this->load->view('unit/add_member',$data);
-					}
+//					$data['error'] = '<script type="text/javaScript">
+//						alert("Server down");
+//					</script>';
+//					$this->load->view('unit/add_member',$data);
+//					}
 						// failed
 				}
 				else
@@ -666,6 +669,97 @@ public function login()
 		else
 			redirect(base_url('unit-admin'));
 	}
+
+
+    public function view_deposit()
+    {
+        if ($this->logged === true and $_SESSION['type'] == 'unit') {
+            $unit_id = $_SESSION['id'];
+            $where =['deposits.units_id' => $unit_id];
+            $data = $this->Deposit_Model->view_join_where($where);
+//            var_dump($data);
+            if ($data != false) {
+                $this->table->set_heading(array('member_id', 'name', 'amount', 'pay date', 'balance', anchor(base_url(uri_string().'/add'),'add',['class' => 'button button-normal' ])));
+                foreach ($data as $key => $value)
+                {
+                    $this->table->add_row(array($value->member_id, $value->name, $value->amount, $value->payeddate, $value->balance));
+                }
+                $template = array(
+                    'table_open'            => '<table class="table">',
+
+                    'thead_open'            => '<thead class="header">',
+                    'thead_close'           => '</thead>',
+
+                    'heading_row_start'     => '<tr>',
+                    'heading_row_end'       => '</tr>',
+                    'heading_cell_start'    => '<th>',
+                    'heading_cell_end'      => '</th>',
+
+                    'tbody_open'            => '<tbody>',
+                    'tbody_close'           => '</tbody>',
+
+                    'row_start'             => '<tr>',
+                    'row_end'               => '</tr>',
+                    'cell_start'            => '<td>',
+                    'cell_end'              => '</td>',
+
+                    'row_alt_start'         => '<tr>',
+                    'row_alt_end'           => '</tr>',
+                    'cell_alt_start'        => '<td>',
+                    'cell_alt_end'          => '</td>',
+
+                    'table_close'           => '</table>'
+                );
+
+                $this->table->set_template($template);
+                $data['deposit']= $this->table->generate();
+            } else {
+                $data['message'] = 'no data found';
+            }
+
+            $this->load->view('unit/view_deposit',$data);
+        } else {
+            redirect(base_url('login'));
+        }
+    }
+
+
+    public function add_deposit()
+    {
+        $unit_id = $_SESSION['id'];
+        $where = ['units_id' => $unit_id];
+        $data['members'] = $this->Member_Model->get_where($where);
+        $this->load->view('unit/add_deposit', $data);
+    }
+
+    public function add_deposit_submit()
+    {
+        $unit_id = $_SESSION['id'];
+        $member_id = $this->input->post('name');
+        $amount = $this->input->post('amount');
+        $date = date('Y-m-d');
+
+        $data = [
+            'amount' => $amount,
+            'payeddate' => $date,
+            'members_id' => $member_id,
+            'units_id' => $unit_id
+        ];
+
+        if ($this->Deposit_Model->add($data)) {
+//            $data['message'] = '<script type="text/javascript">
+//                                    alert("success");
+//                                    window.location='.$_SERVER['HTTP_REFERER'].'
+//                                    </script>';
+            redirect(base_url($_SESSION['username'].'/unit-deposit'));
+        } else {
+//            $data['message'] = '<script type="text/javascript">
+//                                    alert("failed");
+//                                    </script>';
+        }
+//        $this->load->view('unit/add_deposit',$data);
+
+    }
 
 
 	public function view_all()

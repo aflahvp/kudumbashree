@@ -232,7 +232,7 @@ class Member_Controller extends Check_Logged
 				$password = md5($password);
 
 				/*call the method from User Model*/
-				$query =$this->User_Model->login($username, $password,'member');
+				$query =$this->Member_Model->login($username, $password);
 				if($query != FALSE)
 				{
 					$id = $query[0]->id;
@@ -467,6 +467,56 @@ class Member_Controller extends Check_Logged
 			redirect(base_url('member/login'));
 
 	}
+
+    public function view_deposit()
+    {
+        $member_id = $_SESSION['id'];
+        var_dump($member_id);
+        $where = ['members.id' => $member_id];
+        $data = $this->Deposit_Model->view_join_where($where);
+        if ($data != false) {
+//            var_dump($data);
+            $this->table->set_heading(array('name', 'amount', 'pay date'));
+            foreach ($data as $key => $value)
+            {
+                $this->table->add_row(array($value->name, $value->amount, $value->payeddate));
+            }
+            $template = array(
+                'table_open'            => '<table class="table">',
+
+
+                'thead_open'            => '<thead class="header">',
+                'thead_close'           => '</thead>',
+
+                'heading_row_start'     => '<tr>',
+                'heading_row_end'       => '</tr>',
+                'heading_cell_start'    => '<th>',
+                'heading_cell_end'      => '</th>',
+
+                'tbody_open'            => '<tbody>',
+                'tbody_close'           => '</tbody>',
+
+                'row_start'             => '<tr>',
+                'row_end'               => '</tr>',
+                'cell_start'            => '<td>',
+                'cell_end'              => '</td>',
+
+                'row_alt_start'         => '<tr>',
+                'row_alt_end'           => '</tr>',
+                'cell_alt_start'        => '<td>',
+                'cell_alt_end'          => '</td>',
+
+                'table_close'           => '</table>'
+            );
+
+            $this->table->set_template($template);
+            $data['deposit']= $this->table->generate();
+        } else {
+            $data['message'] = 'no data found';
+        }
+        $this->load->view('member/view_deposit',$data);
+
+    }
 
 	public function available_balance()
 	{

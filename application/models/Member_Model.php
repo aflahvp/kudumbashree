@@ -15,12 +15,12 @@ class Member_Model extends CI_Model
 		$this->load->database();
 	}
 
-	public function login($username, $password, $utype)
+	public function login($username, $password)
 	{
-		$query = $this->db->get_where($this->table, ['username' => $username, 'password' => $password,'usertype' => $utype]);
+		$query = $this->db->get_where($this->table, ['username' => $username, 'password' => $password]);
 		if($query->num_rows() >= 1)
 		{
-			return true;
+			return $query->result();
 		}
 		else
 		{

@@ -157,7 +157,7 @@ function dashboard_menu($current)
               </div>
             </li>';
     foreach ($menu as $key => $value) {
-        if ($current == $key) {
+        if ($current == $value['link']) {
             $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         } else {
             $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
@@ -204,6 +204,11 @@ function unit_menu($current)
             'title' => 'loans',
             'icon' => 'fa-trophy',
             'link' => 'unit-loans'
+        ],
+        'deposit' => [
+            'title' => 'deposit',
+            'icon' => 'fa-trophy',
+            'link' => 'unit-deposit'
         ]
     ];
 
@@ -220,7 +225,7 @@ function unit_menu($current)
               </div>
             </li>';
     foreach ($menu as $key => $value) {
-        if ($current == $key) {
+        if ($current == $value['title']) {
             $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         } else {
             $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
@@ -279,7 +284,7 @@ function member_menu($current)
               </div>
             </li>';
     foreach ($menu as $key => $value) {
-        if ($current == $key) {
+        if ($current == $value['link']) {
             $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
         } else {
             $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';

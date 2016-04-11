@@ -5,7 +5,15 @@
 */
 class Deposit_model extends CI_Model
 {
-	protected $table='deposits';	
+	protected $table='deposits';
+    protected $fields = [
+        'deposits.id',
+        'deposits.amount',
+        'deposits.payeddate',
+        'deposits.balance',
+        'members.name',
+        'members.id as member_id'
+    ];
 	
 	public function __construct()
 	{
@@ -80,6 +88,23 @@ class Deposit_model extends CI_Model
 			}
 		}
 	}
+
+    public function view_join_where($where)
+    {
+        $this->db->select($this->fields);
+        $this->db->where($where);
+        $this->db->join('members', 'members.id = deposits.members_id');
+        $query = $this->db->get($this->table);
+        if ($query != false) {
+            if ($query->num_rows() >0) {
+                return $query->result();
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 
 }
  ?>

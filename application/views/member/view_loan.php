@@ -19,7 +19,7 @@
 <body>
   <div class="page-wrapper">
     <div class="left-wrapper">
-      <?php echo member_menu('members');?>
+      <?php echo member_menu('loan');?>
     </div>
   
     <nav class="top-wrapper">
