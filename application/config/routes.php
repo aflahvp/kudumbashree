@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //////////////////////PUBLIC ROUTES/////////////////////////
 $route['home'] = 'Home_Controller';
+$route['gallery'] = 'Home_Controller/gallery';
 
 
 //////////////////////ADMIN  ROUTES//////////////////////////

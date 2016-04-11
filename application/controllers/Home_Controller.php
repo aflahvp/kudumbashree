@@ -17,6 +17,11 @@ class Home_Controller extends Check_Logged
 		$this->load->view('index');
 	}
 
+
+    public function gallery()
+    {
+        $this->load->view('gallery');
+    }
 	// public function registration()
 	// {
 	// 	$this->load->view('registration');
