@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>login</title>
-	<link rel="stylesheet" href="../../css/normalize.css">
-	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url('css/normalize.css')?>">
+	<link rel="stylesheet" href="<?php echo base_url('css/style.css')?>">
 
 	<style>
 		#container
@@ -34,7 +34,7 @@
 	echo validation_errors();
 	?>
 		<div id = "container"><br/>
-
+            <a href="<?php echo base_url() ?>" class="btn-home">home</a>
 		<h1 style="color:red;"><center>Member Login</center></h1><br/>
 		<div class="group">
 			<!-- //<label for="username">User Name</label>  -->

@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>login</title>
-	<link rel="stylesheet" href="../../css/normalize.css">
-	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url('css/normalize.css')?>">
+	<link rel="stylesheet" href="<?php echo base_url('css/style.css')?>">
 
 	<style>
 		#container
@@ -20,7 +20,6 @@
 			box-shadow:0px 20px 20px black;
 			/* margin right:20%; */
 
-
 		}
 	</style>
 </head>
@@ -31,6 +30,7 @@
 	echo validation_errors();
 	?>
 		<div id = "container"><br/>
+            <a href="<?php echo base_url();?>" class="btn btn-home">home</a>
 		<h1 style="color:red;"><center>Admin Login</center></h1>
 		<div class="group">
 

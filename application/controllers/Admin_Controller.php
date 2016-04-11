@@ -37,7 +37,7 @@ class Admin_Controller extends Check_Logged
 	{
 		$this->session->unset_userdata('logged_in');
 		$this->session->sess_destroy();
-		redirect(base_url('admin-login'));
+		redirect(base_url());
 	}
 
         /* UNITS */
@@ -81,7 +81,7 @@ class Admin_Controller extends Check_Logged
 		$data = $this->Loan_Model->get_where(['status' => 'approved']);
 		if ($data != false) {
 			$this->table->set_heading('id','bankname','accountno','mobile','email');
-			$data['result'] = $this->table->generate($query);
+			$data['result'] = $this->table->generate($data);
 		}
 		else
 		{
@@ -89,6 +89,13 @@ class Admin_Controller extends Check_Logged
 		}
 		$this->load->view('admin/view_loans',$data);
 	}
+
+
+    public function view_all()
+    {
+        $data['message'] = 'unable to process at this time try again later';
+        $this->load->view('admin/view_gallery',$data);
+    }
 }	
 	 
 

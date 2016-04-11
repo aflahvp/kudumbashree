@@ -471,7 +471,7 @@ class Member_Controller extends Check_Logged
     public function view_deposit()
     {
         $member_id = $_SESSION['id'];
-        var_dump($member_id);
+//        var_dump($member_id);
         $where = ['members.id' => $member_id];
         $data = $this->Deposit_Model->view_join_where($where);
         if ($data != false) {

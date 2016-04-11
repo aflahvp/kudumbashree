@@ -132,6 +132,9 @@ $route['dashboard/members/delete/(:num)'] = 'Member_Controller/delete/$1';
 $route['dashboard/members/add/submit'] = 'Member_Controller/add_member';
 $route['dashboard/members'] = 'Member_Controller/view_all';
 
+/*gallery*/
+$route['dashboard/gallery'] = 'Admin_Controller/view_all';
+
 
 /*events*/
 $route['dashboard/events/add'] = 'Admin_Controller/add_event';

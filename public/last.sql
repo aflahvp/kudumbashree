@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2016 at 09:15 AM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Apr 11, 2016 at 04:00 PM
+-- Server version: 5.5.47-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `kudumbashree`
+-- Database: `kudumbasree`
 --
 
 -- --------------------------------------------------------
@@ -27,33 +27,37 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `deposits` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `amount` decimal(10,0) DEFAULT NULL,
   `payeddate` date DEFAULT NULL,
   `balance` decimal(10,0) DEFAULT NULL,
-  `members_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `members_id` int(11) NOT NULL,
+  `units_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_deposits_members1_idx` (`members_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `deposits`
+--
 
 --
 -- Table structure for table `events`
 --
 
 CREATE TABLE IF NOT EXISTS `events` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   `time` time DEFAULT NULL,
   `date` date DEFAULT NULL,
   `venue` varchar(45) DEFAULT NULL,
   `description` varchar(45) DEFAULT NULL,
-  `units_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+  `units_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_events_units1_idx` (`units_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
---
--- Dumping data for table `events`
---
 
 -- --------------------------------------------------------
 
@@ -62,12 +66,13 @@ CREATE TABLE IF NOT EXISTS `events` (
 --
 
 CREATE TABLE IF NOT EXISTS `feedbacks` (
-  `id` int(11) NOT NULL COMMENT '	',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '	',
   `yourname` varchar(45) DEFAULT NULL,
   `youremail` varchar(45) DEFAULT NULL,
   `youraddress` varchar(45) DEFAULT NULL,
-  `yourcomments` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `yourcomments` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -76,10 +81,11 @@ CREATE TABLE IF NOT EXISTS `feedbacks` (
 --
 
 CREATE TABLE IF NOT EXISTS `files` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_name` varchar(45) DEFAULT NULL,
-  `file_type` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `file_type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -88,12 +94,14 @@ CREATE TABLE IF NOT EXISTS `files` (
 --
 
 CREATE TABLE IF NOT EXISTS `loanpayments` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `amount` decimal(10,0) DEFAULT NULL,
   `payeddate` date DEFAULT NULL,
   `balance` varchar(45) DEFAULT NULL,
-  `loans_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `loans_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_loanpayments_loans1_idx` (`loans_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -102,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `loanpayments` (
 --
 
 CREATE TABLE IF NOT EXISTS `loans` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `bankname` varchar(45) DEFAULT NULL,
   `accountno` varchar(45) DEFAULT NULL,
   `loantype` varchar(45) DEFAULT NULL,
@@ -110,11 +118,11 @@ CREATE TABLE IF NOT EXISTS `loans` (
   `email` varchar(45) DEFAULT NULL,
   `loanamount` decimal(10,0) DEFAULT NULL,
   `members_id` int(11) NOT NULL,
-  `status` varchar(42) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `status` varchar(42) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_loans_members1_idx` (`members_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
---
--- Dumping data for table `loans`
 --
 
 -- --------------------------------------------------------
@@ -124,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `loans` (
 --
 
 CREATE TABLE IF NOT EXISTS `members` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `dob` date DEFAULT NULL,
@@ -148,11 +156,15 @@ CREATE TABLE IF NOT EXISTS `members` (
   `adharno` int(11) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `units_id` int(11) NOT NULL,
-  `position` varchar(45) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+  `position` varchar(45) NOT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(245) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `members`
+--
 -- --------------------------------------------------------
 
 --
@@ -160,52 +172,51 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `description` varchar(250) DEFAULT NULL,
   `files_id` int(11) NOT NULL,
-  `units_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+  `units_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `products`
---
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `units`
 --
 
 CREATE TABLE IF NOT EXISTS `units` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `isapproved` varchar(15) DEFAULT NULL,
   `ward` varchar(45) DEFAULT NULL,
   `address` varchar(150) DEFAULT NULL,
   `place` varchar(45) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
-  `password` varchar(250) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  `password` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `units`
---
-
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(250) DEFAULT NULL,
-  `usertype` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `usertype` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `users`
---
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
