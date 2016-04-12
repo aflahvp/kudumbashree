@@ -62,7 +62,6 @@ class Member_Controller extends Check_Logged
 			$this->form_validation->set_rules('spousesname', 'spousesname', 'required');
 			$this->form_validation->set_rules('fathername', 'fathername', 'required');
 			$this->form_validation->set_rules('mothername', 'mothername', 'required');
-			// $this->form_validation->set_rules('ration', 'ration', 'required');
 			// $this->form_validation->set_rules('category', 'category', 'required');
 			$this->form_validation->set_rules('bloodgroup', 'bloodgroup', 'required');
 			$this->form_validation->set_rules('eligibility', 'eligibility', 'required');
@@ -93,6 +92,7 @@ class Member_Controller extends Check_Logged
 				$spousesname = $this->input->post('spousesname');
 				$fathername = $this->input->post('fathername');
 				$mothername = $this->input->post('mothername');
+				// $category = $this->input->post('category');
 				$rationcardtype = $this->input->post('rationcardtype');
 				$bloodgroup = $this->input->post('bloodgroup');
 				$eligibility = $this->input->post('eligibility');
@@ -119,6 +119,7 @@ class Member_Controller extends Check_Logged
 					'spousesname' => $spousesname, 
 					'fathername' => $fathername,
 					'mothername' => $mothername,
+					// 'category' => $category,
 					'rationcardtype' => $rationcardtype,
 					'bloodgroup' => $bloodgroup,
 					'eligibility' => $eligibility, 
@@ -518,16 +519,16 @@ class Member_Controller extends Check_Logged
 
     }
 
-	public function available_balance()
-	{
+	// public function available_balance()
+	// {
 		
-	}
+	// }
 
 
-	public function updateprofiles()
-	{
+	// public function updateprofiles()
+	// {
 		
-	}
+	// }
 
 }
 

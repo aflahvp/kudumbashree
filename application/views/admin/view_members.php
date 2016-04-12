@@ -6,7 +6,7 @@
   <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title>  E-KUDUMBASHREE</title>
+  <title>  Member </title>
   <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
   <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
   <style>
@@ -53,7 +53,7 @@
 						<td>fathername</td>
 						<td>mothername</td>
 						<td>rationcardtype</td>
-						<td>category</td>
+						<!-- <td>category</td> -->
 						<td>bloodgroup</td>
 						<td>eligibility</td>
 						<td>religion</td>
@@ -61,7 +61,7 @@
 						<td>district</td>
 						<td>taluk</td>
 						<td>panchayath</td>
-						<td>mibileno</td>
+						<td>mobileno</td>
 						<td>accountno</td>
 						<td>adharno</td>
 						<td>email</td>
@@ -81,7 +81,7 @@
 					<td><?php echo $value->fathername ?></td>
 					<td><?php echo $value->mothername ?></td>
 					<td><?php echo $value->rationcardtype ?></td>
-					<td><?php echo $value->category ?></td>
+				
 					<td><?php echo $value->bloodgroup?></td>
 					<td><?php echo $value->eligibility ?></td>
 					<td><?php echo $value->religion ?></td>

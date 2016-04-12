@@ -123,6 +123,7 @@
 				<label for="mothername">Mother name</label>
 				<input type="text" name="mothername" id="mothername" value="<?php echo set_value('mothername') ?>">
 			</div>
+			
 		</div>
 
 		<div class="right">
@@ -142,7 +143,7 @@
 			</div>
 
 			<div class="group">
-					<label for="email">E-mail id</label>	
+					<label for="email">E-mail </label>	
 			<input type="email" name="email" id="email" placeholder="test@mail.com" value="<?php echo set_value('email') ?>">
 			</div>
 
