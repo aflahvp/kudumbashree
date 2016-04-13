@@ -166,10 +166,15 @@ public function login()
 
 	public function add_member()
 	{
-		if ($this->logged === true and $_SESSION['type'] == 'unit') 
+		if ($this->logged === true and $_SESSION['type'] == 'unit')
+		{
+
 			$this->load->view('unit/add_member');
+		} 
 		else
+		{
 			redirect(base_url('unit-login'));
+		}
 	}
 
 	public function add_member_submit()
@@ -189,8 +194,8 @@ public function login()
 			$this->form_validation->set_rules('spousesname', 'spousesname', 'xss_clean');
 			$this->form_validation->set_rules('fathername', 'fathername', 'xss_clean');
 			$this->form_validation->set_rules('mothername', 'mothername', 'xss_clean');
-			// $this->form_validation->set_rules('ration', 'ration', 'xss_clean');
-			// $this->form_validation->set_rules('category', 'category', 'xss_clean');
+			$this->form_validation->set_rules('rationcardtype', 'rationcardtype', 'xss_clean');
+			$this->form_validation->set_rules('category', 'category', 'xss_clean');
 			$this->form_validation->set_rules('bloodgroup', 'bloodgroup', 'xss_clean');
 			$this->form_validation->set_rules('eligibility', 'eligibility', 'xss_clean');
 			$this->form_validation->set_rules('religion', 'religion', 'xss_clean');

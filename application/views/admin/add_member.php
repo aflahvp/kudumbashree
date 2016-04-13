@@ -14,6 +14,19 @@
           width: 10px;
           height: 10px;
       }
+
+
+     /*  #container
+      {
+        width:50%;
+      height:100%;
+      margin:5% 0% 0% 25%;
+      background:pink;
+      background-position:center;
+      border-radius:9px;
+  	  } */
+      /* box-shadow:rgb(73, 73, 73) 0px 10px 20px;
+     /*  box-shadow:0px 20px 20px black; */ 
   </style>
 </head>
 <body>
@@ -40,6 +53,7 @@
 
 	<form name="registration" method="POST" action="<?php echo base_url('Member_Controller/add_member'); ?>" onsubmit="return fun(this);">
 	<?php echo validation_errors(); ?>
+	<!-- <div id = "container"> -->
 		<div class="left">
 			<div class="group">
 				<label for="username"> USER NAME</label>
@@ -122,6 +136,15 @@
 			<div class="group">
 				<label for="mothername">Mother name</label>
 				<input type="text" name="mothername" id="mothername" value="<?php echo set_value('mothername') ?>">
+			</div>
+			<div class="group">
+				<label for="rationcardtype">rationcardtype</label>
+				<input type="text" name="rationcardtype" id="rationcardtype" value="<?php echo set_value('rationcardtype') ?>">
+			</div>
+
+			<div class="group">
+				<label for="category">Category</label>
+				<input type="text" name="category" id="category" value="<?php echo set_value('category') ?>">
 			</div>
 			
 		</div>
@@ -242,7 +265,7 @@
 				<button class="button">Cancel</button>
 			</div>
 		</div>
-
+	<!-- </div> -->
 	</form>
 	</div>
 </body>

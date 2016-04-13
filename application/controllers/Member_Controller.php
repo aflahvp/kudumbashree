@@ -62,7 +62,8 @@ class Member_Controller extends Check_Logged
 			$this->form_validation->set_rules('spousesname', 'spousesname', 'required');
 			$this->form_validation->set_rules('fathername', 'fathername', 'required');
 			$this->form_validation->set_rules('mothername', 'mothername', 'required');
-			// $this->form_validation->set_rules('category', 'category', 'required');
+			$this->form_validation->set_rules('rationcardtype', 'rationcardtype', 'required');
+			$this->form_validation->set_rules('category', 'category', 'required');
 			$this->form_validation->set_rules('bloodgroup', 'bloodgroup', 'required');
 			$this->form_validation->set_rules('eligibility', 'eligibility', 'required');
 			$this->form_validation->set_rules('religion', 'religion', 'required');
@@ -92,8 +93,8 @@ class Member_Controller extends Check_Logged
 				$spousesname = $this->input->post('spousesname');
 				$fathername = $this->input->post('fathername');
 				$mothername = $this->input->post('mothername');
-				// $category = $this->input->post('category');
 				$rationcardtype = $this->input->post('rationcardtype');
+				$category = $this->input->post('category');
 				$bloodgroup = $this->input->post('bloodgroup');
 				$eligibility = $this->input->post('eligibility');
 				$religion = $this->input->post('religion');
@@ -119,7 +120,7 @@ class Member_Controller extends Check_Logged
 					'spousesname' => $spousesname, 
 					'fathername' => $fathername,
 					'mothername' => $mothername,
-					// 'category' => $category,
+					'category' => $category,
 					'rationcardtype' => $rationcardtype,
 					'bloodgroup' => $bloodgroup,
 					'eligibility' => $eligibility, 
@@ -233,7 +234,9 @@ class Member_Controller extends Check_Logged
 				$password = md5($password);
 
 				/*call the method from User Model*/
-				$query =$this->Member_Model->login($username, $password);
+				$where = ['username' => $username, 'password' => $password];
+			$query = $this->Member_Model->get_where($where);
+				// $query =$this->Member_Model->login($username, $password);
 				if($query != FALSE)
 				{
 					$id = $query[0]->id;

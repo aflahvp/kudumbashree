@@ -52,8 +52,8 @@
 						<td>sposesname</td>
 						<td>fathername</td>
 						<td>mothername</td>
+						<td>category</td>
 						<td>rationcardtype</td>
-						<!-- <td>category</td> -->
 						<td>bloodgroup</td>
 						<td>eligibility</td>
 						<td>religion</td>
@@ -80,6 +80,7 @@
 					<td><?php echo $value->spousesname ?></td>
 					<td><?php echo $value->fathername ?></td>
 					<td><?php echo $value->mothername ?></td>
+					<td><?php echo $value->category?></td>
 					<td><?php echo $value->rationcardtype ?></td>
 				
 					<td><?php echo $value->bloodgroup?></td>
