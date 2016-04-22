@@ -19,9 +19,15 @@ class Admin_Controller extends Check_Logged
 	    $this->load->model('Member_Model');
 	    $this->load->model('Product_Model');
 	}
-	
 
-	public function dashboard($page = 'dashboard')
+
+    public function dashboard_old($page = 'dashboard-old')
+    {
+        $this->load->view('admin/'.$page);
+    }
+
+
+    public function dashboard($page = 'dashboard')
 	{
 		$this->load->view('admin/'.$page);
 	}	
@@ -45,6 +51,19 @@ class Admin_Controller extends Check_Logged
 	{
 		$this->load->view('admin/units');
 	}
+
+    public function view_all_units()
+    {
+        $result = $this->Units_Model->view_all();
+        if($result != FALSE)
+        {
+            $data['result'] = $result;
+        } else {
+            $data['message'] = 'No data Found
+                                '.anchor(base_url('dashboard/units/add'),'Add a unit',['class' => 'btn btn-danger' ]);
+        }
+        $this->load->view('admin/view_units',$data);
+    }
     
    
 	     /* MEMBERS*/
@@ -55,7 +74,22 @@ class Admin_Controller extends Check_Logged
 	}
 
         /* EVENTS */
-	public function add_event()
+    public function view_events()
+    {
+        $data['result'] = $this->Event_Model->view_all();
+        if ($data['result'] != FALSE) {
+            $this->load->view('admin/view_events',$data);
+        }
+        else
+        {
+            $data['message'] = 'No record found';
+            $this->load->view('admin/view_events',$data);
+
+        }
+    }
+
+
+    public function add_event()
 	{
 		$this->load->view('admin/add_event');
 		
@@ -91,7 +125,7 @@ class Admin_Controller extends Check_Logged
 	}
 
 
-    public function view_all()
+    public function view_gallery()
     {
         $data['message'] = 'unable to process at this time try again later';
         $this->load->view('admin/view_gallery',$data);
@@ -99,4 +133,3 @@ class Admin_Controller extends Check_Logged
 }	
 	 
 
-  ?>

@@ -94,7 +94,7 @@ $route['(:any)/unit-deposit/add/submit'] = 'Unit_Controller/add_deposit_submit';
 
 /*units*/
 $route['dashboard/units/add'] = 'Admin_Controller/add_unit';
-$route['dashboard/units'] = 'Unit_Controller/view_all';
+$route['dashboard/units'] = 'Admin_Controller/view_all_units';
 $route['dashboard/units/add/submit'] = 'Unit_Controller/add_unit';
 $route['dashboard/units/delete/(:num)'] = 'Unit_Controller/delete/$1';
 
@@ -134,13 +134,13 @@ $route['dashboard/members/add/submit'] = 'Member_Controller/add_member';
 $route['dashboard/members'] = 'Member_Controller/view_all';
 
 /*gallery*/
-$route['dashboard/gallery'] = 'Admin_Controller/view_all';
+$route['dashboard/gallery'] = 'Admin_Controller/view_gallery';
 
 
 /*events*/
 $route['dashboard/events/add'] = 'Admin_Controller/add_event';
 //$route['dashboard/events/delete'] = 'Event_Controller/delete';
-$route['dashboard/events'] = 'Event_Controller/index';
+$route['dashboard/events'] = 'Admin_Controller/view_events';
 $route['dashboard/events/add/submit'] = 'Event_Controller/add';
 $route['dashboard/events/delete/(:num)'] = 'Event_Controller/delete/$1';
 

@@ -95,7 +95,7 @@ $html .='            </ul>
 function dashboard_menu($current)
 {
     $menu = [
-        'Dashboard' => [
+        'dashboard' => [
             'title' => 'dashboard',
             'icon' => 'fa-tachometer',
             'link' => ''
@@ -145,27 +145,15 @@ function dashboard_menu($current)
     ];
 
     $html = '';
-    $html .='<nav class="sidebar-left">
-        <div class="">
-          <ul class="menu-left">
-            <li>
-              <div class="user-img">
-                <img class="img-responsive img-circle center-block" src="'.base_url().'" alt="User">
-              </div>
-              <div class="user-id text-center">
-                <span class="">Kudumbsree</span>
-              </div>
-            </li>';
+    $html .='<ul class="nav nav-sidebar">';
     foreach ($menu as $key => $value) {
         if ($current == $value['link']) {
-            $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li class="active"><a href="'.base_url('dashboard/'.$value['link']).'">'.ucfirst($key).'</a></li>';
         } else {
-            $html .='<li><a href="'.base_url('dashboard/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li class=""><a href="'.base_url('dashboard/'.$value['link']).'">'.ucfirst($key).'</a></li>';
         }
     }
-    $html .= '</ul>
-        </div>
-      </nav>';
+    $html .= '</ul>';
     return $html;
 
 }
@@ -174,7 +162,7 @@ function dashboard_menu($current)
 function unit_menu($current)
 {
     $menu = [
-        'Home' => [
+        'home' => [
             'title' => 'home',
             'icon' => 'fa-tachometer',
             'link' => 'unit-home'
@@ -213,28 +201,28 @@ function unit_menu($current)
     ];
 
     $html = '';
-    $html .='<nav class="sidebar-left">
-        <div class="">
-          <ul class="menu-left">
-            <li>
-              <div class="user-img">
-                <img class="img-responsive img-circle center-block" src="'.base_url().'" alt="User">
-              </div>
-              <div class="user-id text-center">
-                <span class="">Kudumbsree-'.$_SESSION['username'].'</span>
-              </div>
-            </li>';
+    $html .='<ul class="nav nav-sidebar">';
     foreach ($menu as $key => $value) {
-        if ($current == $value['title']) {
-            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+        if ($current == $value['link']) {
+            $html .='<li class="active"><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'">'.ucfirst($key).'</a></li>';
         } else {
-            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li class=""><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'">'.ucfirst($key).'</a></li>';
         }
     }
-    $html .= '</ul>
-        </div>
-      </nav>';
+    $html .= '</ul>';
     return $html;
+//
+//    foreach ($menu as $key => $value) {
+//        if ($current == $value['title']) {
+//            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+//        } else {
+//            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+//        }
+//    }
+//    $html .= '</ul>
+//        </div>
+//      </nav>';
+//    return $html;
 
 }
 
@@ -272,28 +260,27 @@ function member_menu($current)
     ];
 
     $html = '';
-    $html .='<nav class="sidebar-left">
-        <div class="">
-          <ul class="menu-left">
-            <li>
-              <div class="user-img">
-                <img class="img-responsive img-circle center-block" src="'.base_url().'" alt="User">
-              </div>
-              <div class="user-id text-center">
-                <span class="">Kudumbsree</span>
-              </div>
-            </li>';
+    $html .='<ul class="nav nav-sidebar">';
     foreach ($menu as $key => $value) {
         if ($current == $value['link']) {
-            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li class="active"><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'">'.ucfirst($key).'</a></li>';
         } else {
-            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+            $html .='<li class=""><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'">'.ucfirst($key).'</a></li>';
         }
     }
-    $html .= '</ul>
-        </div>
-      </nav>';
+    $html .= '</ul>';
     return $html;
+//    foreach ($menu as $key => $value) {
+//        if ($current == $value['link']) {
+//            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="active">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+//        } else {
+//            $html .='<li><a href="'.base_url($_SESSION['username'].'/'.$value['link']).'" class="">'.ucfirst($key).' &nbsp;<i class="menu-icon fa '.$value['icon'].' pull-right"></i></a></li>';
+//        }
+//    }
+//    $html .= '</ul>
+//        </div>
+//      </nav>';
+//    return $html;
 
 }
 

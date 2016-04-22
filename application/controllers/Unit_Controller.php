@@ -122,9 +122,9 @@ public function login()
 					$this->table->add_row(array($value->id, $value->name, $value->address, $value->place));
 				}
 				$template = array(
-			        'table_open'            => '<table class="table">',
+			        'table_open'            => '<table class="table table-striped">',
 
-			        'thead_open'            => '<thead class="header">',
+			        'thead_open'            => '<thead >',
 			        'thead_close'           => '</thead>',
 
 			        'heading_row_start'     => '<tr>',
@@ -332,9 +332,9 @@ public function login()
 					$this->table->add_row(array($value->id, $value->name, $value->description, anchor(base_url(uri_string().'/delete/'.$value->id),'delete', ['class' => 'button normal-button'])));
 				}
 				$template = array(
-			        'table_open'            => '<table class="table">',
+			        'table_open'            => '<table class="table table-striped">',
 
-			        'thead_open'            => '<thead class="header">',
+			        'thead_open'            => '<thead class="">',
 			        'thead_close'           => '</thead>',
 
 			        'heading_row_start'     => '<tr>',
@@ -474,7 +474,7 @@ public function login()
 					$this->table->add_row(array($value->loan_id, $value->name ,$value->bankname, $value->loantype, $value->mobile, $value->status ));
 				}
 				$template = array(
-			        'table_open'            => '<table class="table">',
+			        'table_open'            => '<table class="table table-striped">',
 
 			        'thead_open'            => '<thead class="header">',
 			        'thead_close'           => '</thead>',
@@ -506,7 +506,7 @@ public function login()
 			}
 			else
 				// $data['data'] = 'no data found'.anchor(base_url($_SESSION['username'].'/unit-members/add'),'add',['class' => 'button normal-button']);
-				$data['data'] = 'no data found'.anchor(base_url(uri_string().'/add'),'add',['class' => 'button normal-button']);
+				$data['data'] = 'no data found';
 
 				$this->load->view('unit/view_loan',$data);
 			}
@@ -534,9 +534,9 @@ public function login()
 					$this->table->add_row(array($value->id, $value->name, $value->description, anchor(base_url(uri_string().'/delete/'.$value->id),'delete', ['class' => 'button normal-button'])));
 				}
 				$template = array(
-			        'table_open'            => '<table class="table">',
+			        'table_open'            => '<table class="table table-striped">',
 
-			        'thead_open'            => '<thead class="header">',
+			        'thead_open'            => '<thead>',
 			        'thead_close'           => '</thead>',
 
 			        'heading_row_start'     => '<tr>',
@@ -682,7 +682,6 @@ public function login()
             $unit_id = $_SESSION['id'];
             $where =['deposits.units_id' => $unit_id];
             $data = $this->Deposit_Model->view_join_where($where);
-//            var_dump($data);
             if ($data != false) {
                 $this->table->set_heading(array('member_id', 'name', 'amount', 'pay date', 'balance', anchor(base_url(uri_string().'/add'),'add',['class' => 'button button-normal' ])));
                 foreach ($data as $key => $value)
@@ -690,7 +689,7 @@ public function login()
                     $this->table->add_row(array($value->member_id, $value->name, $value->amount, $value->payeddate, $value->balance));
                 }
                 $template = array(
-                    'table_open'            => '<table class="table">',
+                    'table_open'            => '<table class="table table-striped">',
 
                     'thead_open'            => '<thead class="header">',
                     'thead_close'           => '</thead>',
@@ -719,7 +718,7 @@ public function login()
                 $this->table->set_template($template);
                 $data['deposit']= $this->table->generate();
             } else {
-                $data['message'] = 'no data found';
+                $data['message'] = 'no data found'.anchor(base_url(uri_string().'/add'),'Add Deposits');
             }
 
             $this->load->view('unit/view_deposit',$data);
@@ -767,14 +766,14 @@ public function login()
     }
 
 
-	public function view_all()
+	/*public function view_all()
 	{
 		$data['result'] = $this->Units_Model->view_all();
 		if($data['result'] != FALSE)
 		{
 			$this->load->view('admin/view_units',$data);
 		}
-	}
+	}*/
 
 
 

@@ -21,7 +21,7 @@
     <div class="left-wrapper">
       <?php echo member_menu('deposit');?>
     </div>
-  
+
     <nav class="top-wrapper">
       <div class="sidebar-top">
         <button class="humburger pull-left">

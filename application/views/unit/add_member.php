@@ -1,174 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="keywords" content="web design, web development, web site development, web site design, web design development, e-commerce, ecommerce, interactive, new media, development, Manjeri, hove, Manjeri web design, Manjeri ecommerce, Manjeri e-commerce, Manjeri web development, malappuram, content management, cms, web site, web sites, psybo, psybo technologies, psybotechnologies">
-  <meta name="description" content="Psybo technologies is a small web design &amp; development agency based in Manjeri, Malappuram, INDIA. We've made a reputation for building websites that look great and are easy-to-use.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="<?php echo base_url('img/ico.png');?>" type="image/png" sizes="47x54">
-  <title><?php $_SESSION['username']?></title>
-  <link rel="stylesheet" href="<?php echo base_url('css/styleapp.css');?>">
-  <script type="text/javascript" src="<?php echo base_url('js/appjs.js');?>"></script>
-  <style>
-      #img{
-          width: 10px;
-          height: 10px;
-      }
-  </style>
-  <script language="javascript" type="text/javascript">
-        function check(input){
-            if (input.value != document.getElementById('password').value) {
-                input.setCustomValidity('Password Must be matching');
-            }else {
-                /*input is valid --rest the error message*/
-                input.setCustomValidity('');
-            }
-        }
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Dashboard E-Kudumbasree</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="<?php echo base_url('admin/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('admin/css/styles.css') ?>" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?php echo base_url('admin/css/jquery.timepicker.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('admin/css/jquery.timepicker.min.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('admin/css/jquery-ui.min.css');?>">
+
+    <script src="<?php echo base_url('admin/js/date_picker.js')?>"></script>
+    <script src="<?php echo base_url('admin/js/jquery2.min.js')?>"></script>
+    <script src="<?php echo base_url('admin/js/jquery-ui2.min.js')?>"></script>
+
+    <script src="<?php echo base_url('admin/js/jquery.timepicker.js')?>"></script>
+    <script src="<?php echo base_url('admin/js/jquery.timepicker.min.js')?>"></script>
+
+
+    <script type="text/javascript">
+        $(function() {
+            // $( "#startdate" ).datepicker();
+            $('#dob').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+        });
+
+
+        $(document).ready(function(){
+            $('#time').timepicker();
+            $('#time').on('click', function(){
+                $('#spanExample').timepicker('show');
+            });
+        });
+
     </script>
+
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="left-wrapper">
-      <?php echo unit_menu('members');?>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">E-Kudumbasree - <?php echo $_SESSION['username'] ?></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo base_url('dashboard') ?>">Dashboard</a></li>
+                <li><a href="<?php echo base_url('unit/logout') ?>">logout</a></li>
+            </ul>
+        </div>
     </div>
-  
-    <nav class="top-wrapper">
-      <div class="sidebar-top">
-        <button class="humburger pull-left">
-          <i class="fa fa-bars fa-2x center-block"></i>
-        </button>
-        <ul class="menu-top pull-right">
-          <li><a href="#"><i class="fa fa-envelope-o fa-lg"></i></a></li>
-          <li><a href="#"><i class="fa fa-bell-o fa-lg"></i></a></li>
-          <li><a href="#"><i class="fa fa-cog fa-lg"></i></a></li>
-          <li>
-            <a href="<?php echo base_url('unit/logout');?>">logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+</nav>
 
-	<form name="registration" method="POST" action="<?php echo base_url($_SESSION['username'].'/unit-members/add/submit'); ?>">
-	<?php echo validation_errors(); ?>
-		<div class="left">
-			<div class="group">
-				<label for="username"> USER NAME</label>
-				<input type="text" name="username" id="username" placeholder="User Name" value="<?php echo set_value('username') ?>" required="">
+<div class="container-fluid">
+
+    <div class="row row-offcanvas row-offcanvas-left">
+
+        <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+            <!--            <ul class="nav nav-sidebar">-->
+            <!--              <li class="active"><a href="#">Overview</a></li>-->
+            <!--              <li><a href="" >Themes</a></li>-->
+            <!--            </ul>-->
+            <?php echo unit_menu('unit-members')?>
+        </div><!--/span-->
+
+        <div class="col-sm-9 col-md-10 main">
+
+
+            <h1 class="page-header">
+                Dashboard
+            </h1>
+
+
+            <script language="javascript" type="text/javascript">
+                function check(input){
+                    if (input.value != document.getElementById('password').value) {
+                        input.setCustomValidity('Password Must be matching');
+                    }else {
+                        /*input is valid --rest the error message*/
+                        input.setCustomValidity('');
+                    }
+                }
+            </script>
+
+
+
+            <h2 class="sub-header">Add member</h2>
+	        <form name="registration" method="POST" action="<?php echo base_url($_SESSION['username'].'/unit-members/add/submit'); ?>">
+
+			<div class="form-group col-md-6">
+				<label for="username"> User name</label>
+				<input type="text" class="form-control" name="username" id="username" placeholder="User Name" value="<?php echo set_value('username') ?>" required="">
 			</div>
 
 
-			<div class="group">
-				<label for="password">PASSWORD</label>
-				<input type="password" name="password" id="password" placeholder=" Password" required value="<?php echo set_value('password') ?>" >
+			<div class="form-group col-md-6">
+				<label for="password">Password</label>
+				<input class="form-control" type="password" name="password" id="password" placeholder=" Password" required value="<?php echo set_value('password') ?>" >
 			</div>
 
-			<div class="group">
-				<label for="confirmpassword">CONFIRM PASSWORD</label>	
-				<input type="password" name="confirmpassword" id="confirmpassword" placeholder=" Confirm Password" value="<?php echo set_value('confirmpassword') ?>" oninput="check(this)">
+			<div class="form-group col-md-6">
+				<label for="confirmpassword">Confirm Password</label>
+				<input class="form-control" type="password" name="confirmpassword" id="confirmpassword" placeholder=" Confirm Password" value="<?php echo set_value('confirmpassword') ?>" oninput="check(this)">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="name">Name</label>	
-				<input type="text" name="name" id="name" value="<?php echo set_value('name') ?>" required="">
+				<input type="text" class="form-control" name="name" id="name" value="<?php echo set_value('name') ?>" required="">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="age">Age</label>	
-				<input type="text" name="age" id="age" value="<?php echo set_value('age') ?>">
+				<input type="text" class="form-control" name="age" id="age" value="<?php echo set_value('age') ?>">
 			</div>
 
-			<div class="group">
-			<span>DOB</span>
-			<div class="width-60 pull-right">
-				<div class="width-33 pull-left">
-				<select name="day" >
-					<?php for($i=1; $i<=31; $i++) { ?>
-						<option value="<?php echo $i ?>"><?php echo $i ?></option>
-					<?php } ?>		
-				</select>
-				</div>
-				
-				<div class="width-33 pull-left">
-				<select name="month" >
-				<?php for ($i=1; $i <=12 ; $i++) {?> 
-					<option value="<?php echo $i ?>"><?php echo $i ?></option>
-					
-				<?php } ?>
-				</select>
-				</div>
-
-				<div class="width-33 pull-left">
-				<select name="year" id="year">
-				<?php for ($i=1900; $i<=2016 ; $i++) {?> 
-					<option value="<?php echo $i ?>"><?php echo $i ?></option>
-
-				<?php } ?>
-				</select>
-				</div>
-			</div>
-			<?php echo form_error('') ?>
+			<div class="form-group col-md-6">
+                <label for="dob">D O B</label>
+                <input type="text" class="form-control" name="dob" id="dob" >
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="address">Address</label>	
-				<textarea name="address" id="address" cols="10" rows="3" required=""><?php echo set_value('address') ?></textarea>
+				<textarea class="form-control" name="address" id="address" cols="10" rows="3" required=""><?php echo set_value('address') ?></textarea>
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="place">Place</label>	
-				<input type="text" name="place" id="place" value="<?php echo set_value('place') ?>" required="">
+				<input type="text" class="form-control" name="place" id="place" value="<?php echo set_value('place') ?>" required="">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="spousesname">Spouses name</label>	
-					<input type="text" name="spousesname" id="spousesname" value="<?php echo set_value('spousesname') ?>">
+					<input type="text" class="form-control" name="spousesname" id="spousesname" value="<?php echo set_value('spousesname') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="fathername">Father name</label>	
-				<input type="text" name="fathername" id="fathername" value="<?php echo set_value('fathername') ?>">
+				<input type="text" class="form-control" name="fathername" id="fathername" value="<?php echo set_value('fathername') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="mothername">Mother name</label>
-				<input type="text" name="mothername" id="mothername" value="<?php echo set_value('mothername') ?>">
+				<input type="text" class="form-control" name="mothername" id="mothername" value="<?php echo set_value('mothername') ?>">
 			</div>
-		</div>
 
-		<div class="right">
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="mobileno">Mobile number</label>	
-				<input type="text" name="mobileno" id="mobileno" required="" value="<?php echo set_value('mobileno') ?>">
+				<input type="text" class="form-control" name="mobileno" id="mobileno" required="" value="<?php echo set_value('mobileno') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="accountno">Account number</label>	
-				<input type="text" name="accountno" id="accountno" value="<?php echo set_value('accountno') ?>">
+				<input type="text" class="form-control" name="accountno" id="accountno" value="<?php echo set_value('accountno') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="adharno">Adhar number</label>	
-			<input type="text" name="adharno" id="adharno" value="<?php echo set_value('adharno') ?>">
+			<input type="text" class="form-control" name="adharno" id="adharno" value="<?php echo set_value('adharno') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 					<label for="email">E-mail id</label>	
-			<input type="email" name="email" id="email" placeholder="test@mail.com" value="<?php echo set_value('email') ?>">
+			<input class="form-control" type="email" name="email" id="email" placeholder="test@mail.com" value="<?php echo set_value('email') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="taluk">Taluk</label>	
-				<input type="text" name="taluk" id="taluk" value="<?php echo set_value('taluk') ?>">
+				<input type="text" class="form-control" name="taluk" id="taluk" value="<?php echo set_value('taluk') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="panchayath">Panchayath</label>	
-				<input type="text" name="panchayath" id="panchayath" value="<?php echo set_value('panchayath') ?>">
+				<input type="text" class="form-control" name="panchayath" id="panchayath" value="<?php echo set_value('panchayath') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 			<label for="district">District</label>	
-			<select class="width-60" name="district" id="district">
+			<select class="form-control" name="district" id="district">
 		  		<option value="" selected="" disabled="">select</option>
 		  		<option value="alappuza"  <?php echo  set_select('district', 'alappuza' ); ?>>----Alappuza----</option>
 		  		<option value="eranakulam"  <?php echo  set_select('district', 'eranakulam' ); ?>>----Eranakulam----</option>
@@ -188,14 +203,14 @@
 			</div>
 
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="cast">Cast</label>
-				<input type="text" name="cast" id="cast" value="<?php echo set_value('cast') ?>">
+				<input type="text" class="form-control" name="cast" id="cast" value="<?php echo set_value('cast') ?>">
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="religion">Religion</label>
-				<select class="width-60" name="religion" id="religion">
+				<select class="form-control" name="religion" id="religion">
 					<option value="" selected="" disabled="">select</option>
 			  		<option value="hindu" <?php echo  set_select('religion', 'hindu'); ?>>HINDU</option>
 			  		<option value="muslim"  <?php echo  set_select('religion', 'muslim'); ?>>MUSLIM</option>
@@ -204,21 +219,21 @@
 			  	</select>
 			</div>
 
-			<div class="group">
-			  	<span class="width-50">Ration card type</span>
+			<div class="form-group col-md-6">
+                <label for="">Ration card type</label>
 			  	<div class="radio">
 				  	<label for="apl">APL</label>
-					<input type="radio"  name="ration" id="apl" value="<?php echo set_radio('ration', 'apl' ); ?> " >
+					<input class="radio " type="radio"  name="ration" id="apl" value="<?php echo set_radio('ration', 'apl' ); ?> " >
 				</div>	
 				<div class="radio">
 					<label for="apl">BPL</label>
-					<input type="radio"  name="ration" id="bpl" value="<?php echo set_radio('ration', 'bpl') ?> " >
+					<input type="radio" class="radio" name="ration" id="bpl" value="<?php echo set_radio('ration', 'bpl') ?> " >
 			  	</div>
 			</div>
 			
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="eligibility">Eligibility</label>	
-				<select class="width-60" name="eligibility" id="eligibility">
+				<select class="form-control" name="eligibility" id="eligibility">
 			  		<option value="" selected="" disabled="">select</option>
 			  		<option value="sslc" <?php echo  set_select('eligibility', 'sslc' ); ?>>SSLC</option>
 			  		<option value="highersecondary" <?php echo  set_select('eligibility', 'highersecondary'); ?>>Higher secondary</option>
@@ -228,9 +243,9 @@
 			  	</select>
 			</div>
 
-			<div class="group">
+			<div class="form-group col-md-6">
 				<label for="bloodgroup">Blood group</label>
-				<select class="width-60" name="bloodgroup" id="bloodgroup">
+				<select class="form-control" name="bloodgroup" id="bloodgroup">
 			  		<option value="" selected="" disabled="">select</option>
 			  		<option value="o+" <?php echo  set_select('bloodgroup', 'o+' ); ?>>O+</option>
 			  		<option value="o-" <?php echo  set_select('bloodgroup', 'o-' ); ?>>O-</option>
@@ -242,14 +257,10 @@
 			  		<option value="ab-" <?php echo  set_select('bloodgroup', 'ab-' ); ?>>AB-</option>
 			  	</select>
 			</div>
-		</div> <!-- right div -->
 
-		<div class="group">
-			<div class="btn-grp">
-				<button class="button">Submit</button>
-				<input class="button" type="reset" value="Reset">
-				<button class="button">Cancel</button>
-			</div>
+		<div class="form-group col-md-6">
+				<button class="btn btn-default">Submit</button>
+				<input class="btn btn-danger" type="reset" value="Reset">
 		</div>
 
 	</form>
@@ -257,5 +268,19 @@
 	<?php if (isset($error)): ?>
 		<?php echo $error ?>
 	<?php endif ?>
+
+
+    </div><!--/row-->
+</div>
+</div><!--/.container-->
+
+<footer>
+    <p class="pull-right"></p>
+</footer>
+
+<!-- script references -->
+<!--<script src="--><?php //echo base_url('admin/js/jquery.min.js') ?><!--"></script>-->
+<script src="<?php echo base_url('admin/js/bootstrap.min.js') ?>"></script>
+<script src="<?php echo base_url('admin/js/scripts.js') ?>"></script>
 </body>
 </html>
