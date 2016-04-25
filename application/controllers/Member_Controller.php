@@ -312,10 +312,10 @@ class Member_Controller extends Check_Logged
 					$this->table->add_row(array($value->bankname, $value->accountno, $value->loantype, $value->mobile, $value->email, $value->loanamount, $value->status ));
 				}
 			$template = array(
-	        'table_open'            => '<table class="table">',
+	        'table_open'            => '<table class="table table-striped">',
 
 
-	        'thead_open'            => '<thead class="header">',
+	        'thead_open'            => '<thead>',
 	        'thead_close'           => '</thead>',
 
 	        'heading_row_start'     => '<tr>',
@@ -362,19 +362,14 @@ class Member_Controller extends Check_Logged
 	{
 		if($this->logged === true and $_SESSION['type'] == 'member'){
 
-			$this->form_validation->set_rules('bname', 'bankname', 'required');
-			$this->form_validation->set_rules('accountno', 'accountno', 'required');
-			$this->form_validation->set_rules('loantype', 'loantype', 'required');
-			$this->form_validation->set_rules('mobno', 'mobno', 'required');
-			$this->form_validation->set_rules('email', 'email', '');
-			$this->form_validation->set_rules('loanamt', 'loanamt', 'required');
 
-			if ($this->form_validation->run() === FALSE) 
-			{
-				$this->load->view('member/loan_request');
-			}
-			else
-			{
+/*			$this->form_validation->set_rules('bname', 'bankname');
+			$this->form_validation->set_rules('accountno', 'accountno');
+			$this->form_validation->set_rules('loantype', 'loantype');
+			$this->form_validation->set_rules('mobno', 'mobno');
+			$this->form_validation->set_rules('email', 'email');
+			$this->form_validation->set_rules('loanamt', 'loanamt');*/
+
 				$bankname = $this->input->post('bname');
 				$accountno = $this->input->post('accountno');
 				$loantype = $this->input->post('loantype');
@@ -418,58 +413,9 @@ class Member_Controller extends Check_Logged
 		        	$this->load->view('member/loan_request', $data);
 		        	
 		        }
-		    }
 		}
 		else
-
-		{
-			$bankname = $this->input->post('bname');
-			$accountno = $this->input->post('accountno');
-			$loantype = $this->input->post('loantype');
-			$mobno = $this->input->post('mobno');
-			$email= $this->input->post('email');
-			$loanamt= $this->input->post('loanamt');
-			$member_id = $this->input->post('member_id');
-
-			$data = [
-				//'id' => $id,
-				'bankname' => $bankname,
-				'accountno' => $accountno,
-				'loantype' => $loantype,
-				'mobile' => $mobno, 
-				'email' => $email,
-				'loanamount' => $loanamt,
-				'members_id' => $member_id,
-				'status' => 'request'
-				];
-
-			// $query=$this->Loan_Model->add($data);
-
-			$query = $this->Loan_Model->add($data);
-			if($query != false)
-	        {
-	        	$data['error'] = '<script type="text/javascript">
-	        		alert("sucess.");
-	        		window.location = "'.base_url($_SESSION['username'].'/loan').'";
-	        	</script>';
-	        	$this->load->view('member/loan_request', $data);
-
-
-	        	// redirect(base_url($_SESSION['username'].'/loan')); //Loan_Controller/view
-	        }
-	        else
-	        {
-	        	$data['error'] = '<script type="text/javascript">
-	        		alert("Server down! try again later");
-	        		window.location = "'.base_url($_SESSION['username'].'/loan').'";
-	        	</script>';
-	        	$this->load->view('member/loan_request', $data);
-	        	
-	        }
-	    }
-
 			redirect(base_url('member/login'));
-
 	}
 
     public function view_deposit()
@@ -486,10 +432,10 @@ class Member_Controller extends Check_Logged
                 $this->table->add_row(array($value->name, $value->amount, $value->payeddate));
             }
             $template = array(
-                'table_open'            => '<table class="table">',
+                'table_open'            => '<table class="table table-striped">',
 
 
-                'thead_open'            => '<thead class="header">',
+                'thead_open'            => '<thead>',
                 'thead_close'           => '</thead>',
 
                 'heading_row_start'     => '<tr>',

@@ -180,15 +180,15 @@
                     </tr>
                     </tbody>
                 </table>
-            </div>
+        </div>
 
 
-        </div><!--/row-->
-    </div>
+    </div><!--/row-->
+</div>
 </div><!--/.container-->
 
 <footer>
-    <p class="pull-right"></p>
+<p class="pull-right"></p>
 </footer>
 
 <!-- script references -->

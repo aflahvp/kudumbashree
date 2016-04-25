@@ -246,17 +246,17 @@ function member_menu($current)
             'icon' => 'fa-trophy',
             'link' => 'deposit'
         ],
-        'Profile' => [
-            'title' => 'profile',
-            'icon' => 'fa-picture-o',
-            'link' => 'profile'
-        ],
-        
-        'Feedback' => [
-            'title' => 'Feedback',
-            'icon' => 'fa-trophy',
-            'link' => 'Feedback'
-        ]
+//        'Profile' => [
+//            'title' => 'profile',
+//            'icon' => 'fa-picture-o',
+//            'link' => 'profile'
+//        ],
+//
+//        'Feedback' => [
+//            'title' => 'Feedback',
+//            'icon' => 'fa-trophy',
+//            'link' => 'Feedback'
+//        ]
     ];
 
     $html = '';
